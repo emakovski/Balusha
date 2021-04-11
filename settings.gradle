@@ -1,0 +1,2 @@
+include ':Balusha-app'
+rootProject.name = "Balusha"
