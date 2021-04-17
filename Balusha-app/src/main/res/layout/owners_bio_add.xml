@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background">
@@ -31,7 +30,8 @@
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
                 android:background="@color/light_green"
-                android:layout_marginTop="20dp" />
+                android:layout_marginTop="20dp"
+                android:contentDescription="@string/photo_of_owner" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="15dp"
-                    android:text="Your name:"
+                    android:text="@string/owners_name_mask"
                     android:textColor="@color/orange"
                     android:textSize="24sp"
                     android:textStyle="bold"
@@ -53,17 +53,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:hint="your name"
+                    android:hint="@string/hint_name"
                     android:textColor="@color/orange"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     android:layout_gravity="bottom"
-                    android:inputType="textPersonName"/>
+                    android:inputType="textPersonName"
+                    android:autofillHints="" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="Your surname:"
+                    android:text="@string/owners_surname_mask"
                     android:textColor="@color/orange"
                     android:textSize="24sp"
                     android:textStyle="bold"
@@ -73,12 +74,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:hint="your surname"
+                    android:hint="@string/hint_surname"
                     android:textColor="@color/orange"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     android:layout_gravity="bottom"
-                    android:inputType="textPersonName"/>
+                    android:inputType="textPersonName"
+                    android:autofillHints="" />
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -89,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Country:"
+                android:text="@string/country_mask"
                 android:textColor="@color/text_green"
                 android:textSize="24sp" />
             <EditText
@@ -98,10 +100,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:hint="country"
+                android:hint="@string/hint_country"
                 android:textColor="@color/medium_green"
                 android:textSize="24sp"
-                android:inputType="text"/>
+                android:inputType="text"
+                android:autofillHints="" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -111,7 +114,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="City:"
+                android:text="@string/city_mask"
                 android:textColor="@color/text_green"
                 android:textSize="24sp" />
             <EditText
@@ -120,10 +123,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
-                android:hint="city"
+                android:hint="@string/hint_city"
                 android:textColor="@color/medium_green"
                 android:textSize="24sp"
-                android:inputType="text"/>
+                android:inputType="text"
+                android:autofillHints="" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -133,7 +137,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Street:"
+                android:text="@string/street_mask"
                 android:textColor="@color/text_green"
                 android:textSize="24sp" />
             <EditText
@@ -142,10 +146,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
-                android:hint="street"
+                android:hint="@string/hint_street"
                 android:textColor="@color/medium_green"
                 android:textSize="24sp"
-                android:inputType="text"/>
+                android:inputType="text"
+                android:autofillHints="" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -155,7 +160,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="House:"
+                android:text="@string/house_mask"
                 android:textColor="@color/text_green"
                 android:textSize="24sp" />
             <EditText
@@ -164,10 +169,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
-                android:hint="house"
+                android:hint="@string/hint_house"
                 android:textColor="@color/medium_green"
                 android:textSize="24sp"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:autofillHints="" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -177,7 +183,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Building:"
+                android:text="@string/bldng_mask"
                 android:textColor="@color/text_green"
                 android:textSize="24sp" />
             <EditText
@@ -186,10 +192,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
-                android:hint="building"
+                android:hint="@string/hint_bldng"
                 android:textColor="@color/medium_green"
                 android:textSize="24sp"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:autofillHints="" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -199,7 +206,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Apartment:"
+                android:text="@string/apt_mask"
                 android:textColor="@color/text_green"
                 android:textSize="24sp" />
             <EditText
@@ -208,10 +215,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
-                android:hint="apartment"
+                android:hint="@string/hint_apt"
                 android:textColor="@color/medium_green"
                 android:textSize="24sp"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:autofillHints="" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -221,7 +229,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Phone number:"
+                android:text="@string/phone_mask"
                 android:textColor="@color/text_green"
                 android:textSize="24sp" />
             <EditText
@@ -230,10 +238,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
-                android:hint="phone number"
+                android:hint="@string/hint_phone"
                 android:textColor="@color/medium_green"
                 android:textSize="24sp"
-                android:inputType="phone"/>
+                android:inputType="phone"
+                android:autofillHints="" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -243,7 +252,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Email:"
+                android:text="@string/email_mask"
                 android:textColor="@color/text_green"
                 android:textSize="24sp" />
             <EditText
@@ -252,10 +261,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="5dp"
-                android:hint="email"
+                android:hint="@string/hint_email"
                 android:textColor="@color/medium_green"
                 android:textSize="24sp"
-                android:inputType="textEmailAddress"/>
+                android:inputType="textEmailAddress"
+                android:autofillHints="" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
@@ -283,7 +293,8 @@
             android:backgroundTint="@color/background"
             android:layout_marginStart="15dp"
             android:layout_marginBottom="15dp"
-            android:layout_gravity="bottom"/>
+            android:layout_gravity="bottom"
+            android:contentDescription="@string/back_to_main" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_in_owners_bio_add"
@@ -291,7 +302,8 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/orange"
             android:src="@drawable/ic_baseline_done_24"
-            app:layout_anchor="@id/bottom_app_bar" />
+            app:layout_anchor="@id/bottom_app_bar"
+            android:contentDescription="@string/fab_owners_bio_add" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 

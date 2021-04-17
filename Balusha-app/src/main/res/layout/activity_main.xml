@@ -15,7 +15,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/photo_of_dog" />
     <ImageView
         android:id="@+id/vertical_line"
         android:layout_width="wrap_content"
@@ -24,7 +25,8 @@
         android:layout_marginStart="120dp"
         android:layout_marginTop="7dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="@id/photo_of_dog"/>
+        app:layout_constraintStart_toStartOf="@id/photo_of_dog"
+        android:contentDescription="@string/smpl_vrt_line" />
 
     <TextView
         android:id="@+id/name_of_dog"
@@ -44,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:text="Breed:"
+        android:text="@string/breed_mask"
         android:textColor="@color/text_green"
         android:textSize="14sp"
         app:layout_constraintTop_toBottomOf="@id/name_of_dog"
@@ -67,7 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        tools:text="Birth:"
+        android:text="@string/birth_mask"
         android:textColor="@color/text_green"
         android:textSize="14sp"
         app:layout_constraintTop_toBottomOf="@id/breed_of_dog"
@@ -90,7 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        tools:text="Sex:"
+        android:text="@string/sex_mask"
         android:textColor="@color/text_green"
         android:textSize="14sp"
         app:layout_constraintTop_toBottomOf="@id/breed_of_dog"
@@ -148,7 +150,8 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/orange"
             android:src="@drawable/ic_baseline_pets_24"
-            app:layout_anchor="@id/bottom_app_bar" />
+            app:layout_anchor="@id/bottom_app_bar"
+            android:contentDescription="@string/fab_main" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 

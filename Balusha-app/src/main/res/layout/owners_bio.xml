@@ -25,7 +25,8 @@
                     android:layout_height="150dp"
                     android:scaleType="centerCrop"
                     android:background="@color/light_green"
-                    android:layout_marginTop="20dp" />
+                    android:layout_marginTop="20dp"
+                    android:contentDescription="@string/photo_of_owner" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -64,7 +65,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Country:"
+                    android:text="@string/country_mask"
                     android:textColor="@color/text_green"
                     android:textSize="24sp" />
                 <TextView
@@ -85,7 +86,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="City:"
+                    android:text="@string/city_mask"
                     android:textColor="@color/text_green"
                     android:textSize="24sp" />
                 <TextView
@@ -106,7 +107,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Street:"
+                    android:text="@string/street_mask"
                     android:textColor="@color/text_green"
                     android:textSize="24sp" />
                 <TextView
@@ -127,7 +128,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="House:"
+                    android:text="@string/house_mask"
                     android:textColor="@color/text_green"
                     android:textSize="24sp" />
                 <TextView
@@ -148,7 +149,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Building:"
+                    android:text="@string/bldng_mask"
                     android:textColor="@color/text_green"
                     android:textSize="24sp" />
                 <TextView
@@ -169,7 +170,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Apartment:"
+                    android:text="@string/apt_mask"
                     android:textColor="@color/text_green"
                     android:textSize="24sp" />
                 <TextView
@@ -190,7 +191,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Phone number:"
+                    android:text="@string/phone_mask"
                     android:textColor="@color/text_green"
                     android:textSize="24sp" />
                 <TextView
@@ -211,7 +212,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Email:"
+                    android:text="@string/email_mask"
                     android:textColor="@color/text_green"
                     android:textSize="24sp" />
                 <TextView
@@ -250,7 +251,8 @@
             android:backgroundTint="@color/background"
             android:layout_marginStart="15dp"
             android:layout_marginBottom="15dp"
-            android:layout_gravity="bottom"/>
+            android:layout_gravity="bottom"
+            android:contentDescription="@string/back_to_main" />
         <ImageButton
             android:id="@+id/button_owners_bio_edit"
             android:layout_width="30dp"
@@ -259,7 +261,8 @@
             android:backgroundTint="@color/background"
             android:layout_marginStart="75dp"
             android:layout_marginBottom="15dp"
-            android:layout_gravity="bottom"/>
+            android:layout_gravity="bottom"
+            android:contentDescription="@string/btn_owners_bio_edit" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_in_owners_bio"
@@ -267,7 +270,8 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/orange"
             android:src="@drawable/ic_baseline_arrow_back_24"
-            app:layout_anchor="@id/bottom_app_bar" />
+            app:layout_anchor="@id/bottom_app_bar"
+            android:contentDescription="@string/fab_owners_bio" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
