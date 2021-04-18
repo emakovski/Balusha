@@ -58,10 +58,18 @@
     <string name="hint_comment">some funny owner\'s comment</string>
     <string name="fab_pets_bio_add">fab in pets bio add</string>
     <string name="fab_pets_bio_edit">fab in pets bio edit</string>
+    <string name="menuitem_my_pet">My pet</string>
+    <string name="menuitem_vaccine">Vaccination</string>
+    <string name="menuitem_helminths">Helminths treatment</string>
+    <string name="menuitem_fleas">Fleas and ticks</string>
+    <string name="menuitem_repr">Reproduction</string>
+    <string name="menuitem_diet">Dietary information</string>
+    <string name="menuitem_places">My places</string>
+    <string name="menuitem_moments">My moments</string>
+    <string name="menuitem_weather">Weather</string>
+    <string name="menuitem_navi">Walking route</string>
 
-    <string name="fav_clicked">Fav menu item is clicked!</string>
-    <string name="search_clicked">Search menu item is clicked!</string>
-    <string name="settings_clicked">Settings item is clicked!</string>
+
     <string name="nav1_clicked">Bottom Navigation Drawer menu item 1</string>
     <string name="nav2_clicked">Bottom Navigation Drawer menu item 2</string>
     <string name="nav3_clicked">Bottom Navigation Drawer menu item 3</string>

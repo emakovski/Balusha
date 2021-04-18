@@ -1,36 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="none">
         <item
             android:id="@+id/menu_my_pet"
-            android:title="My pet" />
+            android:title="@string/menuitem_my_pet" />
         <item
             android:id="@+id/menu_vaccination"
-            android:title="Vaccination" />
+            android:title="@string/menuitem_vaccine" />
         <item
             android:id="@+id/menu_helminths"
-            android:title="Helminths treatment" />
+            android:title="@string/menuitem_helminths" />
         <item
             android:id="@+id/menu_fleas"
-            android:title="Fleas and ticks" />
+            android:title="@string/menuitem_fleas" />
         <item
             android:id="@+id/menu_reproduction"
-            android:title="Reproduction" />
+            android:title="@string/menuitem_repr" />
         <item
             android:id="@+id/menu_diet"
-            android:title="Dietary information" />
+            android:title="@string/menuitem_diet" />
         <item
             android:id="@+id/menu_places"
-            android:title="My places" />
+            android:title="@string/menuitem_places" />
         <item
             android:id="@+id/menu_moments"
-            android:title="My moments" />
+            android:title="@string/menuitem_moments" />
         <item
             android:id="@+id/menu_weather"
-            android:title="Weather" />
+            android:title="@string/menuitem_weather" />
         <item
             android:id="@+id/menu_navi"
-            android:title="Walking route" />
+            android:title="@string/menuitem_navi" />
     </group>
 </menu>
