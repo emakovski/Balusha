@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/menu_my_pet"
+            android:title="My pet" />
+        <item
+            android:id="@+id/menu_vaccination"
+            android:title="Vaccination" />
+        <item
+            android:id="@+id/menu_helminths"
+            android:title="Helminths treatment" />
+        <item
+            android:id="@+id/menu_fleas"
+            android:title="Fleas and ticks" />
+        <item
+            android:id="@+id/menu_reproduction"
+            android:title="Reproduction" />
+        <item
+            android:id="@+id/menu_diet"
+            android:title="Dietary information" />
+        <item
+            android:id="@+id/menu_places"
+            android:title="My places" />
+        <item
+            android:id="@+id/menu_moments"
+            android:title="My moments" />
+        <item
+            android:id="@+id/menu_weather"
+            android:title="Weather" />
+        <item
+            android:id="@+id/menu_navi"
+            android:title="Walking route" />
+    </group>
+</menu>

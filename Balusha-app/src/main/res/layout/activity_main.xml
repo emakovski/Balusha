@@ -141,8 +141,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         app:backgroundTint="@color/medium_green"
-        app:fabAlignmentMode="end"
-        app:fabAttached="true" />
+        app:fabAlignmentMode="end" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_main"

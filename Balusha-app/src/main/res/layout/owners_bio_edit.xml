@@ -282,8 +282,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             app:backgroundTint="@color/medium_green"
-            app:fabAlignmentMode="end"
-            app:fabAttached="true" />
+            app:fabAlignmentMode="end" />
         <ImageButton
             android:id="@+id/button_back_to_menu_owners_bio_edit"
             android:layout_width="30dp"
