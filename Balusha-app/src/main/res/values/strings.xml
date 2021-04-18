@@ -68,6 +68,7 @@
     <string name="menuitem_moments">My moments</string>
     <string name="menuitem_weather">Weather</string>
     <string name="menuitem_navi">Walking route</string>
+    <string name="no_photo">No photo</string>
 
 
     <string name="nav1_clicked">Bottom Navigation Drawer menu item 1</string>

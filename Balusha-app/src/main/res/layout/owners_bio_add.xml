@@ -23,7 +23,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/photo_of_owner_in_bio_add"
                 android:layout_width="150dp"
@@ -32,6 +34,18 @@
                 android:background="@color/light_green"
                 android:layout_marginTop="20dp"
                 android:contentDescription="@string/photo_of_owner" />
+            <TextView
+                android:id="@+id/no_photo_owner_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_photo"
+                android:textColor="@color/orange"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"/>
+            </FrameLayout>
+
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -284,16 +298,7 @@
             android:layout_gravity="bottom"
             app:backgroundTint="@color/medium_green"
             app:fabAlignmentMode="end" />
-        <ImageButton
-            android:id="@+id/button_back_to_menu_owners_bio_add"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@drawable/ic_baseline_menu_open_24"
-            android:backgroundTint="@color/background"
-            android:layout_marginStart="15dp"
-            android:layout_marginBottom="15dp"
-            android:layout_gravity="bottom"
-            android:contentDescription="@string/back_to_main" />
+
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_in_owners_bio_add"
