@@ -9,6 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Balusha">
+        <activity
+            android:name=".OwnerInfoAdd"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Balusha" />
+        <activity
+            android:name=".PetInfoAdd"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Balusha" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

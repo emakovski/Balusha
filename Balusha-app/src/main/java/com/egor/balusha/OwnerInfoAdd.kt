@@ -1,16 +1,31 @@
 package com.egor.balusha
 
-import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.os.Environment
 import android.provider.MediaStore
 import android.view.View
-import android.widget.*
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.File
+
+private const val REQUEST_CODE_PHOTO = 1
+private const val OWNER_NAME = "name"
+private const val OWNER_SURNAME = "surname"
+private const val OWNER_COUNTRY = "country"
+private const val OWNER_CITY = "city"
+private const val OWNER_STREET = "street"
+private const val OWNER_HOUSE = "house"
+private const val OWNER_BUILDING = "building"
+private const val OWNER_APARTMENT = "apartment"
+private const val OWNER_PHONE = "phone"
+private const val OWNER_EMAIL = "email"
+
 
 class OwnerInfoAdd : AppCompatActivity(){
     private lateinit var textName: EditText
@@ -29,7 +44,6 @@ class OwnerInfoAdd : AppCompatActivity(){
     private var photoWasLoaded: Boolean = false
     private lateinit var ownerPictureDirectory: File
     private lateinit var pathToPicture: String
-   // private lateinit var repository: DataBaseRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,74 +61,69 @@ class OwnerInfoAdd : AppCompatActivity(){
         textEmail = findViewById(R.id.email_in_bio_add)
         fab = findViewById(R.id.fab_in_owners_bio_add)
         noOwnersPhoto = findViewById(R.id.no_photo_owner_add)
-        repository = DataBaseRepository()
-        createDirectoryForPictures()
-        setSupportActionBar(toolbar)
+        createDirectoryForOwnerPicture()
         setListeners()
     }
 
     private fun setListeners() {
-        imgButtonBack.setOnClickListener {
-            backToPreviousActivity()
-        }
-        imgButtonApply.setOnClickListener {
-            addCarInfoAndBackToPreviousActivity()
-        }
-        fab.setOnClickListener {
+        ownersPhoto.setOnClickListener {
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             startActivityForResult(intent, REQUEST_CODE_PHOTO)
         }
+        fab.setOnClickListener {
+            addOwnerInfoAndGoToNextActivity()
+        }
     }
 
-    private fun addCarInfoAndBackToPreviousActivity() {
+    private fun addOwnerInfoAndGoToNextActivity() {
         if (!photoWasLoaded) {
             pathToPicture = ""
         }
         val name = textName.text.toString()
-        val producer = textProducer.text.toString()
-        val model = textModel.text.toString()
-        val plate = textPlate.text.toString()
-        if (name.isNotEmpty() && producer.isNotEmpty() && model.isNotEmpty() && plate.isNotEmpty()) {
-            val carInfo = CarInfo(pathToPicture, name, producer, model, plate)
-            repository.addCar(carInfo).subscribe {
-                setResult(Activity.RESULT_OK)
-                finish()
+        val surname = textSurname.text.toString()
+        val country = textCountry.text.toString()
+        val city = textCity.text.toString()
+        val street = textStreet.text.toString()
+        val house = textHouse.text.toString()
+        val building = textBuilding.text.toString()
+        val apartment = textApartment.text.toString()
+        val phone = textPhoneNumber.text.toString()
+        val email = textEmail.text.toString()
+        if (name.isNotEmpty() && surname.isNotEmpty() && country.isNotEmpty() && city.isNotEmpty() && street.isNotEmpty() && house.isNotEmpty() && building.isNotEmpty() && apartment.isNotEmpty() && phone.isNotEmpty() && email.isNotEmpty()) {
+            getSharedPreferences("owners_info", Context.MODE_PRIVATE)
+                    .edit()
+                    .apply {
+                        putString(OWNER_NAME, name)
+                        putString(OWNER_SURNAME, surname)
+                        putString(OWNER_COUNTRY, country)
+                        putString(OWNER_CITY, city)
+                        putString(OWNER_STREET, street)
+                        putString(OWNER_HOUSE, house)
+                        putString(OWNER_BUILDING, building)
+                        putString(OWNER_APARTMENT, apartment)
+                        putString(OWNER_PHONE, phone)
+                        putString(OWNER_EMAIL, email)
+                    }
+                    .apply()
+            startActivity(Intent(this, PetInfoAdd::class.java))
             }
-        } else {
+        else {
             Toast.makeText(this, "Fields can't be empty", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun backToPreviousActivity() {
-        setResult(RESULT_CODE_BUTTON_BACK, intent)
-        finish()
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (data != null) {
-            if (data.extras != null) {
-                if (data.extras?.get("data") != null) {
-                    val photo = data.extras?.get("data") as Bitmap?
-                    if (photo != null) {
-                        pathToPicture = saveImage(photo, carPhoto, carPictureDirectory)
-                        photoWasLoaded = true
-                        noCarPhoto.visibility = View.INVISIBLE
-                    }
-                }
-            }
+        data?.extras?.get("data")?.run {
+            pathToPicture = saveImage(this as Bitmap, ownersPhoto, ownerPictureDirectory)
+            photoWasLoaded = true
+            noOwnersPhoto.visibility = View.INVISIBLE
         }
     }
 
-    private fun createDirectoryForPictures() {
-        if (Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED) {
-            carPictureDirectory = File("${getExternalFilesDir(Environment.DIRECTORY_PICTURES)}/CarPictures")
-            if (!carPictureDirectory.exists()) {
-                carPictureDirectory.mkdir()
-            }
+    private fun createDirectoryForOwnerPicture() {
+        createDirectory(applicationContext)?.run {
+            ownerPictureDirectory = this
         }
     }
-}
-
-
 }
