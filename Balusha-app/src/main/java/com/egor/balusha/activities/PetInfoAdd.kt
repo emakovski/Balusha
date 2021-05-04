@@ -1,4 +1,4 @@
-package com.egor.balusha
+package com.egor.balusha.activities
 
 import android.content.Intent
 import android.graphics.Bitmap
@@ -10,14 +10,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SwitchCompat
+import com.egor.balusha.R
+import com.egor.balusha.createDirectory
 import com.egor.balusha.dbpets.DatabasePetsInfo
 import com.egor.balusha.dbpets.PetsInfo
 import com.egor.balusha.dbpets.PetsInfoDao
+import com.egor.balusha.saveImage
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.File
 
-private const val REQUEST_CODE_PHOTO = 1
+private const val REQUEST_CODE_PET_PHOTO = 1
 
 class PetInfoAdd : AppCompatActivity(){
     private lateinit var petName: EditText
@@ -33,7 +35,6 @@ class PetInfoAdd : AppCompatActivity(){
     private lateinit var petChipLoc: EditText
     private lateinit var petOwnersComm: EditText
     private lateinit var fab: FloatingActionButton
-    private lateinit var switch: SwitchCompat
     private lateinit var petPhoto: ImageView
     private lateinit var noPetPhoto: TextView
     private var photoWasLoaded: Boolean = false
@@ -41,6 +42,7 @@ class PetInfoAdd : AppCompatActivity(){
     private lateinit var pathToPicture: String
     private lateinit var dataBase: DatabasePetsInfo
     private lateinit var petsInfoDao: PetsInfoDao
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +61,6 @@ class PetInfoAdd : AppCompatActivity(){
         petChipLoc = findViewById(R.id.chip_location_in_bio_add)
         petOwnersComm = findViewById(R.id.comment_in_bio_add)
         fab = findViewById(R.id.fab_in_pets_bio_add)
-        switch = findViewById(R.id.switch_pets_add)
         noPetPhoto = findViewById(R.id.no_photo_pets_add)
         dataBase = DatabasePetsInfo.getDataBase(applicationContext)
         petsInfoDao = dataBase.getPetsInfoDao()
@@ -70,7 +71,9 @@ class PetInfoAdd : AppCompatActivity(){
     private fun setListeners() {
         petPhoto.setOnClickListener {
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            startActivityForResult(intent, REQUEST_CODE_PHOTO)
+            startActivityForResult(intent,
+                REQUEST_CODE_PET_PHOTO
+            )
         }
         fab.setOnClickListener {
             addPetInfoAndGoToNextActivity()
@@ -96,10 +99,7 @@ class PetInfoAdd : AppCompatActivity(){
         if (name.isNotEmpty() && dateOfBirth.isNotEmpty() && sex.isNotEmpty() && breed.isNotEmpty() && color.isNotEmpty() && tagNumber.isNotEmpty() && marks.isNotEmpty() && pedigreeNumber.isNotEmpty() && chipNumber.isNotEmpty() && chipDate.isNotEmpty() && chipLocation.isNotEmpty() && ownersComment.isNotEmpty()) {
             val petsInfo = PetsInfo(pathToPicture, name, dateOfBirth, sex, breed, color, tagNumber, marks, pedigreeNumber, chipNumber, chipDate, chipLocation, ownersComment)
             petsInfoDao.add(petsInfo)
-            if (!switch.isActivated){
             startActivity(Intent(this, MainActivity::class.java))}
-//            else {startActivity(Intent(this, PetsInfoAdd::class.java))}
-        }
         else {
             Toast.makeText(this, "Fields can't be empty", Toast.LENGTH_SHORT).show()
         }
@@ -108,7 +108,11 @@ class PetInfoAdd : AppCompatActivity(){
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         data?.extras?.get("data")?.run {
-            pathToPicture = saveImage(this as Bitmap, petPhoto, petsPictureDirectory)
+            pathToPicture = saveImage(
+                this as Bitmap,
+                petPhoto,
+                petsPictureDirectory
+            )
             photoWasLoaded = true
             noPetPhoto.visibility = View.INVISIBLE
         }

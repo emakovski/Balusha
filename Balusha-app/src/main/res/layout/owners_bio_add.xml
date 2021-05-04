@@ -8,7 +8,7 @@
 <ScrollView
     android:id="@+id/scroll_view_owners_add_bio"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="653dp"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
     <LinearLayout
@@ -68,7 +68,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:hint="@string/hint_name"
-                    android:textColor="@color/orange"
+                    android:textColor="@color/text_green"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     android:layout_gravity="bottom"
@@ -89,7 +89,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:hint="@string/hint_surname"
-                    android:textColor="@color/orange"
+                    android:textColor="@color/text_green"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     android:layout_gravity="bottom"
@@ -209,7 +209,7 @@
                 android:hint="@string/hint_bldng"
                 android:textColor="@color/medium_green"
                 android:textSize="24sp"
-                android:inputType="number"
+                android:inputType="text"
                 android:autofillHints="" />
         </LinearLayout>
         <LinearLayout
@@ -232,7 +232,7 @@
                 android:hint="@string/hint_apt"
                 android:textColor="@color/medium_green"
                 android:textSize="24sp"
-                android:inputType="number"
+                android:inputType="text"
                 android:autofillHints="" />
         </LinearLayout>
         <LinearLayout
@@ -297,7 +297,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             app:backgroundTint="@color/medium_green"
-            app:fabAlignmentMode="end" />
+            app:fabAlignmentMode="end"
+            app:hideOnScroll="true"
+            app:layout_scrollFlags="scroll|enterAlways"/>
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

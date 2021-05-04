@@ -10,14 +10,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Balusha">
         <activity
-            android:name=".OwnerInfoAdd"
+            android:name=".activities.OwnerInfoAdd"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Balusha" />
         <activity
-            android:name=".PetInfoAdd"
+            android:name=".activities.PetInfoAdd"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Balusha" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".activities.PetBio"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Balusha" />
+        <activity
+            android:name=".activities.PetInfoEdit"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Balusha" />
+        <activity
+            android:name=".activities.OwnerBio"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Balusha" />
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

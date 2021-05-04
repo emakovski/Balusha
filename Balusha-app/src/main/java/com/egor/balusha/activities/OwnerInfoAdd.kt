@@ -1,4 +1,4 @@
-package com.egor.balusha
+package com.egor.balusha.activities
 
 import android.content.Context
 import android.content.Intent
@@ -11,10 +11,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.egor.balusha.R
+import com.egor.balusha.createDirectory
+import com.egor.balusha.saveImage
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.File
 
-private const val REQUEST_CODE_PHOTO = 1
+private const val REQUEST_CODE_OWNER_PHOTO = 2
 private const val OWNER_NAME = "name"
 private const val OWNER_SURNAME = "surname"
 private const val OWNER_COUNTRY = "country"
@@ -68,7 +71,7 @@ class OwnerInfoAdd : AppCompatActivity(){
     private fun setListeners() {
         ownersPhoto.setOnClickListener {
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            startActivityForResult(intent, REQUEST_CODE_PHOTO)
+            startActivityForResult(intent, REQUEST_CODE_OWNER_PHOTO)
         }
         fab.setOnClickListener {
             addOwnerInfoAndGoToNextActivity()

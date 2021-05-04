@@ -8,7 +8,7 @@
     <ScrollView
         android:id="@+id/scroll_of_pets_bio_edit"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="653dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
         <LinearLayout
@@ -50,7 +50,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:hint="@string/hint_name_dog"
-                        android:textColor="@color/orange"
+                        android:textColor="@color/text_green"
                         android:textSize="32sp"
                         android:textStyle="bold"
                         android:layout_gravity="bottom"
@@ -293,7 +293,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             app:backgroundTint="@color/medium_green"
-            app:fabAlignmentMode="end" />
+            app:fabAlignmentMode="end"
+            app:hideOnScroll="true"
+            app:layout_scrollFlags="scroll|enterAlways"/>
         <ImageButton
             android:id="@+id/back_to_menu_pets_bio_edit"
             android:layout_width="30dp"

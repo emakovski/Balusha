@@ -9,7 +9,7 @@
     <ScrollView
         android:id="@+id/scroll_of_pets_bio"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="653dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
         <LinearLayout
@@ -270,7 +270,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             app:backgroundTint="@color/medium_green"
-            app:fabAlignmentMode="end" />
+            app:fabAlignmentMode="end"
+            app:hideOnScroll="true"
+            app:layout_scrollFlags="scroll|enterAlways"/>
         <ImageButton
             android:id="@+id/button_pets_bio_owner_info"
             android:layout_width="30dp"
