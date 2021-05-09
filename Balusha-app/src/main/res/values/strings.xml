@@ -70,6 +70,19 @@
     <string name="menuitem_navi">Walking route</string>
     <string name="no_photo">No photo</string>
     <string name="another_dog">I have another dog</string>
+    <string name="my_vaccinations">My vaccinations</string>
+    <string name="helminths">Helminths treatment</string>
+    <string name="new_vaccine">New vaccination</string>
+    <string name="vaccine">Vaccine</string>
+    <string name="date_mask">Date:</string>
+    <string name="date">date</string>
+    <string name="type_vaccine_mask">Type of vaccine:</string>
+    <string name="rabies">Rabies</string>
+    <string name="dhppi">Distemper, Hepatitis, Leptospirosis…</string>
+    <string name="batch_number_mask">Batch №:</string>
+    <string name="batch_number">batch number</string>
+    <string name="clinic_mask">Veterinary clinic:</string>
+    <string name="clinic">veterinary clinic</string>
 
 
 
