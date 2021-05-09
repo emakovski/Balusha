@@ -29,6 +29,10 @@
             android:name=".activities.OwnerBio"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Balusha" />
+        <activity
+            android:name=".activities.OwnerInfoEdit"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Balusha" />
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
