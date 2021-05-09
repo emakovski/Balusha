@@ -13,19 +13,20 @@ import com.egor.balusha.databinding.PetsBioEditBinding
 import com.egor.balusha.dbpets.DatabasePetsInfo
 import com.egor.balusha.dbpets.PetsInfo
 import com.egor.balusha.dbpets.PetsInfoDao
-import com.egor.balusha.saveImage
 import java.io.File
 
 private const val REQUEST_CODE_PET_PHOTO = 1
+private const val RESULT_CODE_BUTTON_BACK = 3
 
 class PetInfoEdit : AppCompatActivity() {
     private lateinit var binding: PetsBioEditBinding
     private var photoWasLoaded: Boolean = false
     private lateinit var pathToPicture: String
     private lateinit var petsPictureDirectory: File
-    private lateinit var currentPetInfo: PetsInfo
     private lateinit var database: DatabasePetsInfo
     private lateinit var petInfoDao: PetsInfoDao
+    private var petId: Long = 0
+    private lateinit var currentPetInfo: PetsInfo
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,8 +40,10 @@ class PetInfoEdit : AppCompatActivity() {
 
     private fun loadDataFromIntent() {
         val petInfo = intent.getParcelableExtra<PetsInfo>("petInfo")
+        println(petInfo)
         if (petInfo != null) {
             currentPetInfo = petInfo
+            petId = petInfo.id
             val path = petInfo.pathToPicture
             val file = File(path)
             if (file.exists()) {
@@ -111,7 +114,7 @@ class PetInfoEdit : AppCompatActivity() {
                 chipDate,
                 chipLocation,
                 ownersComment
-            )
+            ).also { it.id = petId }
             petInfoDao.update(petInfo)
             setResult(Activity.RESULT_OK)
             finish()
@@ -121,16 +124,17 @@ class PetInfoEdit : AppCompatActivity() {
     }
 
     private fun backToPreviousActivity() {
+        setResult(RESULT_CODE_BUTTON_BACK, intent)
         finish()
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        data?.extras?.get("data")?.run {
-            pathToPicture =
-                saveImage(this as Bitmap, binding.photoOfDogInBioEdit, petsPictureDirectory)
-            photoWasLoaded = true
-        }
-    }
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        data?.extras?.get("data")?.run {
+//            pathToPicture =
+//                saveImage(this as Bitmap, binding.photoOfDogInBioEdit, petsPictureDirectory)
+//            photoWasLoaded = true
+//        }
+//    }
 
 }

@@ -49,6 +49,6 @@ interface PetsInfoDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun add(entity: PetsInfo)
 
-    @Update
-    fun update(carInfo: PetsInfo)
+    @Update(onConflict = OnConflictStrategy.IGNORE)
+    fun update(petInfo: PetsInfo)
 }

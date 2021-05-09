@@ -18,6 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.File
 
 private const val REQUEST_CODE_OWNER_PHOTO = 2
+private const val OWNER_PHOTO = "photo"
 private const val OWNER_NAME = "name"
 private const val OWNER_SURNAME = "surname"
 private const val OWNER_COUNTRY = "country"
@@ -96,6 +97,7 @@ class OwnerInfoAdd : AppCompatActivity(){
             getSharedPreferences("owners_info", Context.MODE_PRIVATE)
                     .edit()
                     .apply {
+                        putString(OWNER_PHOTO, pathToPicture)
                         putString(OWNER_NAME, name)
                         putString(OWNER_SURNAME, surname)
                         putString(OWNER_COUNTRY, country)

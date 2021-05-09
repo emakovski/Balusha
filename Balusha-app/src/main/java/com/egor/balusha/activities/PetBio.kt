@@ -11,14 +11,13 @@ import com.egor.balusha.dbpets.PetsInfo
 import com.egor.balusha.dbpets.PetsInfoDao
 
 private const val PET_INFO_EDIT_ACTIVITY_CODE = 1
+private const val RESULT_CODE_BUTTON_BACK = 3
 
 class PetBio : AppCompatActivity() {
 
     private lateinit var database: DatabasePetsInfo
     private lateinit var petsInfoDAO: PetsInfoDao
     private lateinit var binding: PetsBioBinding
-    private var petInfoList: ArrayList<PetsInfo> = arrayListOf()
-//    lateinit var onEditIconClickListener: (petInfo: PetsInfo) -> Unit
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +26,47 @@ class PetBio : AppCompatActivity() {
         setContentView(binding.root)
         database = DatabasePetsInfo.getDataBase(applicationContext)
         petsInfoDAO = database.getPetsInfoDao()
-
+        dataChange()
+        setListener()
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode != RESULT_CODE_BUTTON_BACK) {
+            dataChange()
+        }
+    }
+    private fun setListener() {
+        binding.fabInBio.setOnClickListener {
+            backToPreviousActivity()
+        }
+        binding.buttonPetsBioOwnerInfo.setOnClickListener {
+            startActivity(Intent(this, OwnerBio::class.java))
+        }
+        binding.buttonPetsBioEdit.setOnClickListener {
+                val intent = Intent(this, PetInfoEdit::class.java)
+                val parcel = PetsInfo(petsInfoDAO.getPathToPic(),
+                    petsInfoDAO.getName(),
+                    petsInfoDAO.getDateOfBirth(),
+                    petsInfoDAO.getSex(),
+                    petsInfoDAO.getBreed(),
+                    petsInfoDAO.getColor(),
+                    petsInfoDAO.getTagNumb(),
+                    petsInfoDAO.getMarks(),
+                    petsInfoDAO.getPedigree(),
+                    petsInfoDAO.getChipNumb(),
+                    petsInfoDAO.getChipDate(),
+                    petsInfoDAO.getChipLoc(),
+                    petsInfoDAO.getComment()
+                )
+                intent.putExtra("petInfo", parcel)
+                startActivityForResult(intent, PET_INFO_EDIT_ACTIVITY_CODE)
+        }
+    }
+    private fun backToPreviousActivity() {
+        setResult(RESULT_CODE_BUTTON_BACK, intent)
+        finish()
+    }
+    private fun dataChange(){
         if (petsInfoDAO.getPathToPic().isEmpty()) binding.photoOfDogInBio.setImageResource(
             R.drawable.no_photo
         )
@@ -44,24 +83,5 @@ class PetBio : AppCompatActivity() {
         binding.chippingDateInBio.text = petsInfoDAO.getChipDate()
         binding.chipLocationInBio.text = petsInfoDAO.getChipLoc()
         binding.commentInBio.text = petsInfoDAO.getComment()
-        setFabListener()
     }
-    private fun setFabListener() {
-        binding.fabInBio.setOnClickListener {
-            backToPreviousActivity()
-        }
-        binding.buttonPetsBioOwnerInfo.setOnClickListener {
-            startActivity(Intent(this, OwnerBio::class.java))
-        }
-        binding.buttonPetsBioEdit.setOnClickListener {
-            val intent = Intent(this, PetInfoEdit::class.java)
-            intent.putExtra("petInfo", petInfoList)
-            startActivityForResult(intent, PET_INFO_EDIT_ACTIVITY_CODE)
-        }
-    }
-
-    private fun backToPreviousActivity() {
-        finish()
-    }
-
 }
