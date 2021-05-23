@@ -33,6 +33,22 @@
             android:name=".activities.OwnerInfoEdit"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Balusha" />
+        <activity
+            android:name=".activities.VaccinationList"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Balusha" />
+        <activity
+            android:name=".activities.VaccinationAdd"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Balusha" />
+        <activity
+            android:name=".activities.VaccinationEdit"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Balusha" />
+        <activity
+            android:name=".activities.VaccinationItem"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Balusha" />
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -5,9 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [PetsInfo::class], version = 1, exportSchema = false)
+@Database(entities = [VaccineInfo::class, HelminthsInfo::class, FleasInfo::class], version = 3, exportSchema = false)
 abstract class DatabasePetsInfo : RoomDatabase() {
-    abstract fun getPetsInfoDao(): PetsInfoDao
+    abstract fun getVaccineInfoDao(): VaccineInfoDao
+    abstract fun getHelminthsInfoDao(): HelminthsInfoDao
+    abstract fun getFleasInfoDao(): FleasInfoDao
 
     companion object {
         private var INSTANCE: DatabasePetsInfo? = null

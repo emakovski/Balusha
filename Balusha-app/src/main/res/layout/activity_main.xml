@@ -110,7 +110,7 @@
         app:layout_constraintLeft_toRightOf="@id/sex_mask" />
     <TextView
         android:id="@+id/comment"
-        android:layout_width="wrap_content"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
@@ -122,46 +122,66 @@
 
     <ImageButton
         android:id="@+id/button_vaccine"
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@color/light_green"
         android:src="@drawable/ic_vaccine"
         android:layout_marginTop="35dp"
-        android:layout_marginStart="10dp"
         app:layout_constraintStart_toStartOf="@id/photo_of_dog"
         app:layout_constraintTop_toBottomOf="@id/photo_of_dog"/>
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="25dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="2dp"
         android:text="@string/my_vaccinations"
         android:textColor="@color/orange"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/button_vaccine"
         app:layout_constraintTop_toTopOf="@id/button_vaccine"/>
 
     <ImageButton
         android:id="@+id/button_helminths"
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@color/light_green"
         android:src="@drawable/ic_worm"
         android:layout_marginTop="35dp"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="35dp"
         app:layout_constraintStart_toEndOf="@id/button_vaccine"
         app:layout_constraintTop_toBottomOf="@id/photo_of_dog"/>
     <TextView
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="2dp"
         android:text="@string/helminths"
         android:textColor="@color/orange"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/button_helminths"
+        app:layout_constraintTop_toTopOf="@id/button_vaccine"/>
+    <ImageButton
+        android:id="@+id/button_fleas"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/light_green"
+        android:src="@drawable/ic_flea"
+        android:layout_marginTop="35dp"
+        android:layout_marginStart="35dp"
+        app:layout_constraintStart_toEndOf="@id/button_helminths"
+        app:layout_constraintTop_toBottomOf="@id/photo_of_dog"/>
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="2dp"
+        android:text="@string/menuitem_fleas"
+        android:textColor="@color/orange"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/button_fleas"
         app:layout_constraintTop_toTopOf="@id/button_vaccine"/>
 
 

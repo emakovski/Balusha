@@ -19,48 +19,74 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-
     <LinearLayout
-        android:id="@+id/layout_vaccine_add"
+        android:id="@+id/layout_vaccine_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
         app:layout_constraintTop_toBottomOf="@id/title_in_vaccine_add"
         app:layout_constraintStart_toStartOf="@id/title_in_vaccine_add">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/date_mask"
-            android:textColor="@color/text_green"
-            android:textSize="24sp" />
-        <EditText
-            android:id="@+id/date_in_vaccine_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:hint="@string/date"
-            android:textColor="@color/medium_green"
-            android:textSize="24sp"
-            android:inputType="date"
-            android:autofillHints="" />
-    </LinearLayout>
-
+            android:orientation="vertical">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="@string/type_vaccine_mask"
+                android:text="@string/vaccine_name_mask"
                 android:textColor="@color/text_green"
                 android:textSize="24sp" />
+            <EditText
+                android:id="@+id/name_vaccine_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/vaccine_name"
+                android:textColor="@color/medium_green"
+                android:textSize="24sp"
+                android:inputType="text"
+                android:autofillHints="" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/date_mask"
+                android:textColor="@color/text_green"
+                android:textSize="24sp" />
+            <EditText
+                android:id="@+id/date_in_vaccine_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:hint="@string/date"
+                android:textColor="@color/medium_green"
+                android:textSize="24sp"
+                android:inputType="date"
+                android:autofillHints="" />
+        </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/type_vaccine_mask"
+            android:textColor="@color/text_green"
+            android:textSize="24sp" />
+
+<RadioGroup
+    android:id="@+id/radiogroup_vaccine_add"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
         <RadioButton
             android:id="@+id/radio_rabies_add"
             android:layout_width="wrap_content"
@@ -68,7 +94,7 @@
             android:layout_marginTop="10dp"
             android:text="@string/rabies"
             android:textColor="@color/text_green"
-            android:textSize="24sp"/>
+            android:textSize="24sp" />
         <RadioButton
             android:id="@+id/radio_dhppi_add"
             android:layout_width="wrap_content"
@@ -77,6 +103,7 @@
             android:text="@string/dhppi"
             android:textColor="@color/text_green"
             android:textSize="24sp"/>
+</RadioGroup>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -103,7 +130,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -115,7 +142,6 @@
                 android:id="@+id/clinic_vaccine_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:hint="@string/clinic"
                 android:textColor="@color/medium_green"
@@ -139,6 +165,16 @@
             app:fabAlignmentMode="end"
             app:hideOnScroll="true"
             app:layout_scrollFlags="scroll|enterAlways" />
+        <ImageButton
+            android:id="@+id/back_to_menu_vaccine_add"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_baseline_menu_open_24"
+            android:backgroundTint="@color/background"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_gravity="bottom"
+            android:contentDescription="@string/back_to_main" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_vaccine_add"

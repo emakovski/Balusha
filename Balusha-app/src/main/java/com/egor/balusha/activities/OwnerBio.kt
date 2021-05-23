@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.egor.balusha.R
 import com.egor.balusha.databinding.OwnersBioBinding
-import com.egor.balusha.dbpets.PetsInfo
 
 
 private const val OWNER_INFO_EDIT_ACTIVITY_CODE=4

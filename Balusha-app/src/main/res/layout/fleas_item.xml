@@ -9,7 +9,7 @@
     android:id="@+id/vaccine_item">
 
     <TextView
-        android:id="@+id/date_of_vaccine"
+        android:id="@+id/date_of_fleas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -22,20 +22,20 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/vaccine_used"
+        android:id="@+id/treatment_fleas_used"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
-        tools:text="Nobivac Rabies"
+        tools:text="Bravecto"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/date_of_vaccine"
+        app:layout_constraintStart_toEndOf="@id/date_of_fleas"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageButton
-        android:id="@+id/button_edit_vaccine_item"
+        android:id="@+id/button_edit_fleas_item"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@drawable/ic_baseline_edit_24"
@@ -45,7 +45,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <ImageButton
-        android:id="@+id/button_delete_vaccine_item"
+        android:id="@+id/button_delete_fleas_item"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@drawable/ic_baseline_delete_forever_24"

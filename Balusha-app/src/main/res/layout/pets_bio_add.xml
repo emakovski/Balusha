@@ -246,6 +246,14 @@
                         android:textSize="24sp" />
                 </LinearLayout>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/chip_number_mask"
+                    android:textColor="@color/text_green"
+                    android:textSize="24sp" />
+
                 <EditText
                     android:id="@+id/chip_number_in_bio_add"
                     android:layout_width="wrap_content"
@@ -308,7 +316,7 @@
 
                 <EditText
                     android:id="@+id/comment_in_bio_add"
-                    android:layout_width="wrap_content"
+                    android:layout_width="470dp"
                     android:layout_height="wrap_content"
                     android:autofillHints=""
                     android:hint="@string/hint_comment"

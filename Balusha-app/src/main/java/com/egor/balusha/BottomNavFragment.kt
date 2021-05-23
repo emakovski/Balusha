@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.egor.balusha.activities.PetBio
+import com.egor.balusha.activities.VaccinationList
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_bottom_menu.*
 
@@ -24,7 +25,7 @@ class BottomNavFragment: BottomSheetDialogFragment() {
             // Bottom Navigation Drawer menu item clicks
             when (menuItem.itemId) {
                 R.id.menu_my_pet -> activity?.let{it.startActivity(Intent(it, PetBio::class.java))}
-                R.id.menu_vaccination -> context!!.toast(getString(R.string.nav2_clicked))
+                R.id.menu_vaccination -> activity?.let{it.startActivity(Intent(it, VaccinationList::class.java))}
                 R.id.menu_helminths -> context!!.toast(getString(R.string.nav3_clicked))
                 R.id.menu_fleas -> context!!.toast(getString(R.string.nav1_clicked))
                 R.id.menu_reproduction -> context!!.toast(getString(R.string.nav2_clicked))

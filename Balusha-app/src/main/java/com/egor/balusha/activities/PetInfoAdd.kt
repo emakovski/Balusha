@@ -1,81 +1,55 @@
 package com.egor.balusha.activities
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.egor.balusha.R
 import com.egor.balusha.createDirectory
-import com.egor.balusha.dbpets.DatabasePetsInfo
-import com.egor.balusha.dbpets.PetsInfo
-import com.egor.balusha.dbpets.PetsInfoDao
+import com.egor.balusha.databinding.PetsBioAddBinding
 import com.egor.balusha.saveImage
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.File
 
 private const val REQUEST_CODE_PET_PHOTO = 1
+private const val PET_PHOTO = "pet_photo"
+private const val PET_NAME = "pet_name"
+private const val PET_BIRTH = "pet_birth"
+private const val PET_SEX = "pet_sex"
+private const val PET_BREED = "pet_breed"
+private const val PET_COLOR = "pet_color"
+private const val PET_TAG = "pet_tag"
+private const val PET_MARKS = "pet_marks"
+private const val PET_PEDIGREE = "pet_pedigree"
+private const val PET_CHIP_NUMB = "pet_chip_numb"
+private const val PET_CHIP_DATE = "pet_chip_date"
+private const val PET_CHIP_LOC = "pet_chip_loc"
+private const val PET_COMMENT = "pet_comment"
 
 class PetInfoAdd : AppCompatActivity(){
-    private lateinit var petName: EditText
-    private lateinit var petDateOfBirth: EditText
-    private lateinit var petSex: EditText
-    private lateinit var petBreed: EditText
-    private lateinit var petColor: EditText
-    private lateinit var petTagNumber: EditText
-    private lateinit var petMarks: EditText
-    private lateinit var petPedigreeNumb: EditText
-    private lateinit var petChipNumb: EditText
-    private lateinit var petChipDate: EditText
-    private lateinit var petChipLoc: EditText
-    private lateinit var petOwnersComm: EditText
-    private lateinit var fab: FloatingActionButton
-    private lateinit var petPhoto: ImageView
-    private lateinit var noPetPhoto: TextView
+    private lateinit var binding: PetsBioAddBinding
     private var photoWasLoaded: Boolean = false
     private lateinit var petsPictureDirectory: File
     private lateinit var pathToPicture: String
-    private lateinit var dataBase: DatabasePetsInfo
-    private lateinit var petsInfoDao: PetsInfoDao
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.pets_bio_add)
-        petPhoto = findViewById(R.id.photo_of_dog_in_bio_add)
-        petName = findViewById(R.id.name_of_dog_in_bio_add)
-        petDateOfBirth = findViewById(R.id.date_of_birth_in_bio_add)
-        petSex = findViewById(R.id.sex_in_bio_add)
-        petBreed = findViewById(R.id.breed_of_dog_in_bio_add)
-        petColor = findViewById(R.id.color_of_dog_in_bio_add)
-        petTagNumber = findViewById(R.id.tag_number_in_bio_add)
-        petMarks = findViewById(R.id.marks_in_bio_add)
-        petPedigreeNumb = findViewById(R.id.pedigree_number_in_bio_add)
-        petChipNumb = findViewById(R.id.chip_number_in_bio_add)
-        petChipDate = findViewById(R.id.chipping_date_in_bio_add)
-        petChipLoc = findViewById(R.id.chip_location_in_bio_add)
-        petOwnersComm = findViewById(R.id.comment_in_bio_add)
-        fab = findViewById(R.id.fab_in_pets_bio_add)
-        noPetPhoto = findViewById(R.id.no_photo_pets_add)
-        dataBase = DatabasePetsInfo.getDataBase(applicationContext)
-        petsInfoDao = dataBase.getPetsInfoDao()
+        binding = PetsBioAddBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         createDirectoryForOwnerPicture()
         setListeners()
     }
 
     private fun setListeners() {
-        petPhoto.setOnClickListener {
+        binding.photoOfDogInBioAdd.setOnClickListener {
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            startActivityForResult(intent,
-                REQUEST_CODE_PET_PHOTO
-            )
+            startActivityForResult(intent, REQUEST_CODE_PET_PHOTO)
         }
-        fab.setOnClickListener {
+        binding.fabInPetsBioAdd.setOnClickListener {
             addPetInfoAndGoToNextActivity()
         }
     }
@@ -84,21 +58,37 @@ class PetInfoAdd : AppCompatActivity(){
         if (!photoWasLoaded) {
             pathToPicture = ""
         }
-        val name = petName.text.toString()
-        val dateOfBirth = petDateOfBirth.text.toString()
-        val sex = petSex.text.toString()
-        val breed = petBreed.text.toString()
-        val color = petColor.text.toString()
-        val tagNumber = petTagNumber.text.toString()
-        val marks = petMarks.text.toString()
-        val pedigreeNumber = petPedigreeNumb.text.toString()
-        val chipNumber = petChipNumb.text.toString()
-        val chipDate = petChipDate.text.toString()
-        val chipLocation = petChipLoc.text.toString()
-        val ownersComment = petOwnersComm.text.toString()
+        val name = binding.nameOfDogInBioAdd.text.toString()
+        val dateOfBirth = binding.dateOfBirthInBioAdd.text.toString()
+        val sex = binding.sexInBioAdd.text.toString()
+        val breed = binding.breedOfDogInBioAdd.text.toString()
+        val color = binding.colorOfDogInBioAdd.text.toString()
+        val tagNumber = binding.tagNumberInBioAdd.text.toString()
+        val marks = binding.marksInBioAdd.text.toString()
+        val pedigreeNumber = binding.pedigreeNumberInBioAdd.text.toString()
+        val chipNumber = binding.chipNumberInBioAdd.text.toString()
+        val chipDate = binding.chippingDateInBioAdd.text.toString()
+        val chipLocation = binding.chipLocationInBioAdd.text.toString()
+        val ownersComment = binding.commentInBioAdd.text.toString()
         if (name.isNotEmpty() && dateOfBirth.isNotEmpty() && sex.isNotEmpty() && breed.isNotEmpty() && color.isNotEmpty() && tagNumber.isNotEmpty() && marks.isNotEmpty() && pedigreeNumber.isNotEmpty() && chipNumber.isNotEmpty() && chipDate.isNotEmpty() && chipLocation.isNotEmpty() && ownersComment.isNotEmpty()) {
-            val petsInfo = PetsInfo(pathToPicture, name, dateOfBirth, sex, breed, color, tagNumber, marks, pedigreeNumber, chipNumber, chipDate, chipLocation, ownersComment)
-            petsInfoDao.add(petsInfo)
+            getSharedPreferences("pets_info", Context.MODE_PRIVATE)
+                .edit()
+                .apply {
+                    putString(PET_PHOTO, pathToPicture)
+                    putString(PET_NAME, name)
+                    putString(PET_BIRTH, dateOfBirth)
+                    putString(PET_SEX, sex)
+                    putString(PET_BREED, breed)
+                    putString(PET_COLOR, color)
+                    putString(PET_TAG, tagNumber)
+                    putString(PET_MARKS, marks)
+                    putString(PET_PEDIGREE, pedigreeNumber)
+                    putString(PET_CHIP_NUMB, chipNumber)
+                    putString(PET_CHIP_DATE, chipDate)
+                    putString(PET_CHIP_LOC, chipLocation)
+                    putString(PET_COMMENT, ownersComment)
+                }
+                .apply()
             startActivity(Intent(this, MainActivity::class.java))}
         else {
             Toast.makeText(this, "Fields can't be empty", Toast.LENGTH_SHORT).show()
@@ -110,11 +100,11 @@ class PetInfoAdd : AppCompatActivity(){
         data?.extras?.get("data")?.run {
             pathToPicture = saveImage(
                 this as Bitmap,
-                petPhoto,
+                binding.photoOfDogInBioAdd,
                 petsPictureDirectory
             )
             photoWasLoaded = true
-            noPetPhoto.visibility = View.INVISIBLE
+            binding.noPhotoPetsAdd.visibility = View.INVISIBLE
         }
     }
 

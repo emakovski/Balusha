@@ -4,54 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity"
     android:background="@color/background">
 
     <TextView
-        android:id="@+id/title_in_vaccine_edit"
+        android:id="@+id/title_in_vaccine_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:text="@string/vaccine"
+        tools:text="Nobivac Rabies"
         android:textColor="@color/orange"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-
     <LinearLayout
-        android:id="@+id/layout_vaccine_edit"
+        android:id="@+id/layout_vaccine_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
-        app:layout_constraintTop_toBottomOf="@id/title_in_vaccine_edit"
-        app:layout_constraintStart_toStartOf="@id/title_in_vaccine_edit">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/vaccine_name_mask"
-                android:textColor="@color/text_green"
-                android:textSize="24sp" />
-            <EditText
-                android:id="@+id/name_vaccine_edit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:hint="@string/vaccine_name"
-                android:textColor="@color/medium_green"
-                android:textSize="24sp"
-                android:inputType="text"
-                android:autofillHints="" />
-        </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@id/title_in_vaccine_info"
+        app:layout_constraintStart_toStartOf="@id/title_in_vaccine_info">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -64,17 +39,15 @@
                 android:text="@string/date_mask"
                 android:textColor="@color/text_green"
                 android:textSize="24sp" />
-            <EditText
-                android:id="@+id/date_in_vaccine_edit"
+            <TextView
+                android:id="@+id/date_in_vaccine_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:hint="@string/date"
+                tools:text="08.05.2021"
                 android:textColor="@color/medium_green"
-                android:textSize="24sp"
-                android:inputType="date"
-                android:autofillHints="" />
+                android:textSize="24sp" />
         </LinearLayout>
 
         <TextView
@@ -85,27 +58,15 @@
             android:textColor="@color/text_green"
             android:textSize="24sp" />
 
-        <RadioGroup
-            android:id="@+id/radiogroup_vaccine_edit"
+        <TextView
+            android:id="@+id/type_vaccine_info"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <RadioButton
-                android:id="@+id/radio_rabies_edit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/rabies"
-                android:textColor="@color/text_green"
-                android:textSize="24sp" />
-            <RadioButton
-                android:id="@+id/radio_dhppi_edit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/dhppi"
-                android:textColor="@color/text_green"
-                android:textSize="24sp"/>
-        </RadioGroup>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            tools:text="Rabies"
+            android:textColor="@color/medium_green"
+            android:textSize="24sp"/>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -117,17 +78,15 @@
                 android:text="@string/batch_number_mask"
                 android:textColor="@color/text_green"
                 android:textSize="24sp" />
-            <EditText
-                android:id="@+id/batch_vaccine_edit"
+            <TextView
+                android:id="@+id/batch_vaccine_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:hint="@string/batch_number"
+                tools:text="6846868168"
                 android:textColor="@color/medium_green"
-                android:textSize="24sp"
-                android:inputType="text"
-                android:autofillHints="" />
+                android:textSize="24sp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -140,16 +99,14 @@
                 android:text="@string/clinic_mask"
                 android:textColor="@color/text_green"
                 android:textSize="24sp" />
-            <EditText
-                android:id="@+id/clinic_vaccine_edit"
+            <TextView
+                android:id="@+id/clinic_vaccine_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:hint="@string/clinic"
+                tools:text="SAS animals care"
                 android:textColor="@color/medium_green"
-                android:textSize="24sp"
-                android:inputType="text"
-                android:autofillHints="" />
+                android:textSize="24sp"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -167,25 +124,16 @@
             app:fabAlignmentMode="end"
             app:hideOnScroll="true"
             app:layout_scrollFlags="scroll|enterAlways" />
-        <ImageButton
-            android:id="@+id/back_to_menu_vaccine_edit"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@drawable/ic_baseline_menu_open_24"
-            android:backgroundTint="@color/background"
-            android:layout_marginStart="15dp"
-            android:layout_marginBottom="15dp"
-            android:layout_gravity="bottom"
-            android:contentDescription="@string/back_to_main" />
+
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_vaccine_edit"
+            android:id="@+id/fab_vaccine_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/orange"
             android:contentDescription="@string/fab_pets_bio_add"
-            android:src="@drawable/ic_baseline_done_24"
+            android:src="@drawable/ic_baseline_arrow_back_24"
             app:layout_anchor="@id/bottom_app_bar" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

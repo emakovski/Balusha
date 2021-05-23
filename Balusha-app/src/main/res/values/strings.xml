@@ -70,7 +70,7 @@
     <string name="menuitem_navi">Walking route</string>
     <string name="no_photo">No photo</string>
     <string name="another_dog">I have another dog</string>
-    <string name="my_vaccinations">My vaccinations</string>
+    <string name="my_vaccinations">Vaccinations</string>
     <string name="helminths">Helminths treatment</string>
     <string name="new_vaccine">New vaccination</string>
     <string name="vaccine">Vaccine</string>
@@ -83,6 +83,22 @@
     <string name="batch_number">batch number</string>
     <string name="clinic_mask">Veterinary clinic:</string>
     <string name="clinic">veterinary clinic</string>
+    <string name="vaccine_name_mask">Vaccine name</string>
+    <string name="vaccine_name">vaccine name</string>
+    <string name="no_vaccines_added">No vaccinations added</string>
+    <string name="my_helminths">My helminths treatment</string>
+    <string name="no_helminths_added">No treatments added</string>
+    <string name="new_helminths">New helminths treatment</string>
+    <string name="treatment_name_mask">Helminths treatment name:</string>
+    <string name="treatment_name">helminths treatment name</string>
+    <string name="dose_mask">Dose:</string>
+    <string name="dose">dose</string>
+    <string name="my_fleas">My fleas and ticks treatment</string>
+    <string name="no_fleas_added">No treatments added</string>
+    <string name="new_fleas">New fleas and ticks treatment</string>
+    <string name="treatment_name_mask_flea">Fleas and ticks treatment name:</string>
+    <string name="treatment_name_flea">fleas and ticks treatment name</string>
+
 
 
 

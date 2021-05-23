@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.egor.balusha.R
 import com.egor.balusha.createDirectory
 import com.egor.balusha.databinding.OwnersBioEditBinding
 import com.egor.balusha.saveImage
@@ -31,7 +32,7 @@ private const val OWNER_EMAIL = "email"
 class OwnerInfoEdit : AppCompatActivity() {
 
     private lateinit var binding: OwnersBioEditBinding
-    private var photoWasLoaded: Boolean = false
+    private var photoWasLoaded: Boolean = true
     private lateinit var ownerPictureDirectory: File
     private lateinit var pathToPicture: String
 
@@ -40,7 +41,19 @@ class OwnerInfoEdit : AppCompatActivity() {
         binding = OwnersBioEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val prefs: SharedPreferences = getSharedPreferences("owners_info", Context.MODE_PRIVATE)
-        Glide.with(this).load(prefs.getString(OWNER_PHOTO, "no photo")).into(binding.photoOfOwnerInBioEdit)
+        val path = prefs.getString(OWNER_PHOTO, "no photo")
+        val file = File(path)
+        if (file.exists()) {
+            if (path == "") {
+                binding.photoOfOwnerInBioEdit.setImageResource(R.drawable.no_photo)
+            } else {
+                Glide.with(this).load(path).into(binding.photoOfOwnerInBioEdit)
+                photoWasLoaded = true
+                if (path != null) {
+                    pathToPicture = path
+                }
+            }
+        }
         binding.nameOfOwnerInBioEdit.setText(prefs.getString(OWNER_NAME,"not found"))
         binding.surnameOfOwnerInBioEdit.setText(prefs.getString(OWNER_SURNAME,"not found"))
         binding.countryInBioEdit.setText(prefs.getString(OWNER_COUNTRY,"not found"))
