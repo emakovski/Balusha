@@ -1,4 +1,4 @@
-package com.egor.balusha
+package com.egor.balusha.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +8,7 @@ import android.widget.Filterable
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.egor.balusha.R
 import com.egor.balusha.dbpets.VaccineInfo
 import java.util.*
 import kotlin.collections.ArrayList
@@ -44,7 +45,11 @@ class VaccineInfoAdapter() : RecyclerView.Adapter<VaccineInfoAdapter.VaccineInfo
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VaccineInfoViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.vaccine_item, parent, false)
-        return VaccineInfoViewHolder(view, onEditVaccineClickListener, onVaccineInfoShowClickListener)
+        return VaccineInfoViewHolder(
+            view,
+            onEditVaccineClickListener,
+            onVaccineInfoShowClickListener
+        )
     }
 
     override fun onBindViewHolder(holder: VaccineInfoViewHolder, position: Int) {

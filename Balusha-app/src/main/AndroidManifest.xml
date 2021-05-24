@@ -49,6 +49,38 @@
             android:name=".activities.VaccinationItem"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Balusha" />
+        <activity
+            android:name=".activities.HelminthTreatList"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Balusha" />
+        <activity
+            android:name=".activities.HelminthTreatAdd"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Balusha" />
+        <activity
+            android:name=".activities.HelminthTreatEdit"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Balusha" />
+        <activity
+            android:name=".activities.HelminthTreatItem"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Balusha" />
+        <activity
+            android:name=".activities.FleasTicksList"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Balusha" />
+        <activity
+            android:name=".activities.FleasTicksAdd"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Balusha" />
+        <activity
+            android:name=".activities.FleasTicksEdit"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Balusha" />
+        <activity
+            android:name=".activities.FleasTicksItem"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Balusha" />
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

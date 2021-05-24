@@ -40,17 +40,15 @@
                 android:text="@string/date_mask"
                 android:textColor="@color/text_green"
                 android:textSize="24sp" />
-            <EditText
+            <TextView
                 android:id="@+id/date_in_fleas_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:hint="@string/date"
+                tools:text="06.06.2019"
                 android:textColor="@color/medium_green"
-                android:textSize="24sp"
-                android:inputType="date"
-                android:autofillHints="" />
+                android:textSize="24sp"/>
         </LinearLayout>
     </LinearLayout>
 

@@ -7,7 +7,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "helminths_info")
-class HelminthsInfo(@ColumnInfo val helm_name: String,
+class HelminthsInfo(@ColumnInfo var helm_name: String,
                   @ColumnInfo var helm_date: String,
                   @ColumnInfo var helm_dose: String) : Parcelable {
     @PrimaryKey(autoGenerate = true)
@@ -32,12 +32,12 @@ class HelminthsInfo(@ColumnInfo val helm_name: String,
         p0.writeLong(id)
     }
 
-    companion object CREATOR : Parcelable.Creator<VaccineInfo> {
-        override fun createFromParcel(parcel: Parcel): VaccineInfo {
-            return VaccineInfo(parcel)
+    companion object CREATOR : Parcelable.Creator<HelminthsInfo> {
+        override fun createFromParcel(parcel: Parcel): HelminthsInfo {
+            return HelminthsInfo(parcel)
         }
 
-        override fun newArray(size: Int): Array<VaccineInfo?> {
+        override fun newArray(size: Int): Array<HelminthsInfo?> {
             return arrayOfNulls(size)
         }
     }

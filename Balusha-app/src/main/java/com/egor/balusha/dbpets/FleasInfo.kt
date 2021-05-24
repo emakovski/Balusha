@@ -7,7 +7,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "fleas_info")
-class FleasInfo(@ColumnInfo val fleas_name: String, @ColumnInfo var fleas_date: String) : Parcelable {
+class FleasInfo(@ColumnInfo var fleas_name: String, @ColumnInfo var fleas_date: String) : Parcelable {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo
     var id: Long = 0
@@ -28,12 +28,12 @@ class FleasInfo(@ColumnInfo val fleas_name: String, @ColumnInfo var fleas_date: 
         p0.writeLong(id)
     }
 
-    companion object CREATOR : Parcelable.Creator<VaccineInfo> {
-        override fun createFromParcel(parcel: Parcel): VaccineInfo {
-            return VaccineInfo(parcel)
+    companion object CREATOR : Parcelable.Creator<FleasInfo> {
+        override fun createFromParcel(parcel: Parcel): FleasInfo {
+            return FleasInfo(parcel)
         }
 
-        override fun newArray(size: Int): Array<VaccineInfo?> {
+        override fun newArray(size: Int): Array<FleasInfo?> {
             return arrayOfNulls(size)
         }
     }

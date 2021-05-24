@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.egor.balusha.activities.FleasTicksList
+import com.egor.balusha.activities.HelminthTreatList
 import com.egor.balusha.activities.PetBio
 import com.egor.balusha.activities.VaccinationList
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -26,8 +28,8 @@ class BottomNavFragment: BottomSheetDialogFragment() {
             when (menuItem.itemId) {
                 R.id.menu_my_pet -> activity?.let{it.startActivity(Intent(it, PetBio::class.java))}
                 R.id.menu_vaccination -> activity?.let{it.startActivity(Intent(it, VaccinationList::class.java))}
-                R.id.menu_helminths -> context!!.toast(getString(R.string.nav3_clicked))
-                R.id.menu_fleas -> context!!.toast(getString(R.string.nav1_clicked))
+                R.id.menu_helminths -> activity?.let{it.startActivity(Intent(it, HelminthTreatList::class.java))}
+                R.id.menu_fleas -> activity?.let{it.startActivity(Intent(it, FleasTicksList::class.java))}
                 R.id.menu_reproduction -> context!!.toast(getString(R.string.nav2_clicked))
                 R.id.menu_diet -> context!!.toast(getString(R.string.nav3_clicked))
                 R.id.menu_places -> context!!.toast(getString(R.string.nav1_clicked))

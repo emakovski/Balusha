@@ -7,7 +7,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "vaccine_info")
-class VaccineInfo(@ColumnInfo val vaccine_name: String,
+class VaccineInfo(@ColumnInfo var vaccine_name: String,
                   @ColumnInfo var vaccine_date: String,
                   @ColumnInfo var vaccine_type: String,
                   @ColumnInfo var vaccine_batch: String,

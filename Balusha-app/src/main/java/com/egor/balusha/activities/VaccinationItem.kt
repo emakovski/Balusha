@@ -1,14 +1,10 @@
 package com.egor.balusha.activities
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.egor.balusha.DatabaseRepository
-import com.egor.balusha.VaccineInfoAdapter
 import com.egor.balusha.databinding.VaccineInfoBinding
-import com.egor.balusha.dbpets.DatabasePetsInfo
 import com.egor.balusha.dbpets.VaccineInfo
-import com.egor.balusha.dbpets.VaccineInfoDao
 
 private const val RESULT_CODE_BUTTON_BACK = 3
 

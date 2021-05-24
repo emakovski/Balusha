@@ -6,7 +6,7 @@
     android:layout_height="80dp"
     tools:context=".activities.MainActivity"
     android:background="@drawable/recycle_tile"
-    android:id="@+id/vaccine_item">
+    android:id="@+id/helminths_item">
 
     <TextView
         android:id="@+id/date_of_treatment"

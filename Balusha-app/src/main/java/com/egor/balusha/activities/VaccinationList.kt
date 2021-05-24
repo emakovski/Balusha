@@ -3,16 +3,11 @@ package com.egor.balusha.activities
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.egor.balusha.DatabaseRepository
-import com.egor.balusha.R
-import com.egor.balusha.VaccineInfoAdapter
+import com.egor.balusha.adapters.VaccineInfoAdapter
 import com.egor.balusha.databinding.VaccinationsBinding
-import com.egor.balusha.dbpets.DatabasePetsInfo
-import com.egor.balusha.dbpets.VaccineInfo
-import com.egor.balusha.dbpets.VaccineInfoDao
 import java.util.*
 
 private const val ADD_VACCINATION_CODE = 4
@@ -90,20 +85,4 @@ class VaccinationList : AppCompatActivity() {
         setResult(RESULT_CODE_BUTTON_BACK, intent)
         finish()
     }
-//    private fun createDialog() {
-//        AlertDialog.Builder(this)
-//            .setTitle(getString(R.string.remove_item))
-//            .setMessage(getString(R.string.warning))
-//            .setPositiveButton("Apply"
-//            ) { dialogInterface, i ->
-//                repository.deleteVaccine(it).subscribe {
-//                    setResult(RESULT_CODE_BUTTON_REMOVE)
-//                    finish()
-//                }
-//            }
-//            .setNegativeButton("Cancel") { dialogInterface, i -> dialogInterface.cancel() }
-//            .setCancelable(false)
-//            .create()
-//            .show()
-//    }
 }
