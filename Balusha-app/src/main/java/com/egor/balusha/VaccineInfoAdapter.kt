@@ -21,18 +21,15 @@ class VaccineInfoAdapter() : RecyclerView.Adapter<VaccineInfoAdapter.VaccineInfo
     private var vaccineInfoList: ArrayList<VaccineInfo> = arrayListOf()
     private var vaccineInfoListForFilter: ArrayList<VaccineInfo> = arrayListOf()
     lateinit var onEditVaccineClickListener: (vaccineInfo: VaccineInfo) -> Unit
-    lateinit var onDeleteVaccineClickListener: (position: Int) -> Unit
     lateinit var onVaccineInfoShowClickListener: (vaccineInfo: VaccineInfo) -> Unit
 
     class VaccineInfoViewHolder(itemView: View,
                             private val listenerVaccineEdit: (vaccineInfo: VaccineInfo) -> Unit,
-                                private val listenerVaccineDelete: (position: Int) -> Unit,
                                 private val listenerVaccineInfo: (vaccineInfo: VaccineInfo) -> Unit) : RecyclerView.ViewHolder(itemView) {
         private val item: View = itemView.findViewById(R.id.vaccine_item)
         private val textDateOfVaccine: TextView = itemView.findViewById(R.id.date_of_vaccine)
         private val textUsedVaccine: TextView = itemView.findViewById(R.id.vaccine_used)
         private val buttonEditVaccine: ImageButton = itemView.findViewById(R.id.button_edit_vaccine_item)
-        private val buttonDeleteVaccine: ImageButton = itemView.findViewById(R.id.button_delete_vaccine_item)
         fun bind(vaccineInfo: VaccineInfo) {
             textDateOfVaccine.text = vaccineInfo.vaccine_date
             textUsedVaccine.text = vaccineInfo.vaccine_name
@@ -42,15 +39,12 @@ class VaccineInfoAdapter() : RecyclerView.Adapter<VaccineInfoAdapter.VaccineInfo
             buttonEditVaccine.setOnClickListener {
                 listenerVaccineEdit.invoke(vaccineInfo)
             }
-            buttonDeleteVaccine.setOnClickListener {
-                listenerVaccineDelete.invoke(position)
-            }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VaccineInfoViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.vaccine_item, parent, false)
-        return VaccineInfoViewHolder(view, onEditVaccineClickListener, onDeleteVaccineClickListener, onVaccineInfoShowClickListener)
+        return VaccineInfoViewHolder(view, onEditVaccineClickListener, onVaccineInfoShowClickListener)
     }
 
     override fun onBindViewHolder(holder: VaccineInfoViewHolder, position: Int) {
@@ -87,14 +81,10 @@ class VaccineInfoAdapter() : RecyclerView.Adapter<VaccineInfoAdapter.VaccineInfo
 
     override fun getFilter() = filter
 
+
     fun updateList(list: List<VaccineInfo>) {
         vaccineInfoList = ArrayList(list)
         vaccineInfoListForFilter = ArrayList(list)
         notifyDataSetChanged()
-    }
-    fun removeItem(position: Int) {
-        vaccineInfoList.removeAt(position)
-        notifyItemRemoved(position)
-        notifyItemRangeChanged(position, vaccineInfoList.size)
     }
 }

@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.egor.balusha.BottomNavFragment
+import com.egor.balusha.DatabaseRepository
 import com.egor.balusha.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -19,11 +20,14 @@ private const val PET_COMMENT = "pet_comment"
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var repository: DatabaseRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        DatabaseRepository.initDatabase(applicationContext)
+        repository = DatabaseRepository()
 //       getSharedPreferences("FIRST_RUN_PREF", 0).edit().clear().apply()
         val isFirstRun = getSharedPreferences("FIRST_RUN_PREF", Context.MODE_PRIVATE).getBoolean("isFirstRun", true)
         if (isFirstRun) {

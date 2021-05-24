@@ -40,17 +40,7 @@
         android:layout_height="30dp"
         android:background="@drawable/ic_baseline_edit_24"
         android:backgroundTint="@color/medium_green"
-        android:layout_marginEnd="55dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <ImageButton
-        android:id="@+id/button_delete_helminths_item"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@drawable/ic_baseline_delete_forever_24"
-        android:backgroundTint="@color/medium_green"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="15dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

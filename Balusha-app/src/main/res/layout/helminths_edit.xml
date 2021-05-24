@@ -125,6 +125,15 @@
             android:layout_marginBottom="15dp"
             android:layout_gravity="bottom"
             android:contentDescription="@string/back_to_main" />
+        <ImageButton
+            android:id="@+id/button_delete_helminths_edit"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_baseline_delete_forever_24"
+            android:backgroundTint="@color/background"
+            android:layout_marginStart="75dp"
+            android:layout_marginBottom="15dp"
+            android:layout_gravity="bottom"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_helminths_edit"

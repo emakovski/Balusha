@@ -98,6 +98,8 @@
     <string name="new_fleas">New fleas and ticks treatment</string>
     <string name="treatment_name_mask_flea">Fleas and ticks treatment name:</string>
     <string name="treatment_name_flea">fleas and ticks treatment name</string>
+    <string name="remove_item">Remove item</string>
+    <string name="warning">Are you sure you want to delete data?</string>
 
 
 

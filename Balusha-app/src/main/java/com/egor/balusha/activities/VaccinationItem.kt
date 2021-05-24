@@ -3,6 +3,7 @@ package com.egor.balusha.activities
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.egor.balusha.DatabaseRepository
 import com.egor.balusha.VaccineInfoAdapter
 import com.egor.balusha.databinding.VaccineInfoBinding
 import com.egor.balusha.dbpets.DatabasePetsInfo
@@ -13,8 +14,7 @@ private const val RESULT_CODE_BUTTON_BACK = 3
 
 class VaccinationItem : AppCompatActivity() {
     private lateinit var binding: VaccineInfoBinding
-    private lateinit var dataBase: DatabasePetsInfo
-    private lateinit var vaccineInfoDAO: VaccineInfoDao
+    private lateinit var repository: DatabaseRepository
     private lateinit var currentVaccineInfo: VaccineInfo
     private var vaccineId: Long = 0
 
@@ -22,8 +22,7 @@ class VaccinationItem : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = VaccineInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        dataBase = DatabasePetsInfo.getDataBase(applicationContext)
-        vaccineInfoDAO = dataBase.getVaccineInfoDao()
+        repository = DatabaseRepository()
         setListeners()
         loadDataFromIntent()
     }

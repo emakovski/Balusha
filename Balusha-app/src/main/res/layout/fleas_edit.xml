@@ -109,6 +109,15 @@
             android:contentDescription="@string/fab_pets_bio_add"
             android:src="@drawable/ic_baseline_done_24"
             app:layout_anchor="@id/bottom_app_bar" />
+        <ImageButton
+            android:id="@+id/button_delete_fleas_edit"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_baseline_delete_forever_24"
+            android:backgroundTint="@color/background"
+            android:layout_marginStart="75dp"
+            android:layout_marginBottom="15dp"
+            android:layout_gravity="bottom"/>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

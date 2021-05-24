@@ -3,8 +3,11 @@ package com.egor.balusha.activities
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.egor.balusha.DatabaseRepository
+import com.egor.balusha.R
 import com.egor.balusha.VaccineInfoAdapter
 import com.egor.balusha.databinding.VaccinationsBinding
 import com.egor.balusha.dbpets.DatabasePetsInfo
@@ -20,25 +23,18 @@ private const val RESULT_CODE_BUTTON_BACK = 3
 class VaccinationList : AppCompatActivity() {
     private lateinit var binding: VaccinationsBinding
     private lateinit var adapter: VaccineInfoAdapter
-    private lateinit var database: DatabasePetsInfo
-    private lateinit var vaccineInfoDAO: VaccineInfoDao
+    private lateinit var repository: DatabaseRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = VaccinationsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        initDatabase()
+        repository = DatabaseRepository()
         setRecyclerSettings()
         setButtonsListener()
         setAdapterListener()
         setNoVaccinationsVisibility()
     }
-
-    private fun initDatabase() {
-        database = DatabasePetsInfo.getDataBase(this)
-        vaccineInfoDAO = database.getVaccineInfoDao()
-    }
-
 
     private fun setButtonsListener() {
         binding.fabVaccination.setOnClickListener {
@@ -51,16 +47,24 @@ class VaccinationList : AppCompatActivity() {
     }
 
     private fun setRecyclerSettings() {
-        val allDataList = vaccineInfoDAO.getAll().sortedBy { it.vaccine_date.toLowerCase(Locale.ROOT) }
-        adapter = VaccineInfoAdapter(allDataList)
+        adapter = VaccineInfoAdapter()
         binding.recyclerVaccines.adapter = adapter
         binding.recyclerVaccines.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        repository.getAllVaccineList()
+            .subscribe { list ->
+                adapter.updateList(list.sortedBy { it.vaccine_date.toLowerCase(Locale.ROOT) })
+                setNoVaccinationsVisibility()
+            }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode != RESULT_CODE_BUTTON_BACK) {
-            adapter.updateList(vaccineInfoDAO.getAll().sortedBy { it.vaccine_date.toLowerCase(Locale.ROOT) })
+            repository.getAllVaccineList()
+                .subscribe { list ->
+                    adapter.updateList(list.sortedBy { it.vaccine_date.toLowerCase(Locale.ROOT)})
+                    setNoVaccinationsVisibility()
+                }
         }
         setNoVaccinationsVisibility()
     }
@@ -81,12 +85,25 @@ class VaccinationList : AppCompatActivity() {
             intent.putExtra("vaccineInfo", it)
             startActivityForResult(intent, SHOW_VACCINATION_CODE)
         }
-        adapter.onDeleteVaccineClickListener = {
-            adapter.removeItem(it)
-        }
     }
     private fun backToPreviousActivity() {
         setResult(RESULT_CODE_BUTTON_BACK, intent)
         finish()
     }
+//    private fun createDialog() {
+//        AlertDialog.Builder(this)
+//            .setTitle(getString(R.string.remove_item))
+//            .setMessage(getString(R.string.warning))
+//            .setPositiveButton("Apply"
+//            ) { dialogInterface, i ->
+//                repository.deleteVaccine(it).subscribe {
+//                    setResult(RESULT_CODE_BUTTON_REMOVE)
+//                    finish()
+//                }
+//            }
+//            .setNegativeButton("Cancel") { dialogInterface, i -> dialogInterface.cancel() }
+//            .setCancelable(false)
+//            .create()
+//            .show()
+//    }
 }
