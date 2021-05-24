@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.egor.balusha.R
+import com.egor.balusha.createPetsDirectory
 import com.egor.balusha.databinding.PetsBioEditBinding
 import com.egor.balusha.saveImage
 import java.io.File
@@ -66,6 +67,7 @@ class PetInfoEdit : AppCompatActivity() {
         binding.chippingDateInBioEdit.setText(prefs.getString(PET_CHIP_DATE,"not found"))
         binding.chipLocationInBioEdit.setText(prefs.getString(PET_CHIP_LOC,"not found"))
         binding.commentInBioEdit.setText(prefs.getString(PET_COMMENT,"not found"))
+        createDirectoryForPetsPicture()
         setListeners()
     }
 
@@ -135,6 +137,11 @@ class PetInfoEdit : AppCompatActivity() {
             pathToPicture =
                 saveImage(this as Bitmap, binding.photoOfDogInBioEdit, petsPictureDirectory)
             photoWasLoaded = true
+        }
+    }
+    private fun createDirectoryForPetsPicture() {
+        createPetsDirectory(applicationContext)?.run {
+            petsPictureDirectory = this
         }
     }
 

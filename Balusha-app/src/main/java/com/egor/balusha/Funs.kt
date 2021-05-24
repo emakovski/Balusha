@@ -19,9 +19,19 @@ fun saveImage(photo: Bitmap, iv: ImageView, pictureDirectory: File): String {
     stream.close()
     return pathToPicture
 }
-fun createDirectory(context: Context): File? {
+fun createOwnersDirectory(context: Context): File? {
     if (Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED) {
         val pictureDirectory = File("${context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)}/OwnersPicture")
+        if (!pictureDirectory.exists()) {
+            pictureDirectory.mkdir()
+        }
+        return pictureDirectory
+    }
+    return null
+}
+fun createPetsDirectory(context: Context): File? {
+    if (Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED) {
+        val pictureDirectory = File("${context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)}/PetsPicture")
         if (!pictureDirectory.exists()) {
             pictureDirectory.mkdir()
         }

@@ -8,7 +8,7 @@ import android.provider.MediaStore
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.egor.balusha.createDirectory
+import com.egor.balusha.createPetsDirectory
 import com.egor.balusha.databinding.PetsBioAddBinding
 import com.egor.balusha.saveImage
 import java.io.File
@@ -40,7 +40,7 @@ class PetInfoAdd : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         binding = PetsBioAddBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        createDirectoryForOwnerPicture()
+        createDirectoryForPetsPicture()
         setListeners()
     }
 
@@ -108,8 +108,8 @@ class PetInfoAdd : AppCompatActivity(){
         }
     }
 
-    private fun createDirectoryForOwnerPicture() {
-        createDirectory(applicationContext)?.run {
+    private fun createDirectoryForPetsPicture() {
+        createPetsDirectory(applicationContext)?.run {
             petsPictureDirectory = this
         }
     }

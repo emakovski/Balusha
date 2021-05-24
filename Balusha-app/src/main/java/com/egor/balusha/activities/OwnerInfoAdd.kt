@@ -12,7 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.egor.balusha.R
-import com.egor.balusha.createDirectory
+import com.egor.balusha.createOwnersDirectory
 import com.egor.balusha.saveImage
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.File
@@ -127,7 +127,7 @@ class OwnerInfoAdd : AppCompatActivity(){
     }
 
     private fun createDirectoryForOwnerPicture() {
-        createDirectory(applicationContext)?.run {
+        createOwnersDirectory(applicationContext)?.run {
             ownerPictureDirectory = this
         }
     }
