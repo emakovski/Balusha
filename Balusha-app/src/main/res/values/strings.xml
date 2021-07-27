@@ -100,8 +100,20 @@
     <string name="treatment_name_flea">fleas and ticks treatment name</string>
     <string name="remove_item">Remove item</string>
     <string name="warning">Are you sure you want to delete data?</string>
-
-
+    <string name="date_repr_birth">Date of birth:</string>
+    <string name="number_of_puppies_mask">Number of puppies:</string>
+    <string name="my_repro">Reproduction</string>
+    <string name="no_repro_added">No reproduction info added</string>
+    <string name="new_repro">New reproduction</string>
+    <string name="date_estrus_mask">Date of estrus:</string>
+    <string name="date_estrus_hint">date of estrus</string>
+    <string name="date_mating_mask">Date of mating:</string>
+    <string name="date_mating_hint">date of mating</string>
+    <string name="date_birth_hint">date of birth</string>
+    <string name="number_of_puppies_hint">number of puppies</string>
+    <string name="comments_mask">Comments:</string>
+    <string name="comments_hint">comments</string>
+    <string name="reproduction">Reproduction</string>
 
 
     <string name="nav1_clicked">Bottom Navigation Drawer menu item 1</string>
