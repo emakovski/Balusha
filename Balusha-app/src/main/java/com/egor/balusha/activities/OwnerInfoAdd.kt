@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import android.view.View
 import android.widget.EditText
@@ -127,8 +128,14 @@ class OwnerInfoAdd : AppCompatActivity(){
     }
 
     private fun createDirectoryForOwnerPicture() {
-        createOwnersDirectory(applicationContext)?.run {
-            ownerPictureDirectory = this
+        if (Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED) {
+            ownerPictureDirectory = File("${getExternalFilesDir(Environment.DIRECTORY_PICTURES)}/OwnersPicture")
+            if (!ownerPictureDirectory.exists()) {
+                ownerPictureDirectory.mkdir()
+            }
         }
+//        createOwnersDirectory(applicationContext)?.run {
+//            ownerPictureDirectory = this
+//        }
     }
 }

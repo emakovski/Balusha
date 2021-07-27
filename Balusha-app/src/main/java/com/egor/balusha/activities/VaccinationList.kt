@@ -8,6 +8,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.egor.balusha.DatabaseRepository
 import com.egor.balusha.adapters.VaccineInfoAdapter
 import com.egor.balusha.databinding.VaccinationsBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import java.util.*
 
 private const val ADD_VACCINATION_CODE = 4
@@ -19,12 +23,14 @@ class VaccinationList : AppCompatActivity() {
     private lateinit var binding: VaccinationsBinding
     private lateinit var adapter: VaccineInfoAdapter
     private lateinit var repository: DatabaseRepository
+    private lateinit var activityScope: CoroutineScope
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = VaccinationsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        repository = DatabaseRepository()
+        activityScope = CoroutineScope(Dispatchers.Main + Job())
+        repository = DatabaseRepository(activityScope)
         setRecyclerSettings()
         setButtonsListener()
         setAdapterListener()
@@ -45,21 +51,33 @@ class VaccinationList : AppCompatActivity() {
         adapter = VaccineInfoAdapter()
         binding.recyclerVaccines.adapter = adapter
         binding.recyclerVaccines.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        repository.getAllVaccineList()
-            .subscribe { list ->
-                adapter.updateList(list.sortedBy { it.vaccine_date.toLowerCase(Locale.ROOT) })
-                setNoVaccinationsVisibility()
-            }
+        //made with coroutines
+        activityScope.launch {
+            adapter.updateList(repository.getAllVaccineList().sortedBy { it.vaccine_date.toLowerCase() })
+            setNoVaccinationsVisibility()
+        }
+        //made with rx
+//        repository.getAllVaccineList()
+//            .subscribe { list ->
+//                adapter.updateList(list.sortedBy { it.vaccine_date.toLowerCase(Locale.ROOT) })
+//                setNoVaccinationsVisibility()
+//            }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode != RESULT_CODE_BUTTON_BACK) {
-            repository.getAllVaccineList()
-                .subscribe { list ->
-                    adapter.updateList(list.sortedBy { it.vaccine_date.toLowerCase(Locale.ROOT)})
-                    setNoVaccinationsVisibility()
-                }
+            //made with coroutines
+            activityScope.launch {
+                adapter.updateList(repository.getAllVaccineList().sortedBy { it.vaccine_date.toLowerCase() })
+                setNoVaccinationsVisibility()
+            }
+            //made with rx
+//            repository.getAllVaccineList()
+//                .subscribe { list ->
+//                    adapter.updateList(list.sortedBy { it.vaccine_date.toLowerCase(Locale.ROOT)})
+//                    setNoVaccinationsVisibility()
+//                }
         }
         setNoVaccinationsVisibility()
     }

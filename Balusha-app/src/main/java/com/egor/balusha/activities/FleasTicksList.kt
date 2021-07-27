@@ -8,6 +8,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.egor.balusha.DatabaseRepository
 import com.egor.balusha.adapters.FleasTicksInfoAdapter
 import com.egor.balusha.databinding.FleasAndTicksBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import java.util.*
 
 private const val ADD_VACCINATION_CODE = 4
@@ -19,12 +23,14 @@ class FleasTicksList : AppCompatActivity() {
     private lateinit var binding: FleasAndTicksBinding
     private lateinit var adapter: FleasTicksInfoAdapter
     private lateinit var repository: DatabaseRepository
+    private lateinit var activityScope: CoroutineScope
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FleasAndTicksBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        repository = DatabaseRepository()
+        activityScope = CoroutineScope(Dispatchers.Main + Job())
+        repository = DatabaseRepository(activityScope)
         setRecyclerSettings()
         setButtonsListener()
         setAdapterListener()
@@ -45,21 +51,33 @@ class FleasTicksList : AppCompatActivity() {
         adapter = FleasTicksInfoAdapter()
         binding.recyclerFleas.adapter = adapter
         binding.recyclerFleas.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        repository.getAllFleasList()
-            .subscribe { list ->
-                adapter.updateList(list.sortedBy { it.fleas_date.toLowerCase(Locale.ROOT) })
-                setNoTreatsVisibility()
-            }
+        //made with coroutines
+        activityScope.launch {
+            adapter.updateList(repository.getAllFleasList().sortedBy { it.fleas_date.toLowerCase() })
+            setNoTreatsVisibility()
+        }
+        //made with rx
+//        repository.getAllFleasList()
+//            .subscribe { list ->
+//                adapter.updateList(list.sortedBy { it.fleas_date.toLowerCase(Locale.ROOT) })
+//                setNoTreatsVisibility()
+//            }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode != RESULT_CODE_BUTTON_BACK) {
-            repository.getAllFleasList()
-                .subscribe { list ->
-                    adapter.updateList(list.sortedBy { it.fleas_date.toLowerCase(Locale.ROOT)})
-                    setNoTreatsVisibility()
-                }
+            //made with coroutines
+            activityScope.launch {
+                adapter.updateList(repository.getAllFleasList().sortedBy { it.fleas_date.toLowerCase() })
+                setNoTreatsVisibility()
+            }
+            //made with rx
+//            repository.getAllFleasList()
+//                .subscribe { list ->
+//                    adapter.updateList(list.sortedBy { it.fleas_date.toLowerCase(Locale.ROOT)})
+//                    setNoTreatsVisibility()
+//                }
         }
         setNoTreatsVisibility()
     }

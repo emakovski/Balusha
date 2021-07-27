@@ -12,6 +12,10 @@ import com.egor.balusha.databinding.VaccineEditBinding
 import com.egor.balusha.dbpets.DatabasePetsInfo
 import com.egor.balusha.dbpets.VaccineInfo
 import com.egor.balusha.dbpets.VaccineInfoDao
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
 private const val RESULT_CODE_BUTTON_BACK = 3
 private const val RESULT_CODE_BUTTON_REMOVE = 7
@@ -19,6 +23,7 @@ private const val RESULT_CODE_BUTTON_REMOVE = 7
 class VaccinationEdit : AppCompatActivity() {
     private lateinit var binding: VaccineEditBinding
     private lateinit var repository: DatabaseRepository
+    private lateinit var activityScope: CoroutineScope
     private lateinit var currentVaccineInfo: VaccineInfo
     private var vaccineId: Long = 0
     private lateinit var type: String
@@ -27,7 +32,8 @@ class VaccinationEdit : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = VaccineEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        repository = DatabaseRepository()
+        activityScope = CoroutineScope(Dispatchers.Main + Job())
+        repository = DatabaseRepository(activityScope)
         setListeners()
         loadDataFromIntent()
     }
@@ -77,10 +83,17 @@ class VaccinationEdit : AppCompatActivity() {
         val clinic = binding.clinicVaccineEdit.text.toString()
         if (name.isNotEmpty() && date.isNotEmpty() && type.isNotEmpty() && batch.isNotEmpty() && clinic.isNotEmpty()) {
             val vaccineInfo = VaccineInfo(name, date, type, batch, clinic).also { it.id = vaccineId }
-            repository.updateVaccineInfo(vaccineInfo).subscribe {
-            setResult(Activity.RESULT_OK)
-            finish()
+            //made with coroutines
+            activityScope.launch {
+                repository.updateVaccineInfo(vaccineInfo)
+                setResult(Activity.RESULT_OK, intent)
+                finish()
             }
+            //made with rx
+//            repository.updateVaccineInfo(vaccineInfo).subscribe {
+//            setResult(Activity.RESULT_OK)
+//            finish()
+//            }
         } else {
             Toast.makeText(this, "Fields can't be empty", Toast.LENGTH_SHORT).show()
         }
@@ -102,10 +115,18 @@ class VaccinationEdit : AppCompatActivity() {
             .setMessage(getString(R.string.warning))
             .setPositiveButton("Apply"
             ) { dialogInterface, i ->
-                repository.deleteVaccine(currentVaccineInfo).subscribe {
+                //made with coroutines
+                activityScope.launch {
+                    repository.deleteVaccine(currentVaccineInfo)
                     setResult(RESULT_CODE_BUTTON_REMOVE)
                     finish()
                 }
+
+                //made with rx
+//                repository.deleteVaccine(currentVaccineInfo).subscribe {
+//                    setResult(RESULT_CODE_BUTTON_REMOVE)
+//                    finish()
+//                }
             }
             .setNegativeButton("Cancel") { dialogInterface, i -> dialogInterface.cancel() }
             .setCancelable(false)

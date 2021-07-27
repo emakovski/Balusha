@@ -11,6 +11,10 @@ import com.egor.balusha.databinding.FleasEditBinding
 import com.egor.balusha.databinding.HelminthsEditBinding
 import com.egor.balusha.dbpets.FleasInfo
 import com.egor.balusha.dbpets.HelminthsInfo
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
 private const val RESULT_CODE_BUTTON_BACK = 3
 private const val RESULT_CODE_BUTTON_REMOVE = 7
@@ -18,6 +22,7 @@ private const val RESULT_CODE_BUTTON_REMOVE = 7
 class FleasTicksEdit : AppCompatActivity() {
     private lateinit var binding: FleasEditBinding
     private lateinit var repository: DatabaseRepository
+    private lateinit var activityScope: CoroutineScope
     private lateinit var currentFleasInfo: FleasInfo
     private var treatId: Long = 0
 
@@ -25,7 +30,8 @@ class FleasTicksEdit : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = FleasEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        repository = DatabaseRepository()
+        activityScope = CoroutineScope(Dispatchers.Main + Job())
+        repository = DatabaseRepository(activityScope)
         setListeners()
         loadDataFromIntent()
     }
@@ -57,10 +63,17 @@ class FleasTicksEdit : AppCompatActivity() {
         val date = binding.dateInFleasEdit.text.toString()
         if (name.isNotEmpty() && date.isNotEmpty()) {
             val fleasInfo = FleasInfo(name, date).also { it.id = treatId }
-            repository.updateFleasInfo(fleasInfo).subscribe {
-                setResult(Activity.RESULT_OK)
+            //made with coroutines
+            activityScope.launch {
+                repository.updateFleasInfo(fleasInfo)
+                setResult(Activity.RESULT_OK, intent)
                 finish()
             }
+            //made with rx
+//            repository.updateFleasInfo(fleasInfo).subscribe {
+//                setResult(Activity.RESULT_OK)
+//                finish()
+//            }
         } else {
             Toast.makeText(this, "Fields can't be empty", Toast.LENGTH_SHORT).show()
         }
@@ -82,10 +95,17 @@ class FleasTicksEdit : AppCompatActivity() {
             .setMessage(getString(R.string.warning))
             .setPositiveButton("Apply"
             ) { dialogInterface, i ->
-                repository.deleteFleas(currentFleasInfo).subscribe {
+                //made with coroutines
+                activityScope.launch {
+                    repository.deleteFleas(currentFleasInfo)
                     setResult(RESULT_CODE_BUTTON_REMOVE)
                     finish()
                 }
+                //made with rx
+//                repository.deleteFleas(currentFleasInfo).subscribe {
+//                    setResult(RESULT_CODE_BUTTON_REMOVE)
+//                    finish()
+//                }
             }
             .setNegativeButton("Cancel") { dialogInterface, i -> dialogInterface.cancel() }
             .setCancelable(false)

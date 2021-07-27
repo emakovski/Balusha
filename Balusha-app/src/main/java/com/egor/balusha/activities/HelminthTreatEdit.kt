@@ -9,6 +9,10 @@ import com.egor.balusha.DatabaseRepository
 import com.egor.balusha.R
 import com.egor.balusha.databinding.HelminthsEditBinding
 import com.egor.balusha.dbpets.HelminthsInfo
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
 private const val RESULT_CODE_BUTTON_BACK = 3
 private const val RESULT_CODE_BUTTON_REMOVE = 7
@@ -16,6 +20,7 @@ private const val RESULT_CODE_BUTTON_REMOVE = 7
 class HelminthTreatEdit : AppCompatActivity() {
     private lateinit var binding: HelminthsEditBinding
     private lateinit var repository: DatabaseRepository
+    private lateinit var activityScope: CoroutineScope
     private lateinit var currentHelminthsInfo: HelminthsInfo
     private var treatId: Long = 0
 
@@ -23,7 +28,8 @@ class HelminthTreatEdit : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = HelminthsEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        repository = DatabaseRepository()
+        activityScope = CoroutineScope(Dispatchers.Main + Job())
+        repository = DatabaseRepository(activityScope)
         setListeners()
         loadDataFromIntent()
     }
@@ -57,10 +63,18 @@ class HelminthTreatEdit : AppCompatActivity() {
         val dose = binding.doseHelminthsEdit.text.toString()
         if (name.isNotEmpty() && date.isNotEmpty() && dose.isNotEmpty()) {
             val helminthsInfo = HelminthsInfo(name, date, dose).also { it.id = treatId }
-            repository.updateHelminthsInfo(helminthsInfo).subscribe {
-                setResult(Activity.RESULT_OK)
+            //made with coroutines
+            activityScope.launch {
+                repository.updateHelminthsInfo(helminthsInfo)
+                setResult(Activity.RESULT_OK, intent)
                 finish()
             }
+
+            //made with rx
+//            repository.updateHelminthsInfo(helminthsInfo).subscribe {
+//                setResult(Activity.RESULT_OK)
+//                finish()
+//            }
         } else {
             Toast.makeText(this, "Fields can't be empty", Toast.LENGTH_SHORT).show()
         }
@@ -82,10 +96,18 @@ class HelminthTreatEdit : AppCompatActivity() {
             .setMessage(getString(R.string.warning))
             .setPositiveButton("Apply"
             ) { dialogInterface, i ->
-                repository.deleteHelminths(currentHelminthsInfo).subscribe {
+                //made with coroutines
+                activityScope.launch {
+                    repository.deleteHelminths(currentHelminthsInfo)
                     setResult(RESULT_CODE_BUTTON_REMOVE)
                     finish()
                 }
+
+                //made with rx
+//                repository.deleteHelminths(currentHelminthsInfo).subscribe {
+//                    setResult(RESULT_CODE_BUTTON_REMOVE)
+//                    finish()
+//                }
             }
             .setNegativeButton("Cancel") { dialogInterface, i -> dialogInterface.cancel() }
             .setCancelable(false)

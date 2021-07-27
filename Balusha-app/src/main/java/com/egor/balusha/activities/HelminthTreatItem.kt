@@ -5,12 +5,16 @@ import androidx.appcompat.app.AppCompatActivity
 import com.egor.balusha.DatabaseRepository
 import com.egor.balusha.databinding.HelminthsInfoBinding
 import com.egor.balusha.dbpets.HelminthsInfo
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 
 private const val RESULT_CODE_BUTTON_BACK = 3
 
 class HelminthTreatItem : AppCompatActivity() {
     private lateinit var binding: HelminthsInfoBinding
     private lateinit var repository: DatabaseRepository
+    private lateinit var activityScope: CoroutineScope
     private lateinit var currentTreatInfo: HelminthsInfo
     private var treatId: Long = 0
 
@@ -18,7 +22,8 @@ class HelminthTreatItem : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = HelminthsInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        repository = DatabaseRepository()
+        activityScope = CoroutineScope(Dispatchers.Main + Job())
+        repository = DatabaseRepository(activityScope)
         setListeners()
         loadDataFromIntent()
     }

@@ -74,7 +74,7 @@ class PetInfoEdit : AppCompatActivity() {
 
     private fun setListeners() {
         binding.backToMenuPetsBioEdit.setOnClickListener {
-            backToPreviousActivity()
+            startActivity(Intent(this, MainActivity::class.java))
         }
         binding.fabInPetsBioEdit.setOnClickListener {
             editPetInfoAndBackToPreviousActivity()

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import android.view.View
 import android.widget.Toast
@@ -119,6 +120,18 @@ class OwnerInfoEdit : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        if (data != null) {
+//            if (data.extras != null) {
+//                if (data.extras?.get("data") != null) {
+//                    val photo = data.extras?.get("data") as Bitmap?
+//                    if (photo != null) {
+//                        pathToPicture = saveImage(photo, binding.photoOfOwnerInBioEdit, ownerPictureDirectory)
+//                        photoWasLoaded = true
+//                    }
+//                }
+//            }
+//        }
         super.onActivityResult(requestCode, resultCode, data)
         data?.extras?.get("data")?.run {
             pathToPicture = saveImage(this as Bitmap, binding.photoOfOwnerInBioEdit, ownerPictureDirectory)
@@ -128,6 +141,12 @@ class OwnerInfoEdit : AppCompatActivity() {
     }
 
     private fun createDirectoryForOwnerPicture() {
+//        if (Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED) {
+//            ownerPictureDirectory = File("${getExternalFilesDir(Environment.DIRECTORY_PICTURES)}/OwnersPicture")
+//            if (!ownerPictureDirectory.exists()) {
+//                ownerPictureDirectory.mkdir()
+//            }
+//        }
         createOwnersDirectory(applicationContext)?.run {
             ownerPictureDirectory = this
         }

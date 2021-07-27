@@ -202,7 +202,7 @@
                     android:hint="@string/hint_tag"
                     android:textColor="@color/medium_green"
                     android:textSize="24sp"
-                    android:inputType="numberSigned" />
+                    android:inputType="text" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -241,7 +241,7 @@
                         android:layout_height="wrap_content"
                         android:autofillHints=""
                         android:hint="@string/hint_pedigree"
-                        android:inputType="numberSigned"
+                        android:inputType="text"
                         android:textColor="@color/medium_green"
                         android:textSize="24sp" />
                 </LinearLayout>
@@ -260,7 +260,7 @@
                     android:layout_height="wrap_content"
                     android:autofillHints=""
                     android:hint="@string/hint_chip_number"
-                    android:inputType="numberSigned"
+                    android:inputType="text"
                     android:textColor="@color/medium_green"
                     android:textSize="24sp" />
 

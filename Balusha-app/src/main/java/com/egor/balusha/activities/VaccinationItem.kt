@@ -5,12 +5,16 @@ import androidx.appcompat.app.AppCompatActivity
 import com.egor.balusha.DatabaseRepository
 import com.egor.balusha.databinding.VaccineInfoBinding
 import com.egor.balusha.dbpets.VaccineInfo
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 
 private const val RESULT_CODE_BUTTON_BACK = 3
 
 class VaccinationItem : AppCompatActivity() {
     private lateinit var binding: VaccineInfoBinding
     private lateinit var repository: DatabaseRepository
+    private lateinit var activityScope: CoroutineScope
     private lateinit var currentVaccineInfo: VaccineInfo
     private var vaccineId: Long = 0
 
@@ -18,7 +22,8 @@ class VaccinationItem : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = VaccineInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        repository = DatabaseRepository()
+        activityScope = CoroutineScope(Dispatchers.Main + Job())
+        repository = DatabaseRepository(activityScope)
         setListeners()
         loadDataFromIntent()
     }

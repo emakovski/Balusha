@@ -10,6 +10,9 @@ import com.egor.balusha.BottomNavFragment
 import com.egor.balusha.DatabaseRepository
 import com.egor.balusha.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 
 private const val PET_PHOTO = "pet_photo"
 private const val PET_NAME = "pet_name"
@@ -21,13 +24,15 @@ private const val PET_COMMENT = "pet_comment"
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var repository: DatabaseRepository
+    private lateinit var activityScope: CoroutineScope
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         DatabaseRepository.initDatabase(applicationContext)
-        repository = DatabaseRepository()
+        activityScope = CoroutineScope(Dispatchers.Main + Job())
+        repository = DatabaseRepository(activityScope)
 //       getSharedPreferences("FIRST_RUN_PREF", 0).edit().clear().apply()
         val isFirstRun = getSharedPreferences("FIRST_RUN_PREF", Context.MODE_PRIVATE).getBoolean("isFirstRun", true)
         if (isFirstRun) {
