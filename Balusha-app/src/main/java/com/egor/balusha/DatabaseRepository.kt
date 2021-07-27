@@ -1,10 +1,7 @@
 package com.egor.balusha
 
 import android.content.Context
-import com.egor.balusha.dbpets.DatabasePetsInfo
-import com.egor.balusha.dbpets.FleasInfo
-import com.egor.balusha.dbpets.HelminthsInfo
-import com.egor.balusha.dbpets.VaccineInfo
+import com.egor.balusha.dbpets.*
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Single
@@ -67,6 +64,21 @@ class DatabaseRepository(private val scope: CoroutineScope) {
     }
 
     suspend fun getAllFleasList() = withContext(scope.coroutineContext + Dispatchers.IO) { database.getFleasInfoDao().getAll() }
+
+
+    suspend fun addRepro(info: ReproInfo) {
+        withContext(scope.coroutineContext + Dispatchers.IO) { database.getReproInfoDao().add(info) }
+    }
+
+    suspend fun updateReproInfo(info: ReproInfo) {
+        withContext(scope.coroutineContext + Dispatchers.IO) { database.getReproInfoDao().update(info) }
+    }
+
+    suspend fun deleteRepro(info: ReproInfo) {
+        withContext(scope.coroutineContext + Dispatchers.IO) { database.getReproInfoDao().delete(info) }
+    }
+
+    suspend fun getAllReproList() = withContext(scope.coroutineContext + Dispatchers.IO) { database.getReproInfoDao().getAll() }
 }
 
 //made with rx
