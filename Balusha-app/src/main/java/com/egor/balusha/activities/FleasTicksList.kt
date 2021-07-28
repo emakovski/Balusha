@@ -14,8 +14,8 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import java.util.*
 
-private const val ADD_VACCINATION_CODE = 4
-private const val SHOW_VACCINATION_CODE = 5
+private const val ADD_FLEAS_CODE = 4
+private const val SHOW_FLEAS_CODE = 5
 private const val RESULT_CODE_BUTTON_BACK = 3
 
 
@@ -40,7 +40,7 @@ class FleasTicksList : AppCompatActivity() {
     private fun setButtonsListener() {
         binding.fabFleas.setOnClickListener {
             val intent = Intent(this, FleasTicksAdd::class.java)
-            startActivityForResult(intent, ADD_VACCINATION_CODE)
+            startActivityForResult(intent, ADD_FLEAS_CODE)
         }
         binding.backToMenuFleas.setOnClickListener {
             backToPreviousActivity()
@@ -91,12 +91,12 @@ class FleasTicksList : AppCompatActivity() {
         adapter.onFleasInfoShowClickListener = {
             val intent = Intent(this, FleasTicksItem::class.java)
             intent.putExtra("fleasInfo", it)
-            startActivityForResult(intent, SHOW_VACCINATION_CODE)
+            startActivityForResult(intent, SHOW_FLEAS_CODE)
         }
         adapter.onEditFleasClickListener = {
             val intent = Intent(this, FleasTicksEdit::class.java)
             intent.putExtra("fleasInfo", it)
-            startActivityForResult(intent, SHOW_VACCINATION_CODE)
+            startActivityForResult(intent, SHOW_FLEAS_CODE)
         }
     }
     private fun backToPreviousActivity() {

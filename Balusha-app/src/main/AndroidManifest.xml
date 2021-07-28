@@ -84,6 +84,22 @@
             android:name=".activities.FleasTicksItem"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Balusha" />
+        <activity
+            android:name=".activities.ReproductionList"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Balusha" />
+        <activity
+            android:name=".activities.ReproductionAdd"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Balusha" />
+        <activity
+            android:name=".activities.ReproductionEdit"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Balusha" />
+        <activity
+            android:name=".activities.ReproductionItem"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Balusha" />
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

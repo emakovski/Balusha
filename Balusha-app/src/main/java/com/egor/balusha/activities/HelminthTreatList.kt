@@ -14,8 +14,8 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import java.util.*
 
-private const val ADD_VACCINATION_CODE = 4
-private const val SHOW_VACCINATION_CODE = 5
+private const val ADD_HELMINTH_CODE = 4
+private const val SHOW_HELMINTH_CODE = 5
 private const val RESULT_CODE_BUTTON_BACK = 3
 
 
@@ -40,7 +40,7 @@ class HelminthTreatList : AppCompatActivity() {
     private fun setButtonsListener() {
         binding.fabHelminths.setOnClickListener {
             val intent = Intent(this, HelminthTreatAdd::class.java)
-            startActivityForResult(intent, ADD_VACCINATION_CODE)
+            startActivityForResult(intent, ADD_HELMINTH_CODE)
         }
         binding.backToMenuHelminths.setOnClickListener {
             backToPreviousActivity()
@@ -91,12 +91,12 @@ class HelminthTreatList : AppCompatActivity() {
         adapter.onHelminthInfoShowClickListener = {
             val intent = Intent(this, HelminthTreatItem::class.java)
             intent.putExtra("helminthsInfo", it)
-            startActivityForResult(intent, SHOW_VACCINATION_CODE)
+            startActivityForResult(intent, SHOW_HELMINTH_CODE)
         }
         adapter.onEditHelminthClickListener = {
             val intent = Intent(this, HelminthTreatEdit::class.java)
             intent.putExtra("helminthsInfo", it)
-            startActivityForResult(intent, SHOW_VACCINATION_CODE)
+            startActivityForResult(intent, SHOW_HELMINTH_CODE)
         }
     }
     private fun backToPreviousActivity() {

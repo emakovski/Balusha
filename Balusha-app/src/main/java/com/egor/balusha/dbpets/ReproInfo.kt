@@ -38,12 +38,12 @@ class ReproInfo(@ColumnInfo var repro_estrus_date: String,
         p0.writeLong(id)
     }
 
-    companion object CREATOR : Parcelable.Creator<VaccineInfo> {
-        override fun createFromParcel(parcel: Parcel): VaccineInfo {
-            return VaccineInfo(parcel)
+    companion object CREATOR : Parcelable.Creator<ReproInfo> {
+        override fun createFromParcel(parcel: Parcel): ReproInfo {
+            return ReproInfo(parcel)
         }
 
-        override fun newArray(size: Int): Array<VaccineInfo?> {
+        override fun newArray(size: Int): Array<ReproInfo?> {
             return arrayOfNulls(size)
         }
     }

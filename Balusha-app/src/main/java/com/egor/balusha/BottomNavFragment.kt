@@ -8,10 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.egor.balusha.activities.FleasTicksList
-import com.egor.balusha.activities.HelminthTreatList
-import com.egor.balusha.activities.PetBio
-import com.egor.balusha.activities.VaccinationList
+import com.egor.balusha.activities.*
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_bottom_menu.*
 
@@ -30,12 +27,12 @@ class BottomNavFragment: BottomSheetDialogFragment() {
                 R.id.menu_vaccination -> activity?.let{it.startActivity(Intent(it, VaccinationList::class.java))}
                 R.id.menu_helminths -> activity?.let{it.startActivity(Intent(it, HelminthTreatList::class.java))}
                 R.id.menu_fleas -> activity?.let{it.startActivity(Intent(it, FleasTicksList::class.java))}
-                R.id.menu_reproduction -> context!!.toast(getString(R.string.nav2_clicked))
-                R.id.menu_diet -> context!!.toast(getString(R.string.nav3_clicked))
-                R.id.menu_places -> context!!.toast(getString(R.string.nav1_clicked))
-                R.id.menu_moments -> context!!.toast(getString(R.string.nav2_clicked))
-                R.id.menu_weather -> context!!.toast(getString(R.string.nav3_clicked))
-                R.id.menu_navi -> context!!.toast(getString(R.string.nav3_clicked))
+                R.id.menu_reproduction -> activity?.let{it.startActivity(Intent(it, ReproductionList::class.java))}
+                R.id.menu_diet -> requireContext().toast(getString(R.string.nav3_clicked))
+                R.id.menu_places -> requireContext().toast(getString(R.string.nav1_clicked))
+                R.id.menu_moments -> requireContext().toast(getString(R.string.nav2_clicked))
+                R.id.menu_weather -> requireContext().toast(getString(R.string.nav3_clicked))
+                R.id.menu_navi -> requireContext().toast(getString(R.string.nav3_clicked))
             }
             // Add code here to update the UI based on the item selected
             // For example, swap UI fragments here
