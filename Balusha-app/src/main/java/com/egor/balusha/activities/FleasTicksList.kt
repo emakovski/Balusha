@@ -52,7 +52,7 @@ class FleasTicksList : AppCompatActivity() {
         binding.recyclerFleas.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         //made with coroutines
         activityScope.launch {
-            adapter.updateList(repository.getAllFleasList().sortedBy { it.fleas_date.toLowerCase() })
+            adapter.updateList(repository.getAllFleasList().sortedBy { it.id })
             setNoTreatsVisibility()
         }
         //made with rx
@@ -68,7 +68,7 @@ class FleasTicksList : AppCompatActivity() {
         if (resultCode != RESULT_CODE_BUTTON_BACK) {
             //made with coroutines
             activityScope.launch {
-                adapter.updateList(repository.getAllFleasList().sortedBy { it.fleas_date.toLowerCase() })
+                adapter.updateList(repository.getAllFleasList().sortedBy { it.id })
                 setNoTreatsVisibility()
             }
             //made with rx

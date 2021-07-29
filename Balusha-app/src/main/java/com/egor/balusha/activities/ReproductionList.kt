@@ -52,7 +52,7 @@ class ReproductionList : AppCompatActivity() {
         binding.recyclerRepro.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         //made with coroutines
         activityScope.launch {
-            adapter.updateList(repository.getAllReproList().sortedBy { it.repro_birth_date.toLowerCase() })
+            adapter.updateList(repository.getAllReproList().sortedBy { it.id })
             setNoReproVisibility()
         }
         //made with rx
@@ -68,7 +68,7 @@ class ReproductionList : AppCompatActivity() {
         if (resultCode != RESULT_CODE_BUTTON_BACK) {
             //made with coroutines
             activityScope.launch {
-                adapter.updateList(repository.getAllReproList().sortedBy { it.repro_birth_date.toLowerCase() })
+                adapter.updateList(repository.getAllReproList().sortedBy { it.id })
                 setNoReproVisibility()
             }
             //made with rx

@@ -52,7 +52,7 @@ class VaccinationList : AppCompatActivity() {
         binding.recyclerVaccines.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         //made with coroutines
         activityScope.launch {
-            adapter.updateList(repository.getAllVaccineList().sortedBy { it.vaccine_date.toLowerCase() })
+            adapter.updateList(repository.getAllVaccineList().sortedBy { it.id })
             setNoVaccinationsVisibility()
         }
         //made with rx
@@ -68,7 +68,7 @@ class VaccinationList : AppCompatActivity() {
         if (resultCode != RESULT_CODE_BUTTON_BACK) {
             //made with coroutines
             activityScope.launch {
-                adapter.updateList(repository.getAllVaccineList().sortedBy { it.vaccine_date.toLowerCase() })
+                adapter.updateList(repository.getAllVaccineList().sortedBy { it.id })
                 setNoVaccinationsVisibility()
             }
             //made with rx
