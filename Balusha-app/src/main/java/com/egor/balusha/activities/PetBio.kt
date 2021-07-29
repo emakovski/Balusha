@@ -51,7 +51,7 @@ class PetBio : AppCompatActivity() {
     }
     private fun setListener() {
         binding.fabInBio.setOnClickListener {
-            backToPreviousActivity()
+            startActivity(Intent(this, MainActivity::class.java))
         }
         binding.buttonPetsBioOwnerInfo.setOnClickListener {
             startActivity(Intent(this, OwnerBio::class.java))

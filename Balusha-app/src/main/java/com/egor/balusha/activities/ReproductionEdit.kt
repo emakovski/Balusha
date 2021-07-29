@@ -1,6 +1,8 @@
 package com.egor.balusha.activities
 
 import android.app.Activity
+import android.app.DatePickerDialog
+import android.icu.util.Calendar
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -23,6 +25,8 @@ class ReproductionEdit : AppCompatActivity() {
     private lateinit var activityScope: CoroutineScope
     private lateinit var currentReproInfo: ReproInfo
     private var reproId: Long = 0
+    private val cal: Calendar = Calendar.getInstance()
+    private var picker: DatePickerDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +60,30 @@ class ReproductionEdit : AppCompatActivity() {
         }
         binding.buttonDeleteReprEdit.setOnClickListener {
             createDialog()
+        }
+        binding.dateEstrusReprEdit.setOnClickListener{
+            val day = cal.get(Calendar.DAY_OF_MONTH)
+            val month = cal.get(Calendar.MONTH)
+            val yearr = cal.get(Calendar.YEAR)
+            picker = DatePickerDialog(this,
+                { view, year, monthOfYear, dayOfMonth -> binding.dateEstrusReprEdit.setText(dayOfMonth.toString() + "." + (monthOfYear + 1) + "." + year) }, yearr, month, day)
+            picker!!.show()
+        }
+        binding.dateMatingReprEdit.setOnClickListener{
+            val day = cal.get(Calendar.DAY_OF_MONTH)
+            val month = cal.get(Calendar.MONTH)
+            val yearr = cal.get(Calendar.YEAR)
+            picker = DatePickerDialog(this,
+                { view, year, monthOfYear, dayOfMonth -> binding.dateMatingReprEdit.setText(dayOfMonth.toString() + "." + (monthOfYear + 1) + "." + year) }, yearr, month, day)
+            picker!!.show()
+        }
+        binding.dateBirthReprEdit.setOnClickListener{
+            val day = cal.get(Calendar.DAY_OF_MONTH)
+            val month = cal.get(Calendar.MONTH)
+            val yearr = cal.get(Calendar.YEAR)
+            picker = DatePickerDialog(this,
+                { view, year, monthOfYear, dayOfMonth -> binding.dateBirthReprEdit.setText(dayOfMonth.toString() + "." + (monthOfYear + 1) + "." + year) }, yearr, month, day)
+            picker!!.show()
         }
     }
 

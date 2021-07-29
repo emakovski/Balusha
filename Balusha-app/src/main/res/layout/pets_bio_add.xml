@@ -101,9 +101,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
-                        android:autofillHints=""
-                        android:hint="@string/hint_birth"
+                        android:maxLines="1"
                         android:inputType="date"
+                        android:focusable="false"
+                        android:hint="@string/hint_birth"
                         android:textColor="@color/medium_green"
                         android:textSize="24sp" />
                 </LinearLayout>
@@ -276,9 +277,10 @@
                     android:id="@+id/chipping_date_in_bio_add"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:autofillHints=""
                     android:hint="@string/hint_impl_date"
+                    android:maxLines="1"
                     android:inputType="date"
+                    android:focusable="false"
                     android:textColor="@color/medium_green"
                     android:textSize="24sp" />
 

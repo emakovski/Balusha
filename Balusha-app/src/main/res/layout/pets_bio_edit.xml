@@ -79,8 +79,9 @@
                     android:hint="@string/hint_birth"
                     android:textColor="@color/medium_green"
                     android:textSize="24sp"
+                    android:maxLines="1"
                     android:inputType="date"
-                    android:autofillHints="" />
+                    android:focusable="false"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -237,8 +238,9 @@
                 android:hint="@string/hint_impl_date"
                 android:textColor="@color/medium_green"
                 android:textSize="24sp"
+                android:maxLines="1"
                 android:inputType="date"
-                android:autofillHints="" />
+                android:focusable="false"/>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

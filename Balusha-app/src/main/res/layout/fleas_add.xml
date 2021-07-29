@@ -72,7 +72,8 @@
                 android:textColor="@color/medium_green"
                 android:textSize="24sp"
                 android:maxLines="1"
-                android:inputType="date"/>
+                android:inputType="date"
+                android:focusable="false"/>
         </LinearLayout>
     </LinearLayout>
 

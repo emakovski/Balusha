@@ -1,8 +1,10 @@
 package com.egor.balusha.activities
 
+import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.icu.util.Calendar
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
@@ -33,7 +35,8 @@ class PetInfoAdd : AppCompatActivity(){
     private var photoWasLoaded: Boolean = false
     private lateinit var petsPictureDirectory: File
     private lateinit var pathToPicture: String
-
+    private val cal: Calendar = Calendar.getInstance()
+    private var picker: DatePickerDialog? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,6 +54,22 @@ class PetInfoAdd : AppCompatActivity(){
         }
         binding.fabInPetsBioAdd.setOnClickListener {
             addPetInfoAndGoToNextActivity()
+        }
+        binding.dateOfBirthInBioAdd.setOnClickListener{
+            val day = cal.get(Calendar.DAY_OF_MONTH)
+            val month = cal.get(Calendar.MONTH)
+            val yearr = cal.get(Calendar.YEAR)
+            picker = DatePickerDialog(this,
+                { view, year, monthOfYear, dayOfMonth -> binding.dateOfBirthInBioAdd.setText(dayOfMonth.toString() + "." + (monthOfYear + 1) + "." + year) }, yearr, month, day)
+            picker!!.show()
+        }
+        binding.chippingDateInBioAdd.setOnClickListener{
+            val day = cal.get(Calendar.DAY_OF_MONTH)
+            val month = cal.get(Calendar.MONTH)
+            val yearr = cal.get(Calendar.YEAR)
+            picker = DatePickerDialog(this,
+                { view, year, monthOfYear, dayOfMonth -> binding.chippingDateInBioAdd.setText(dayOfMonth.toString() + "." + (monthOfYear + 1) + "." + year) }, yearr, month, day)
+            picker!!.show()
         }
     }
 

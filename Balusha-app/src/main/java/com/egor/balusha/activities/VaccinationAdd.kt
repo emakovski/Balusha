@@ -1,15 +1,15 @@
 package com.egor.balusha.activities
 
 import android.app.Activity
+import android.app.DatePickerDialog
+import android.icu.util.Calendar
 import android.os.Bundle
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.egor.balusha.DatabaseRepository
 import com.egor.balusha.databinding.VaccineAddBinding
-import com.egor.balusha.dbpets.DatabasePetsInfo
 import com.egor.balusha.dbpets.VaccineInfo
-import com.egor.balusha.dbpets.VaccineInfoDao
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -23,6 +23,8 @@ class VaccinationAdd : AppCompatActivity() {
     private lateinit var type: String
     private lateinit var repository: DatabaseRepository
     private lateinit var activityScope: CoroutineScope
+    private val cal: Calendar = Calendar.getInstance()
+    private var picker: DatePickerDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +46,14 @@ class VaccinationAdd : AppCompatActivity() {
             findViewById<RadioButton>(checkedId)?.apply {
                 type=text.toString()
         }}
+        binding.dateInVaccineAdd.setOnClickListener{
+            val day = cal.get(Calendar.DAY_OF_MONTH)
+            val month = cal.get(Calendar.MONTH)
+            val yearr = cal.get(Calendar.YEAR)
+            picker = DatePickerDialog(this,
+                { view, year, monthOfYear, dayOfMonth -> binding.dateInVaccineAdd.setText(dayOfMonth.toString() + "." + (monthOfYear + 1) + "." + year) }, yearr, month, day)
+            picker!!.show()
+        }
     }
 
     private fun addVaccineInfoAndBackToPreviousActivity() {

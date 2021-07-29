@@ -71,8 +71,9 @@
                 android:hint="@string/date"
                 android:textColor="@color/medium_green"
                 android:textSize="24sp"
+                android:maxLines="1"
                 android:inputType="date"
-                android:autofillHints="" />
+                android:focusable="false"/>
         </LinearLayout>
 
 

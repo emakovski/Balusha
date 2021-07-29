@@ -1,6 +1,8 @@
 package com.egor.balusha.activities
 
 import android.app.Activity
+import android.app.DatePickerDialog
+import android.icu.util.Calendar
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +20,8 @@ class HelminthTreatAdd : AppCompatActivity() {
     private lateinit var binding: HelminthsAddBinding
     private lateinit var repository: DatabaseRepository
     private lateinit var activityScope: CoroutineScope
+    private val cal: Calendar = Calendar.getInstance()
+    private var picker: DatePickerDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +38,14 @@ class HelminthTreatAdd : AppCompatActivity() {
         }
         binding.fabHelminthsAdd.setOnClickListener {
             addHelminthsInfoAndBackToPreviousActivity()
+        }
+        binding.dateInHelminthsAdd.setOnClickListener{
+            val day = cal.get(Calendar.DAY_OF_MONTH)
+            val month = cal.get(Calendar.MONTH)
+            val yearr = cal.get(Calendar.YEAR)
+            picker = DatePickerDialog(this,
+                { view, year, monthOfYear, dayOfMonth -> binding.dateInHelminthsAdd.setText(dayOfMonth.toString() + "." + (monthOfYear + 1) + "." + year) }, yearr, month, day)
+            picker!!.show()
         }
     }
 
