@@ -12,7 +12,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import java.util.*
 
 private const val ADD_HELMINTH_CODE = 4
 private const val SHOW_HELMINTH_CODE = 5

@@ -13,7 +13,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.egor.balusha.R
-import com.egor.balusha.createOwnersDirectory
 import com.egor.balusha.saveImage
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.File
