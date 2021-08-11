@@ -23,7 +23,7 @@ class VaccinationList : AppCompatActivity() {
     private lateinit var adapter: VaccineInfoAdapter
     private lateinit var repository: DatabaseRepository
     private lateinit var activityScope: CoroutineScope
-    
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
