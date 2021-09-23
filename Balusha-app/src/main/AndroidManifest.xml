@@ -14,91 +14,91 @@
         android:theme="@style/Theme.Balusha">
         <activity
             android:name=".activities.OwnerInfoAdd"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
             android:name=".activities.PetInfoAdd"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
             android:name=".activities.PetBio"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
             android:name=".activities.PetInfoEdit"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
             android:name=".activities.OwnerBio"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
             android:name=".activities.OwnerInfoEdit"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
             android:name=".activities.VaccinationList"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
             android:name=".activities.VaccinationAdd"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
             android:name=".activities.VaccinationEdit"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
             android:name=".activities.VaccinationItem"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
             android:name=".activities.HelminthTreatList"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
             android:name=".activities.HelminthTreatAdd"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
             android:name=".activities.HelminthTreatEdit"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
             android:name=".activities.HelminthTreatItem"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
             android:name=".activities.FleasTicksList"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
             android:name=".activities.FleasTicksAdd"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
             android:name=".activities.FleasTicksEdit"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
             android:name=".activities.FleasTicksItem"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
             android:name=".activities.ReproductionList"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
             android:name=".activities.ReproductionAdd"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
             android:name=".activities.ReproductionEdit"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
             android:name=".activities.ReproductionItem"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity android:name=".activities.MainActivity">
             <intent-filter>

@@ -1,24 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    tools:context=".activities.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/background">
 
     <TextView
         android:id="@+id/title_in_helminths_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
         android:textColor="@color/orange"
-        android:textSize="28sp"
+        android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:text="Milbemax" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="57dp"
+        android:layout_marginTop="50dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="5dp">
 
     <TextView
         android:id="@+id/date_mask_helminths_info"
@@ -27,9 +36,9 @@
         android:layout_marginTop="10dp"
         android:text="@string/date_mask"
         android:textColor="@color/text_green"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@id/title_in_helminths_info"
-        app:layout_constraintTop_toBottomOf="@id/title_in_helminths_info" />
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/date_in_helminths_info"
@@ -38,9 +47,9 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:textColor="@color/medium_green"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@id/dose_mask_helminths_info"
-        app:layout_constraintTop_toBottomOf="@id/title_in_helminths_info"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/date_mask_helminths_info"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="05.05.2020" />
 
     <TextView
@@ -50,7 +59,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/dose_mask"
         android:textColor="@color/text_green"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/date_mask_helminths_info"
         app:layout_constraintTop_toBottomOf="@id/date_mask_helminths_info" />
 
@@ -61,15 +70,12 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:textColor="@color/medium_green"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@id/dose_mask_helminths_info"
         app:layout_constraintTop_toBottomOf="@id/date_in_helminths_info"
         tools:text="10ml" />
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottom_app_bar"
@@ -77,9 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             app:backgroundTint="@color/medium_green"
-            app:fabAlignmentMode="end"
-            app:hideOnScroll="true"
-            app:layout_scrollFlags="scroll|enterAlways" />
+            app:fabAlignmentMode="end" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_helminths_info"
@@ -90,5 +94,3 @@
             android:src="@drawable/ic_baseline_arrow_back_24"
             app:layout_anchor="@id/bottom_app_bar" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    tools:context=".activities.MainActivity">
+    android:background="@color/background">
 
     <TextView
         android:id="@+id/title_in_helminths_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
         android:text="@string/helminths"
         android:textColor="@color/orange"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="57dp"
+        android:layout_marginTop="50dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="5dp">
 
     <TextView
         android:id="@+id/name_mask_helminths_edit"
@@ -27,9 +35,9 @@
         android:layout_marginTop="10dp"
         android:text="@string/treatment_name_mask"
         android:textColor="@color/text_green"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@id/title_in_helminths_edit"
-        app:layout_constraintTop_toBottomOf="@id/title_in_helminths_edit" />
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/name_helminths_edit"
@@ -40,7 +48,7 @@
         android:hint="@string/treatment_name"
         android:inputType="text"
         android:textColor="@color/medium_green"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/name_mask_helminths_edit"
         app:layout_constraintTop_toBottomOf="@id/name_mask_helminths_edit" />
 
@@ -51,7 +59,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/date_mask"
         android:textColor="@color/text_green"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/name_helminths_edit"
         app:layout_constraintTop_toBottomOf="@id/name_helminths_edit" />
 
@@ -65,7 +73,7 @@
         android:inputType="date"
         android:maxLines="1"
         android:textColor="@color/medium_green"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@id/date_mask_helminths_edit"
         app:layout_constraintTop_toBottomOf="@id/name_helminths_edit" />
 
@@ -76,7 +84,7 @@
         android:layout_marginTop="20dp"
         android:text="@string/dose_mask"
         android:textColor="@color/text_green"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/date_mask_helminths_edit"
         app:layout_constraintTop_toBottomOf="@id/date_mask_helminths_edit" />
 
@@ -89,14 +97,11 @@
         android:hint="@string/dose"
         android:inputType="text"
         android:textColor="@color/medium_green"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@id/dose_mask_helminths_edit"
         app:layout_constraintTop_toBottomOf="@id/date_in_helminths_edit" />
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottom_app_bar"
@@ -104,9 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             app:backgroundTint="@color/medium_green"
-            app:fabAlignmentMode="end"
-            app:hideOnScroll="true"
-            app:layout_scrollFlags="scroll|enterAlways" />
+            app:fabAlignmentMode="end" />
 
         <ImageButton
             android:id="@+id/back_to_menu_helminths_edit"
@@ -138,5 +141,3 @@
             android:src="@drawable/ic_baseline_done_24"
             app:layout_anchor="@id/bottom_app_bar" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
