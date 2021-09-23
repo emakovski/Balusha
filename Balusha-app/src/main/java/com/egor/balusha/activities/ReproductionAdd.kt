@@ -2,7 +2,7 @@ package com.egor.balusha.activities
 
 import android.app.Activity
 import android.app.DatePickerDialog
-import android.icu.util.Calendar
+import java.util.Calendar
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity

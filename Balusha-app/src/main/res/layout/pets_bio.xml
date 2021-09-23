@@ -22,26 +22,26 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/photo_of_dog_in_bio"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:scaleType="centerCrop"
-                android:background="@color/light_green"
-                android:layout_marginTop="20dp"
-                android:contentDescription="@string/photo_of_dog" />
+                <ImageView
+                    android:id="@+id/photo_of_dog_in_bio"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:scaleType="centerCrop"
+                    android:background="@color/light_green"
+                    android:layout_marginTop="20dp"
+                    android:contentDescription="@string/photo_of_dog" />
 
-            <TextView
-                android:id="@+id/name_of_dog_in_bio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="15dp"
-                tools:text="Balushik"
-                android:textColor="@color/orange"
-                android:textSize="32sp"
-                android:textStyle="bold"
-                android:layout_gravity="bottom"/>
+                <TextView
+                    android:id="@+id/name_of_dog_in_bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    tools:text="Balushik"
+                    android:textColor="@color/orange"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="bottom"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -149,21 +149,21 @@
                     android:textSize="24sp" />
             </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/marks_mask"
-                    android:textColor="@color/text_green"
-                    android:textSize="24sp" />
-                <TextView
-                    android:id="@+id/marks_in_bio"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    tools:text="Small black cloud with sharp teeth. Has a white tips on his hind paws"
-                    android:textColor="@color/medium_green"
-                    android:textSize="24sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/marks_mask"
+                android:textColor="@color/text_green"
+                android:textSize="24sp" />
+            <TextView
+                android:id="@+id/marks_in_bio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                tools:text="Small black cloud with sharp teeth. Has a white tips on his hind paws"
+                android:textColor="@color/medium_green"
+                android:textSize="24sp" />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -186,37 +186,37 @@
                     android:textSize="24sp" />
             </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/chip_number_mask"
-                    android:textColor="@color/text_green"
-                    android:textSize="24sp" />
-                <TextView
-                    android:id="@+id/chip_number_in_bio"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    tools:text="1234567891234567"
-                    android:textColor="@color/medium_green"
-                    android:textSize="24sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/chip_number_mask"
+                android:textColor="@color/text_green"
+                android:textSize="24sp" />
+            <TextView
+                android:id="@+id/chip_number_in_bio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                tools:text="1234567891234567"
+                android:textColor="@color/medium_green"
+                android:textSize="24sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/impl_date_mask"
-                    android:textColor="@color/text_green"
-                    android:textSize="24sp" />
-                <TextView
-                    android:id="@+id/chipping_date_in_bio"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    tools:text="13.04.2021"
-                    android:textColor="@color/medium_green"
-                    android:textSize="24sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/impl_date_mask"
+                android:textColor="@color/text_green"
+                android:textSize="24sp" />
+            <TextView
+                android:id="@+id/chipping_date_in_bio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                tools:text="13.04.2021"
+                android:textColor="@color/medium_green"
+                android:textSize="24sp" />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -238,21 +238,21 @@
                     android:textColor="@color/medium_green"
                     android:textSize="24sp" />
             </LinearLayout>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/comment_mask"
-                    android:textColor="@color/text_green"
-                    android:textSize="24sp" />
-                <TextView
-                    android:id="@+id/comment_in_bio"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    tools:text="Some funny owner's comment"
-                    android:textColor="@color/medium_green"
-                    android:textSize="24sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/comment_mask"
+                android:textColor="@color/text_green"
+                android:textSize="24sp" />
+            <TextView
+                android:id="@+id/comment_in_bio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                tools:text="Some funny owner's comment"
+                android:textColor="@color/medium_green"
+                android:textSize="24sp" />
         </LinearLayout>
 
     </ScrollView>

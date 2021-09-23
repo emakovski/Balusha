@@ -54,8 +54,7 @@
                         android:textSize="32sp"
                         android:textStyle="bold"
                         android:layout_gravity="bottom"
-                        android:inputType="textPersonName"
-                        android:autofillHints="" />
+                        android:inputType="textPersonName" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -103,8 +102,7 @@
                     android:hint="@string/hint_sex"
                     android:textColor="@color/medium_green"
                     android:textSize="24sp"
-                    android:inputType="text"
-                    android:autofillHints="" />
+                    android:inputType="text" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -126,8 +124,7 @@
                     android:hint="@string/hint_breed"
                     android:textColor="@color/medium_green"
                     android:textSize="24sp"
-                    android:inputType="text"
-                    android:autofillHints="" />
+                    android:inputType="text" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -149,8 +146,7 @@
                     android:hint="@string/hint_color"
                     android:textColor="@color/medium_green"
                     android:textSize="24sp"
-                    android:inputType="text"
-                    android:autofillHints="" />
+                    android:inputType="text" />
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
@@ -166,8 +162,7 @@
                 android:hint="@string/hint_tag"
                 android:textColor="@color/medium_green"
                 android:textSize="24sp"
-                android:inputType="text"
-                android:autofillHints="" />
+                android:inputType="text" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -183,8 +178,7 @@
                 android:hint="@string/hint_marks"
                 android:textColor="@color/medium_green"
                 android:textSize="24sp"
-                android:inputType="text"
-                android:autofillHints="" />
+                android:inputType="text" />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -203,8 +197,7 @@
                     android:inputType="text"
                     android:hint="@string/hint_pedigree"
                     android:textColor="@color/medium_green"
-                    android:textSize="24sp"
-                    android:autofillHints="" />
+                    android:textSize="24sp" />
             </LinearLayout>
 
             <TextView
@@ -221,8 +214,7 @@
                 android:hint="@string/hint_chip_number"
                 android:textColor="@color/medium_green"
                 android:textSize="24sp"
-                android:inputType="text"
-                android:autofillHints="" />
+                android:inputType="text" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -259,8 +251,7 @@
                     android:hint="@string/hint_chip_loc"
                     android:textColor="@color/medium_green"
                     android:textSize="24sp"
-                    android:inputType="text"
-                    android:autofillHints="" />
+                    android:inputType="text" />
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
@@ -276,8 +267,7 @@
                 android:hint="@string/hint_comment"
                 android:textColor="@color/medium_green"
                 android:textSize="24sp"
-                android:inputType="text"
-                android:autofillHints="" />
+                android:inputType="text" />
         </LinearLayout>
 
     </ScrollView>
