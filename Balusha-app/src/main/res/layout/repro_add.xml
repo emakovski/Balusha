@@ -1,186 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity"
     android:background="@color/background">
 
     <TextView
         android:id="@+id/title_in_repr_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
         android:text="@string/new_repro"
         android:textColor="@color/orange"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-    <LinearLayout
-        android:id="@+id/layout_repr_add"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        app:layout_constraintTop_toBottomOf="@id/title_in_repr_add"
-        app:layout_constraintStart_toStartOf="@id/title_in_repr_add">
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
-        <LinearLayout
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="57dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="5dp">
+
             <TextView
+                android:id="@+id/date_mask_estrus_repr_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/date_estrus_mask"
                 android:textColor="@color/text_green"
-                android:textSize="24sp" />
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <EditText
                 android:id="@+id/date_estrus_repr_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:focusable="false"
                 android:hint="@string/date_estrus_hint"
-                android:textColor="@color/medium_green"
-                android:textSize="24sp"
-                android:maxLines="1"
                 android:inputType="date"
-                android:focusable="false"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                android:maxLines="1"
+                android:textColor="@color/medium_green"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@id/date_mask_estrus_repr_add"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
+                android:id="@+id/date_mask_mating_repr_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/date_mating_mask"
                 android:textColor="@color/text_green"
-                android:textSize="24sp" />
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/date_mask_estrus_repr_add"
+                app:layout_constraintTop_toBottomOf="@id/date_mask_estrus_repr_add" />
+
             <EditText
                 android:id="@+id/date_mating_repr_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:focusable="false"
                 android:hint="@string/date_mating_hint"
-                android:textColor="@color/medium_green"
-                android:textSize="24sp"
-                android:maxLines="1"
                 android:inputType="date"
-                android:focusable="false"/>
-        </LinearLayout>
+                android:maxLines="1"
+                android:textColor="@color/medium_green"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@id/date_mask_mating_repr_add"
+                app:layout_constraintTop_toBottomOf="@id/date_mask_estrus_repr_add" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
             <TextView
+                android:id="@+id/date_mask_birth_repr_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/date_repr_birth"
                 android:textColor="@color/text_green"
-                android:textSize="24sp" />
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/date_mask_mating_repr_add"
+                app:layout_constraintTop_toBottomOf="@id/date_mask_mating_repr_add" />
+
             <EditText
                 android:id="@+id/date_birth_repr_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:focusable="false"
                 android:hint="@string/date_birth_hint"
-                android:textColor="@color/medium_green"
-                android:textSize="24sp"
-                android:maxLines="1"
                 android:inputType="date"
-                android:focusable="false" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+                android:maxLines="1"
+                android:textColor="@color/medium_green"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@id/date_mask_birth_repr_add"
+                app:layout_constraintTop_toBottomOf="@id/date_mask_mating_repr_add" />
+
             <TextView
+                android:id="@+id/number_mask_of_puppies_repr_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/number_of_puppies_mask"
                 android:textColor="@color/text_green"
-                android:textSize="24sp" />
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/date_mask_birth_repr_add"
+                app:layout_constraintTop_toBottomOf="@id/date_mask_birth_repr_add" />
+
             <EditText
                 android:id="@+id/number_of_puppies_repr_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:autofillHints="testHint"
                 android:hint="@string/number_of_puppies_hint"
-                android:textColor="@color/medium_green"
-                android:textSize="24sp"
                 android:inputType="number"
-                android:autofillHints="testHint" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+                android:textColor="@color/medium_green"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@id/number_mask_of_puppies_repr_add"
+                app:layout_constraintTop_toBottomOf="@id/date_mask_birth_repr_add" />
+
             <TextView
+                android:id="@+id/comments_mask_repr_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/comments_mask"
                 android:textColor="@color/text_green"
-                android:textSize="24sp" />
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/number_mask_of_puppies_repr_add"
+                app:layout_constraintTop_toBottomOf="@id/number_mask_of_puppies_repr_add" />
+
             <EditText
                 android:id="@+id/comments_repr_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:autofillHints="testHint"
                 android:hint="@string/comments_hint"
-                android:textColor="@color/medium_green"
-                android:textSize="24sp"
                 android:inputType="text"
-                android:autofillHints="testHint" />
-        </LinearLayout>
-    </LinearLayout>
+                android:textColor="@color/medium_green"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/comments_mask_repr_add"
+                app:layout_constraintTop_toBottomOf="@id/comments_mask_repr_add" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottom_app_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:backgroundTint="@color/medium_green"
+        app:fabAlignmentMode="end" />
 
+    <ImageButton
+        android:id="@+id/back_to_menu_repr_add"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/ic_baseline_menu_open_24"
+        android:backgroundTint="@color/background"
+        android:contentDescription="@string/back_to_main" />
 
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/bottom_app_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            app:backgroundTint="@color/medium_green"
-            app:fabAlignmentMode="end"
-            app:hideOnScroll="true"
-            app:layout_scrollFlags="scroll|enterAlways" />
-        <ImageButton
-            android:id="@+id/back_to_menu_repr_add"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@drawable/ic_baseline_menu_open_24"
-            android:backgroundTint="@color/background"
-            android:layout_marginStart="15dp"
-            android:layout_marginBottom="15dp"
-            android:layout_gravity="bottom"
-            android:contentDescription="@string/back_to_main" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_repr_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/orange"
-            android:contentDescription="@string/fab_pets_bio_add"
-            android:src="@drawable/ic_baseline_done_24"
-            app:layout_anchor="@id/bottom_app_bar" />
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_repr_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/orange"
+        android:contentDescription="@string/fab_pets_bio_add"
+        android:src="@drawable/ic_baseline_done_24"
+        app:layout_anchor="@id/bottom_app_bar" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,313 +1,353 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background">
 
-    <ScrollView
-        android:id="@+id/scroll_of_pets_bio_edit"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="653dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_marginBottom="57dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="20dp">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp">
 
-                <ImageView
-                    android:id="@+id/photo_of_dog_in_bio_edit"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:scaleType="centerCrop"
-                    android:background="@color/light_green"
-                    android:layout_marginTop="20dp"
-                    android:contentDescription="@string/photo_of_dog" />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_gravity="bottom">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="15dp"
-                        android:text="@string/pets_name_mask"
-                        android:textColor="@color/orange"
-                        android:textSize="32sp"
-                        android:textStyle="bold"
-                        android:layout_gravity="bottom"/>
-                    <EditText
-                        android:id="@+id/name_of_dog_in_bio_edit"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:hint="@string/hint_name_dog"
-                        android:textColor="@color/text_green"
-                        android:textSize="32sp"
-                        android:textStyle="bold"
-                        android:layout_gravity="bottom"
-                        android:inputType="textPersonName" />
+            <ImageView
+                android:id="@+id/photo_of_dog_in_bio_edit"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@color/light_green"
+                android:contentDescription="@string/photo_of_dog"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/birth_mask"
-                    android:textColor="@color/text_green"
-                    android:textSize="24sp" />
-                <EditText
-                    android:id="@+id/date_of_birth_in_bio_edit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:hint="@string/hint_birth"
-                    android:textColor="@color/medium_green"
-                    android:textSize="24sp"
-                    android:maxLines="1"
-                    android:inputType="date"
-                    android:focusable="false"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/sex_mask"
-                    android:textColor="@color/text_green"
-                    android:textSize="24sp" />
-                <EditText
-                    android:id="@+id/sex_in_bio_edit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:hint="@string/hint_sex"
-                    android:textColor="@color/medium_green"
-                    android:textSize="24sp"
-                    android:inputType="text" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/breed_mask"
-                    android:textColor="@color/text_green"
-                    android:textSize="24sp" />
-                <EditText
-                    android:id="@+id/breed_of_dog_in_bio_edit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:hint="@string/hint_breed"
-                    android:textColor="@color/medium_green"
-                    android:textSize="24sp"
-                    android:inputType="text" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/color_mask"
-                    android:textColor="@color/text_green"
-                    android:textSize="24sp" />
-                <EditText
-                    android:id="@+id/color_of_dog_in_bio_edit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:hint="@string/hint_color"
-                    android:textColor="@color/medium_green"
-                    android:textSize="24sp"
-                    android:inputType="text" />
-            </LinearLayout>
             <TextView
+                android:id="@+id/no_photo_pets_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="58dp"
+                android:text="@string/no_photo"
+                android:textColor="@color/orange"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/photo_of_dog_in_bio_edit"
+                app:layout_constraintTop_toTopOf="@id/photo_of_dog_in_bio_edit" />
+
+            <TextView
+                android:id="@+id/name_of_dog_in_bio_edit_mask"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="10dp"
+                android:text="@string/pets_name_mask"
+                android:textColor="@color/orange"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/name_of_dog_in_bio_edit"
+                app:layout_constraintStart_toEndOf="@id/photo_of_dog_in_bio_edit" />
+
+            <EditText
+                android:id="@+id/name_of_dog_in_bio_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="10dp"
+                android:hint="@string/hint_name_dog"
+                android:inputType="textPersonName"
+                android:textColor="@color/text_green"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/photo_of_dog_in_bio_edit"
+                app:layout_constraintStart_toEndOf="@id/photo_of_dog_in_bio_edit" />
+
+            <TextView
+                android:id="@+id/date_mask_of_birth_in_bio_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/birth_mask"
+                android:textColor="@color/text_green"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/photo_of_dog_in_bio_edit"
+                app:layout_constraintTop_toBottomOf="@id/photo_of_dog_in_bio_edit" />
+
+            <EditText
+                android:id="@+id/date_of_birth_in_bio_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:focusable="false"
+                android:hint="@string/hint_birth"
+                android:inputType="date"
+                android:maxLines="1"
+                android:textColor="@color/medium_green"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@id/date_mask_of_birth_in_bio_edit"
+                app:layout_constraintTop_toBottomOf="@id/photo_of_dog_in_bio_edit" />
+
+            <TextView
+                android:id="@+id/sex_mask_in_bio_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/sex_mask"
+                android:textColor="@color/text_green"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/date_mask_of_birth_in_bio_edit"
+                app:layout_constraintTop_toBottomOf="@id/date_mask_of_birth_in_bio_edit" />
+
+            <EditText
+                android:id="@+id/sex_in_bio_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:hint="@string/hint_sex"
+                android:inputType="text"
+                android:textColor="@color/medium_green"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@id/sex_mask_in_bio_edit"
+                app:layout_constraintTop_toBottomOf="@id/date_mask_of_birth_in_bio_edit" />
+
+            <TextView
+                android:id="@+id/breed_mask_of_dog_in_bio_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/breed_mask"
+                android:textColor="@color/text_green"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/sex_mask_in_bio_edit"
+                app:layout_constraintTop_toBottomOf="@id/sex_mask_in_bio_edit" />
+
+            <EditText
+                android:id="@+id/breed_of_dog_in_bio_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:hint="@string/hint_breed"
+                android:inputType="text"
+                android:textColor="@color/medium_green"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@id/breed_mask_of_dog_in_bio_edit"
+                app:layout_constraintTop_toBottomOf="@id/sex_mask_in_bio_edit" />
+
+            <TextView
+                android:id="@+id/color_mask_of_dog_in_bio_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/color_mask"
+                android:textColor="@color/text_green"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/breed_mask_of_dog_in_bio_edit"
+                app:layout_constraintTop_toBottomOf="@id/breed_mask_of_dog_in_bio_edit" />
+
+            <EditText
+                android:id="@+id/color_of_dog_in_bio_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:hint="@string/hint_color"
+                android:inputType="text"
+                android:textColor="@color/medium_green"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@id/color_mask_of_dog_in_bio_edit"
+                app:layout_constraintTop_toBottomOf="@id/breed_mask_of_dog_in_bio_edit" />
+
+            <TextView
+                android:id="@+id/tag_mask_number_in_bio_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/tag_mask"
                 android:textColor="@color/text_green"
-                android:textSize="24sp" />
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/color_mask_of_dog_in_bio_edit"
+                app:layout_constraintTop_toBottomOf="@id/color_mask_of_dog_in_bio_edit" />
+
             <EditText
                 android:id="@+id/tag_number_in_bio_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:hint="@string/hint_tag"
+                android:inputType="text"
                 android:textColor="@color/medium_green"
-                android:textSize="24sp"
-                android:inputType="text" />
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@id/tag_mask_number_in_bio_edit"
+                app:layout_constraintTop_toBottomOf="@id/color_mask_of_dog_in_bio_edit" />
 
             <TextView
+                android:id="@+id/marks_mask_in_bio_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/marks_mask"
                 android:textColor="@color/text_green"
-                android:textSize="24sp" />
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/tag_mask_number_in_bio_edit"
+                app:layout_constraintTop_toBottomOf="@id/tag_mask_number_in_bio_edit" />
+
             <EditText
                 android:id="@+id/marks_in_bio_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_marks"
+                android:inputType="text"
                 android:textColor="@color/medium_green"
-                android:textSize="24sp"
-                android:inputType="text" />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/pedigree_mask"
-                    android:textColor="@color/text_green"
-                    android:textSize="24sp" />
-                <EditText
-                    android:id="@+id/pedigree_number_in_bio_edit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:hint="@string/hint_pedigree"
-                    android:textColor="@color/medium_green"
-                    android:textSize="24sp" />
-            </LinearLayout>
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/marks_mask_in_bio_edit"
+                app:layout_constraintTop_toBottomOf="@id/marks_mask_in_bio_edit" />
 
             <TextView
+                android:id="@+id/pedigree_mask_number_in_bio_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/pedigree_mask"
+                android:textColor="@color/text_green"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/marks_in_bio_edit"
+                app:layout_constraintTop_toBottomOf="@id/marks_in_bio_edit" />
+
+            <EditText
+                android:id="@+id/pedigree_number_in_bio_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:hint="@string/hint_pedigree"
+                android:inputType="text"
+                android:textColor="@color/medium_green"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@id/pedigree_mask_number_in_bio_edit"
+                app:layout_constraintTop_toBottomOf="@id/marks_in_bio_edit" />
+
+            <TextView
+                android:id="@+id/chip_mask_number_in_bio_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/chip_number_mask"
                 android:textColor="@color/text_green"
-                android:textSize="24sp" />
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/pedigree_mask_number_in_bio_edit"
+                app:layout_constraintTop_toBottomOf="@id/pedigree_mask_number_in_bio_edit" />
+
             <EditText
                 android:id="@+id/chip_number_in_bio_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:hint="@string/hint_chip_number"
+                android:inputType="text"
                 android:textColor="@color/medium_green"
-                android:textSize="24sp"
-                android:inputType="text" />
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@id/chip_mask_number_in_bio_edit"
+                app:layout_constraintTop_toBottomOf="@id/pedigree_mask_number_in_bio_edit" />
 
             <TextView
+                android:id="@+id/chipping_mask_date_in_bio_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/impl_date_mask"
                 android:textColor="@color/text_green"
-                android:textSize="24sp" />
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/chip_mask_number_in_bio_edit"
+                app:layout_constraintTop_toBottomOf="@id/chip_mask_number_in_bio_edit" />
+
             <EditText
                 android:id="@+id/chipping_date_in_bio_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:focusable="false"
                 android:hint="@string/hint_impl_date"
-                android:textColor="@color/medium_green"
-                android:textSize="24sp"
-                android:maxLines="1"
                 android:inputType="date"
-                android:focusable="false"/>
-            <LinearLayout
+                android:maxLines="1"
+                android:textColor="@color/medium_green"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/chipping_mask_date_in_bio_edit"
+                app:layout_constraintTop_toBottomOf="@id/chipping_mask_date_in_bio_edit" />
+
+            <TextView
+                android:id="@+id/chip_mask_location_in_bio_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/chip_loc_mask"
-                    android:textColor="@color/text_green"
-                    android:textSize="24sp" />
-                <EditText
-                    android:id="@+id/chip_location_in_bio_edit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/hint_chip_loc"
-                    android:textColor="@color/medium_green"
-                    android:textSize="24sp"
-                    android:inputType="text" />
-            </LinearLayout>
+                android:layout_marginTop="10dp"
+                android:text="@string/chip_loc_mask"
+                android:textColor="@color/text_green"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/chipping_date_in_bio_edit"
+                app:layout_constraintTop_toBottomOf="@id/chipping_date_in_bio_edit" />
+
+            <EditText
+                android:id="@+id/chip_location_in_bio_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_chip_loc"
+                android:inputType="text"
+                android:textColor="@color/medium_green"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@id/chip_mask_location_in_bio_edit"
+                app:layout_constraintTop_toBottomOf="@id/chipping_date_in_bio_edit" />
+
             <TextView
+                android:id="@+id/comment_mask_in_bio_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/comment_mask"
                 android:textColor="@color/text_green"
-                android:textSize="24sp" />
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/chip_mask_location_in_bio_edit"
+                app:layout_constraintTop_toBottomOf="@id/chip_mask_location_in_bio_edit" />
+
             <EditText
                 android:id="@+id/comment_in_bio_edit"
-                android:layout_width="wrap_content"
+                android:layout_width="470dp"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_comment"
+                android:inputType="text"
                 android:textColor="@color/medium_green"
-                android:textSize="24sp"
-                android:inputType="text" />
-        </LinearLayout>
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/comment_mask_in_bio_edit"
+                app:layout_constraintTop_toBottomOf="@id/comment_mask_in_bio_edit" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 
-    </ScrollView>
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottom_app_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toBottomOf="@id/scroll_of_pets_bio_edit"
-        app:layout_constraintStart_toStartOf="@id/scroll_of_pets_bio_edit">
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:backgroundTint="@color/medium_green"
+        app:fabAlignmentMode="end" />
 
+    <ImageButton
+        android:id="@+id/back_to_menu_pets_bio_edit"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/ic_baseline_menu_open_24"
+        android:backgroundTint="@color/background"
+        android:contentDescription="@string/back_to_main" />
 
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/bottom_app_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            app:backgroundTint="@color/medium_green"
-            app:fabAlignmentMode="end"
-            app:hideOnScroll="true"
-            app:layout_scrollFlags="scroll|enterAlways"/>
-        <ImageButton
-            android:id="@+id/back_to_menu_pets_bio_edit"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@drawable/ic_baseline_menu_open_24"
-            android:backgroundTint="@color/background"
-            android:layout_marginStart="15dp"
-            android:layout_marginBottom="15dp"
-            android:layout_gravity="bottom"
-            android:contentDescription="@string/back_to_main" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_in_pets_bio_edit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/orange"
-            android:src="@drawable/ic_baseline_done_24"
-            app:layout_anchor="@id/bottom_app_bar"
-            android:contentDescription="@string/fab_pets_bio_edit" />
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_in_pets_bio_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/orange"
+        android:contentDescription="@string/fab_pets_bio_edit"
+        android:src="@drawable/ic_baseline_done_24"
+        app:layout_anchor="@id/bottom_app_bar" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
