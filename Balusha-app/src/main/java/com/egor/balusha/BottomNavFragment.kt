@@ -33,9 +33,8 @@ class BottomNavFragment: BottomSheetDialogFragment() {
                 R.id.menu_moments -> requireContext().toast(getString(R.string.nav2_clicked))
                 R.id.menu_weather -> requireContext().toast(getString(R.string.nav3_clicked))
                 R.id.menu_navi -> requireContext().toast(getString(R.string.nav3_clicked))
+                R.id.menu_settings -> requireContext().toast(getString(R.string.nav3_clicked))
             }
-            // Add code here to update the UI based on the item selected
-            // For example, swap UI fragments here
             true
         }
     }

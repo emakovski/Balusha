@@ -60,18 +60,6 @@ class MainActivity : AppCompatActivity() {
             BottomNavFragment()
             bottomNavDrawerFragment.show(supportFragmentManager, bottomNavDrawerFragment.tag)
         }
-        binding.buttonVaccine.setOnClickListener {
-            val intent = Intent(this, VaccinationList::class.java)
-            startActivity(intent)
-        }
-        binding.buttonHelminths.setOnClickListener {
-            val intent = Intent(this, HelminthTreatList::class.java)
-            startActivity(intent)
-        }
-        binding.buttonFleas.setOnClickListener {
-            val intent = Intent(this, FleasTicksList::class.java)
-            startActivity(intent)
-        }
     }
 
 }

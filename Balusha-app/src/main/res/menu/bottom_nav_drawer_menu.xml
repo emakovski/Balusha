@@ -31,5 +31,8 @@
         <item
             android:id="@+id/menu_navi"
             android:title="@string/menuitem_navi" />
+        <item
+            android:id="@+id/menu_settings"
+            android:title="@string/menuitem_settings" />
     </group>
 </menu>
