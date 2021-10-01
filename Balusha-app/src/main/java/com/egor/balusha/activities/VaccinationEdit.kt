@@ -8,7 +8,7 @@ import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.egor.balusha.DatabaseRepository
+import com.egor.balusha.util.DatabaseRepository
 import com.egor.balusha.R
 import com.egor.balusha.databinding.VaccineEditBinding
 import com.egor.balusha.dbpets.VaccineInfo

@@ -8,9 +8,18 @@
     android:background="@color/background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="60dp">
+        android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/top_constraint"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/light_green"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/photo_of_dog"
@@ -18,8 +27,7 @@
             android:layout_height="100dp"
             android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="25dp"
-            android:background="@color/light_green"
+            android:background="@color/medium_green"
             android:contentDescription="@string/photo_of_dog"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="22dp"
             android:textColor="@color/orange"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -103,34 +111,24 @@
             app:layout_constraintLeft_toRightOf="@id/birth_mask"
             app:layout_constraintTop_toBottomOf="@id/sex_of_dog"
             tools:text="08.05.2018" />
-
-        <TextView
-            android:id="@+id/comment"
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:textColor="@color/text_green"
-            android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@id/photo_of_dog"
-            app:layout_constraintTop_toBottomOf="@id/birth_of_dog"
-            tools:text="Some funny owner's comment" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <TextView
-            android:id="@+id/empty_notif_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/no_notif_added"
-            android:textColor="@color/text_green"
-            android:textSize="20sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_main"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="130dp"
-            android:layout_marginBottom="56dp"/>
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="56dp"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/top_constraint"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
     <com.google.android.material.bottomappbar.BottomAppBar
@@ -147,7 +145,18 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/orange"
         android:contentDescription="@string/fab_main"
-        android:src="@drawable/ic_baseline_pets_24"
+        android:src="@drawable/ic_baseline_add_24"
         app:layout_anchor="@id/bottom_app_bar" />
+
+    <ImageButton
+        android:id="@+id/main_menu_button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/ic_baseline_pets_24"
+        android:backgroundTint="@color/background"
+        android:contentDescription="@string/back_to_main" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

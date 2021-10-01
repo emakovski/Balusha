@@ -2,17 +2,17 @@ package com.egor.balusha.activities
 
 import android.app.Activity
 import android.app.DatePickerDialog
-import java.util.Calendar
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.egor.balusha.DatabaseRepository
+import com.egor.balusha.util.DatabaseRepository
 import com.egor.balusha.databinding.FleasAddBinding
 import com.egor.balusha.dbpets.FleasInfo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import java.util.*
 
 
 private const val RESULT_CODE_BUTTON_BACK = 3

@@ -5,6 +5,7 @@ import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.*
 
 @Entity(tableName = "fleas_info")
 class FleasInfo(@ColumnInfo var fleas_name: String, @ColumnInfo var fleas_date: String) : Parcelable {
@@ -13,8 +14,8 @@ class FleasInfo(@ColumnInfo var fleas_name: String, @ColumnInfo var fleas_date: 
     var id: Long = 0
 
     constructor(parcel: Parcel) : this(
-            parcel.readString().toString(),
-            parcel.readString().toString()) {
+        parcel.readString().toString(),
+        parcel.readString().toString()) {
         id = parcel.readLong()
     }
 

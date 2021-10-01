@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.egor.balusha.DatabaseRepository
+import com.egor.balusha.util.DatabaseRepository
 import com.egor.balusha.adapters.FleasTicksInfoAdapter
 import com.egor.balusha.databinding.FleasAndTicksBinding
 import kotlinx.coroutines.CoroutineScope

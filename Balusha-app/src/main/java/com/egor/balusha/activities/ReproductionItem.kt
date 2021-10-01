@@ -2,7 +2,7 @@ package com.egor.balusha.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.egor.balusha.DatabaseRepository
+import com.egor.balusha.util.DatabaseRepository
 import com.egor.balusha.databinding.ReproInfoBinding
 import com.egor.balusha.dbpets.ReproInfo
 import kotlinx.coroutines.CoroutineScope

@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.egor.balusha.DatabaseRepository
+import com.egor.balusha.util.DatabaseRepository
 import com.egor.balusha.adapters.VaccineInfoAdapter
 import com.egor.balusha.databinding.VaccinationsBinding
 import kotlinx.coroutines.CoroutineScope

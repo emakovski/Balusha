@@ -122,6 +122,29 @@
     <string name="notification_day">Notification day</string>
     <string name="notification_light">Notification light</string>
     <string name="no_notif_added">No notifications added</string>
+    <string name="date_next">Date of next treatment:</string>
+    <string name="balusha">Balusha</string>
+
+    <string name="note_color_purple">purple</string>
+    <string name="note_color_blue">blue</string>
+    <string name="note_color_teal">teal</string>
+    <string name="note_color_green">green</string>
+    <string name="note_color_red">red</string>
+    <string name="note_color_orange">orange</string>
+
+    <string name="note_one_title">First Note</string>
+    <string name="note_one_body">This is your first note details. Do long press on note for options</string>
+    <string name="note_second_title">Second Color Note</string>
+    <string name="note_second_body">This is your second color note details with large body</string>
+    <string name="note_third_title">Third Color Note</string>
+    <string name="note_third_body">This is your third reminder note details. You will get reminder about this note at %s</string>
+
+    <string name="note_title_hint">Add Note Title Here</string>
+    <string name="note_save">Save</string>
+    <string name="intent_extra_id">note_id</string>
+    <string name="note_reminder_info">Reminder on %s</string>
+    <string name="validation_new_note">Note Should Not Be Empty</string>
+    <string name="note_start_typing">Start Typing</string>
 
     <string name="nav1_clicked">Bottom Navigation Drawer menu item 1</string>
     <string name="nav2_clicked">Bottom Navigation Drawer menu item 2</string>

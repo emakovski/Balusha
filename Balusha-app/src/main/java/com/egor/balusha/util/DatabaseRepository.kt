@@ -1,11 +1,7 @@
-package com.egor.balusha
+package com.egor.balusha.util
 
 import android.content.Context
 import com.egor.balusha.dbpets.*
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.core.Single
-import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -79,6 +75,8 @@ class DatabaseRepository(private val scope: CoroutineScope) {
     }
 
     suspend fun getAllReproList() = withContext(scope.coroutineContext + Dispatchers.IO) { database.getReproInfoDao().getAll() }
+
+
 }
 
 //made with rx

@@ -14,4 +14,15 @@
     <color name="medium_green">#37966F</color>
     <color name="orange">#FD5523</color>
 
+    <color name="note_purple_200">#CE93D8</color>
+    <color name="note_blue_200">#90CAF9</color>
+    <color name="note_teal_200">#80CBC4</color>
+    <color name="note_gray_200">#EEEEEE</color>
+    <color name="note_green_200">#A5D6A7</color>
+    <color name="note_red_200">#EF9A9A</color>
+    <color name="note_orange_200">#fed8b1</color>
+
+    <color name="note_valid_color">#388E3C</color>
+    <color name="note_invalid_color">#D32F2F</color>
+
 </resources>
