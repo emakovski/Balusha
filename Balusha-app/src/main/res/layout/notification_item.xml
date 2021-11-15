@@ -11,7 +11,7 @@
 
         <variable
             name="note"
-            type="com.egor.balusha.viewmodel.NotifModel" />
+            type="com.egor.balusha.activities.main.model.NotifModel" />
 
     </data>
 

@@ -1,10 +1,11 @@
-package com.egor.balusha.viewmodel
+package com.egor.balusha.activities.main.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import com.egor.balusha.util.NotifRepository
+import com.egor.balusha.activities.main.model.NotifModel
+import com.egor.balusha.activities.main.repository.NotifRepository
 
 class NewNotifViewModel : ViewModel() {
     private var mNotifId: MutableLiveData<Int> = MutableLiveData<Int>()

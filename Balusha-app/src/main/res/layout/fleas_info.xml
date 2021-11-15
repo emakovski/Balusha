@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.egor.balusha.lib.DateHumanizer" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="fleas"
+            type="com.egor.balusha.activities.fleasticks.model.FleasModel" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background">
@@ -12,10 +26,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
+        android:text="@string/menuitem_fleas"
         android:textColor="@color/orange"
         android:textSize="22sp"
-        android:textStyle="bold"
-        tools:text="Bravecto" />
+        android:textStyle="bold" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -29,26 +43,58 @@
             android:layout_marginStart="15dp"
             android:layout_marginBottom="5dp">
 
+
             <TextView
-                android:id="@+id/date_mask_info"
+                android:id="@+id/fleas_treat_mask_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/date_mask"
+                android:layout_marginTop="10dp"
+                android:text="@string/treatment_name_mask_flea"
                 android:textColor="@color/text_green"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <EditText
+                android:id="@+id/name_fleas_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:autofillHints="testHint"
+                android:hint="@string/treatment_name_flea"
+                android:inputType="text"
+                android:text="@={fleas.name}"
+                android:textColor="@color/medium_green"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/fleas_treat_mask_info"
+                app:layout_constraintTop_toBottomOf="@id/fleas_treat_mask_info" />
+
             <TextView
+                android:id="@+id/fleas_date_mask_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/date_mask"
+                android:textColor="@color/text_green"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/name_fleas_info"
+                app:layout_constraintTop_toBottomOf="@id/name_fleas_info" />
+
+            <EditText
                 android:id="@+id/date_in_fleas_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                android:focusable="false"
+                android:hint="@string/date"
+                android:inputType="date"
+                android:maxLines="1"
+                android:text="@{fleas.setHumaDat}"
                 android:textColor="@color/medium_green"
                 android:textSize="20sp"
-                app:layout_constraintStart_toEndOf="@id/date_mask_info"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="06.06.2019" />
+                app:layout_constraintStart_toEndOf="@id/fleas_date_mask_info"
+                app:layout_constraintTop_toBottomOf="@id/name_fleas_info" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
@@ -60,12 +106,25 @@
         app:backgroundTint="@color/medium_green"
         app:fabAlignmentMode="end" />
 
+    <ImageButton
+        android:id="@+id/back_to_menu_fleas_info"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/ic_baseline_menu_open_24"
+        android:backgroundTint="@color/background"
+        android:contentDescription="@string/back_to_main" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_fleas_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/orange"
         android:contentDescription="@string/fab_pets_bio_add"
-        android:src="@drawable/ic_baseline_arrow_back_24"
+        android:src="@drawable/ic_baseline_done_24"
         app:layout_anchor="@id/bottom_app_bar" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

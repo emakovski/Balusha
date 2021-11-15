@@ -10,6 +10,7 @@ import android.provider.MediaStore
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.egor.balusha.activities.main.view.MainActivity
 import com.egor.balusha.createPetsDirectory
 import com.egor.balusha.databinding.PetsBioAddBinding
 import com.egor.balusha.saveImage

@@ -124,6 +124,7 @@
     <string name="no_notif_added">No notifications added</string>
     <string name="date_next">Date of next treatment:</string>
     <string name="balusha">Balusha</string>
+    <string name="validation_new_fleas">Treatment name shouldn\'t be empty</string>
 
     <string name="note_color_purple">purple</string>
     <string name="note_color_blue">blue</string>

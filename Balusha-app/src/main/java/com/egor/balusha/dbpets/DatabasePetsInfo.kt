@@ -11,7 +11,7 @@ import androidx.room.TypeConverters
     FleasInfo::class,
     ReproInfo::class,
     NotifEntity::class],
-    version = 5, exportSchema = false)
+    version = 1, exportSchema = false)
 
 abstract class DatabasePetsInfo : RoomDatabase() {
     abstract fun getVaccineInfoDao(): VaccineInfoDao

@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.egor.balusha.R
 import com.egor.balusha.activities.*
+import com.egor.balusha.activities.fleasticks.view.FleasTicksList
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_bottom_menu.*
 

@@ -1,24 +1,24 @@
-package com.egor.balusha.activities
+package com.egor.balusha.activities.main.view
 
 import android.app.*
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.bumptech.glide.Glide
-import com.egor.balusha.adapters.NotifAdapter
+import com.egor.balusha.activities.OwnerInfoAdd
+import com.egor.balusha.activities.main.viewmodel.MainActivityViewModel
+import com.egor.balusha.activities.main.adapter.NotifAdapter
 import com.egor.balusha.databinding.ActivityMainBinding
 import com.egor.balusha.dbpets.NotifEntity
 import com.egor.balusha.util.BottomNavFragment
 import com.egor.balusha.util.DatabaseRepository
-import com.egor.balusha.util.NotifRepository
-import com.egor.balusha.viewmodel.MainActivityViewModel
-import com.egor.balusha.viewmodel.NotifModel
+import com.egor.balusha.activities.main.repository.NotifRepository
+import com.egor.balusha.activities.main.model.NotifModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
@@ -32,8 +32,6 @@ private const val PET_BREED = "pet_breed"
 
 class MainActivity : AppCompatActivity(), NotifAdapter.OnNoteInteractionListener {
     lateinit var binding: ActivityMainBinding
-    private lateinit var repository: DatabaseRepository
-    private lateinit var activityScope: CoroutineScope
 
     lateinit var mAdapter: NotifAdapter
 
@@ -42,8 +40,6 @@ class MainActivity : AppCompatActivity(), NotifAdapter.OnNoteInteractionListener
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         DatabaseRepository.initDatabase(applicationContext)
-        activityScope = CoroutineScope(Dispatchers.Main + Job())
-        repository = DatabaseRepository(activityScope)
 //       getSharedPreferences("FIRST_RUN_PREF", 0).edit().clear().apply()
         val isFirstRun = getSharedPreferences("FIRST_RUN_PREF", Context.MODE_PRIVATE).getBoolean(
             "isFirstRun",
@@ -110,9 +106,8 @@ class MainActivity : AppCompatActivity(), NotifAdapter.OnNoteInteractionListener
         mAdapter.updateDataSet(updatedList)
     }
 
-    //<editor-fold desc="override">
     override fun onNotifClicked(notifModel: NotifModel?) {
-        openNotifCreationActivity(notifId = notifModel?.Id?.toInt() ?: 0)
+        openNotifCreationActivity(notifId = notifModel?.Id ?: 0)
     }
 
     override fun onNotifPinClicked(notifModel: NotifModel?) {
@@ -167,7 +162,4 @@ class MainActivity : AppCompatActivity(), NotifAdapter.OnNoteInteractionListener
             NotifRepository.insertNotif(notif)
         }
     }
-
-
-    //</editor-fold>
 }

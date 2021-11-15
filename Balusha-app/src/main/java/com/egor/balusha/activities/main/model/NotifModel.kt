@@ -1,4 +1,4 @@
-package com.egor.balusha.viewmodel
+package com.egor.balusha.activities.main.model
 
 import androidx.databinding.Bindable
 import androidx.databinding.Observable
@@ -30,7 +30,6 @@ class NotifModel(
         )
     )
 
-    //<editor-fold desc="get set">
     var title = noteTitle
         @Bindable get
         set(value) {
@@ -71,9 +70,7 @@ class NotifModel(
             field = value
             registry.notifyChange(this, BR.pinnedOn)
         }
-    //</editor-fold>
 
-    //<editor-fold desc="Extras">
     val isReminderAdded
         @Bindable
         get() = !reminder?.toString().isNullOrEmpty()
@@ -93,9 +90,7 @@ class NotifModel(
         @Bindable get() = Calendar.getInstance().before(
             Calendar.getInstance().setTimeMillis(reminder ?: Calendar.getInstance().timeInMillis)
         )
-    //</editor-fold>
 
-    //<editor-fold desc="Registry">
     @Transient
     private val registry: PropertyChangeRegistry = PropertyChangeRegistry()
     override fun removeOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
@@ -105,5 +100,4 @@ class NotifModel(
     override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
         registry.add(callback)
     }
-    //</editor-fold>
 }

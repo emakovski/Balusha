@@ -2,7 +2,7 @@ package com.egor.balusha.dbpets
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.egor.balusha.viewmodel.NotifModel
+import com.egor.balusha.activities.main.model.NotifModel
 
 @Dao
 interface NotifDao {

@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.egor.balusha.R
-import com.egor.balusha.activities.MainActivity
+import com.egor.balusha.activities.main.view.MainActivity
 
 class SplashScreen : AppCompatActivity() {
         override fun onCreate(savedInstanceState: Bundle?) {

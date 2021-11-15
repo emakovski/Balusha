@@ -1,4 +1,4 @@
-package com.egor.balusha.adapters
+package com.egor.balusha.activities.main.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.egor.balusha.R
 import com.egor.balusha.databinding.NotificationItemBinding
-import com.egor.balusha.viewmodel.NotifModel
+import com.egor.balusha.activities.main.model.NotifModel
 
 class NotifAdapter(var interactionListener: OnNoteInteractionListener) :
     RecyclerView.Adapter<NotifAdapter.NotifViewHolder>() {

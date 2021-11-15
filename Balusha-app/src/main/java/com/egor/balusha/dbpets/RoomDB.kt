@@ -4,7 +4,6 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.egor.balusha.R
-import com.egor.balusha.activities.MainActivity
 import com.egor.balusha.lib.DateHumanizer
 import com.egor.balusha.receiver.addField
 import com.egor.balusha.util.BalushaApplication

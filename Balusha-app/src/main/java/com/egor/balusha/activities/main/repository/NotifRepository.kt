@@ -1,10 +1,10 @@
-package com.egor.balusha.util
+package com.egor.balusha.activities.main.repository
 
 import androidx.lifecycle.LiveData
 import com.egor.balusha.dbpets.NotifDao
 import com.egor.balusha.dbpets.NotifEntity
 import com.egor.balusha.dbpets.RoomDB
-import com.egor.balusha.viewmodel.NotifModel
+import com.egor.balusha.activities.main.model.NotifModel
 
 object NotifRepository {
 

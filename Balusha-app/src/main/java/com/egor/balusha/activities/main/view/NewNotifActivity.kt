@@ -1,4 +1,4 @@
-package com.egor.balusha.activities
+package com.egor.balusha.activities.main.view
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
@@ -19,9 +19,9 @@ import com.egor.balusha.databinding.NotificationAddBinding
 import com.egor.balusha.dbpets.NotifEntity
 import com.egor.balusha.receiver.DateTimeUtil
 import com.egor.balusha.receiver.setFiled
-import com.egor.balusha.util.NotifRepository
-import com.egor.balusha.viewmodel.NewNotifViewModel
-import com.egor.balusha.viewmodel.NotifModel
+import com.egor.balusha.activities.main.repository.NotifRepository
+import com.egor.balusha.activities.main.viewmodel.NewNotifViewModel
+import com.egor.balusha.activities.main.model.NotifModel
 import kotlinx.android.synthetic.main.notification_add.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -48,7 +48,6 @@ class NewNotifActivity : AppCompatActivity() {
         registerListeners()
     }
 
-    //<editor-fold desc="init">
     private fun getIntentData() {
         val notifId = intent.getIntExtra("notifId", 0)
         registerViewModel(notifId)
@@ -69,8 +68,6 @@ class NewNotifActivity : AppCompatActivity() {
         setupColorListeners()
         setupDialogListeners()
     }
-
-    //<editor-fold desc="listeners">
 
     private fun setupColorListeners() {
         val onColorClickListener: View.OnClickListener = View.OnClickListener {
@@ -132,9 +129,7 @@ class NewNotifActivity : AppCompatActivity() {
 
         binding.note!!.reminder = cal.timeInMillis
     }
-    //</editor-fold>
 
-    //<editor-fold desc="save note">
     private fun validateAndSaveNotif() {
         if (binding.note!!.body.isBlank()) {
             Toast.makeText(this, R.string.validation_new_note, Toast.LENGTH_SHORT)
@@ -169,6 +164,4 @@ class NewNotifActivity : AppCompatActivity() {
         }
         return Pair(note, notifModel.isReminderDateValid)
     }
-    //</editor-fold>
-    //</editor-fold>
 }

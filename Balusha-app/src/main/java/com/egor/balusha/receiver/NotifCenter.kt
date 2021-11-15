@@ -9,8 +9,8 @@ import android.graphics.BitmapFactory
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import com.egor.balusha.R
-import com.egor.balusha.activities.MainActivity
-import com.egor.balusha.util.NotifRepository
+import com.egor.balusha.activities.main.view.MainActivity
+import com.egor.balusha.activities.main.repository.NotifRepository
 
 
 object NotifCenter {
