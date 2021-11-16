@@ -56,8 +56,7 @@ class OwnerBio : AppCompatActivity(){
             startActivity(Intent(this, MainActivity::class.java))
         }
         binding.buttonOwnersBioEdit.setOnClickListener {
-            val intent = Intent(this, OwnerInfoEdit::class.java)
-            startActivityForResult(intent, OWNER_INFO_EDIT_ACTIVITY_CODE)
+            startActivity(Intent(this, OwnerInfoEdit::class.java))
         }
     }
     private fun backToPreviousActivity() {

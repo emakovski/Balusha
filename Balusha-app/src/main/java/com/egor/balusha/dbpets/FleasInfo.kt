@@ -8,6 +8,6 @@ import androidx.room.PrimaryKey
 data class FleasInfo(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo (name = "id") var id: Int?,
-    @ColumnInfo (name = "name") var fleas_name: String,
+    @ColumnInfo (name = "nameFleas") var fleas_name: String,
     @ColumnInfo (name = "dateFleas") var fleas_date: Long? = null
 )

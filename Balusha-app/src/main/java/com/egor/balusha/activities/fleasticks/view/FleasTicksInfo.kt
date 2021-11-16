@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.egor.balusha.R
 import com.egor.balusha.activities.fleasticks.model.FleasModel
 import com.egor.balusha.activities.fleasticks.repository.FleasRepository
-import com.egor.balusha.activities.fleasticks.viewmodel.FleasTicksViewModel
+import com.egor.balusha.activities.fleasticks.viewmodel.FleasTicksInfoViewModel
 import com.egor.balusha.databinding.FleasInfoBinding
 import com.egor.balusha.dbpets.FleasInfo
 import com.egor.balusha.receiver.setFiled
@@ -20,29 +20,29 @@ import java.util.*
 
 class FleasTicksInfo : AppCompatActivity() {
     private lateinit var binding: FleasInfoBinding
-    lateinit var fleasModel: FleasTicksViewModel
+    lateinit var fleasModel: FleasTicksInfoViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FleasInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
         getIntentData()
-        registerListeners()
+        initView()
     }
 
     private fun getIntentData() {
         val fleasId = intent.getIntExtra("fleasId", 0)
-        registerViewModel(fleasId)
+        initViewModel(fleasId)
     }
 
-    private fun registerViewModel(fleasId: Int) {
-        fleasModel = ViewModelProvider(this).get(FleasTicksViewModel::class.java)
+    private fun initViewModel(fleasId: Int) {
+        fleasModel = ViewModelProvider(this).get(FleasTicksInfoViewModel::class.java)
         fleasModel.setFleasId(fleasId)
         fleasModel.fleasModel.observe(this,
             Observer { binding.fleas = it ?: FleasModel() })
     }
 
-    private fun registerListeners() {
+    private fun initView() {
         binding.fabFleasInfo.setOnClickListener {
             validateAndSaveFleas()
         }
@@ -77,7 +77,7 @@ class FleasTicksInfo : AppCompatActivity() {
     }
 
     private fun validateAndSaveFleas() {
-        if (binding.fleas!!.name.isBlank()) {
+        if (binding.fleas!!.nameFleas.isBlank()) {
             Toast.makeText(this, R.string.validation_new_fleas, Toast.LENGTH_SHORT)
                 .show()
         } else {
@@ -89,7 +89,7 @@ class FleasTicksInfo : AppCompatActivity() {
 
     private suspend fun saveFleas() {
         val fleasModel = binding.fleas
-        val fleas = FleasInfo(fleasModel!!.id, fleasModel.name)
+        val fleas = FleasInfo(fleasModel!!.id, fleasModel.nameFleas)
         fleas.fleas_date = fleasModel.dateFleas
         FleasRepository.addFleas(info = fleas)
 

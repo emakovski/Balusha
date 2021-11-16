@@ -2,6 +2,7 @@ package com.egor.balusha.activities.fleasticks.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -9,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.egor.balusha.activities.fleasticks.adapter.FleasTicksInfoAdapter
 import com.egor.balusha.activities.fleasticks.model.FleasModel
 import com.egor.balusha.activities.fleasticks.repository.FleasRepository
-import com.egor.balusha.activities.fleasticks.viewmodel.FleasTicksViewModel
+import com.egor.balusha.activities.fleasticks.viewmodel.FleasTicksListViewModel
 import com.egor.balusha.databinding.FleasAndTicksBinding
 import com.egor.balusha.dbpets.FleasInfo
 import com.google.android.material.snackbar.Snackbar
@@ -18,12 +19,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-private const val RESULT_CODE_BUTTON_BACK = 3
-
-
-class FleasTicksList : AppCompatActivity(), FleasTicksInfoAdapter.OnNoteInteractionListener {
+class FleasTicksList : AppCompatActivity(), FleasTicksInfoAdapter.OnFleasInteractionListener {
     private lateinit var binding: FleasAndTicksBinding
-    lateinit var fleasAdapter: FleasTicksInfoAdapter
+    private lateinit var fleasAdapter: FleasTicksInfoAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +29,7 @@ class FleasTicksList : AppCompatActivity(), FleasTicksInfoAdapter.OnNoteInteract
         setContentView(binding.root)
         initView()
         setupRecyclerView()
-        registerViewModel()
+        initViewModel()
     }
 
     private fun initView() {
@@ -56,9 +54,9 @@ class FleasTicksList : AppCompatActivity(), FleasTicksInfoAdapter.OnNoteInteract
         binding.recyclerFleas.adapter = fleasAdapter
     }
 
-    private fun registerViewModel() {
-        val viewModel: FleasTicksViewModel by lazy {
-            ViewModelProvider(this).get(FleasTicksViewModel::class.java)
+    private fun initViewModel() {
+        val viewModel: FleasTicksListViewModel by lazy {
+            ViewModelProvider(this).get(FleasTicksListViewModel::class.java)
         }
         viewModel.fleasData.observe(
             this,
@@ -68,6 +66,11 @@ class FleasTicksList : AppCompatActivity(), FleasTicksInfoAdapter.OnNoteInteract
 
     private fun updateDataSet(updatedList: List<FleasModel>?) {
         fleasAdapter.updateDataSet(updatedList)
+        if (fleasAdapter.itemCount==0){
+            binding.emptyFleasList.visibility = View.VISIBLE
+        } else{
+            binding.emptyFleasList.visibility = View.GONE
+        }
     }
 
     override fun onItemClicked(fleasModel: FleasModel?) {
@@ -95,7 +98,6 @@ class FleasTicksList : AppCompatActivity(), FleasTicksInfoAdapter.OnNoteInteract
     }
 
     private fun backToPreviousActivity() {
-        setResult(RESULT_CODE_BUTTON_BACK, intent)
         finish()
     }
 }

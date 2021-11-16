@@ -55,19 +55,11 @@
             android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
-            android:name=".activities.HelminthTreatList"
+            android:name=".activities.helminths.view.HelminthTreatList"
             android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
-            android:name=".activities.HelminthTreatAdd"
-            android:screenOrientation="fullSensor"
-            android:theme="@style/Theme.Balusha" />
-        <activity
-            android:name=".activities.HelminthTreatEdit"
-            android:screenOrientation="fullSensor"
-            android:theme="@style/Theme.Balusha" />
-        <activity
-            android:name=".activities.HelminthTreatItem"
+            android:name=".activities.helminths.view.HelminthTreatInfo"
             android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity

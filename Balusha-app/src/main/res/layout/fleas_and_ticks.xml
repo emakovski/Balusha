@@ -30,6 +30,15 @@
             android:textStyle="bold" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/empty_fleas_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/no_fleas_added"
+        android:textColor="@color/text_green"
+        android:textSize="22sp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_fleas"
         android:layout_width="match_parent"

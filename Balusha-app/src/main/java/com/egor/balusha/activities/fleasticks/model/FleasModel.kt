@@ -16,10 +16,10 @@ class FleasModel(
         id = null,
         fleasName = ""
     )
-    var name = fleasName
+    var nameFleas = fleasName
         @Bindable get
         set(value) {
-            registry.notifyChange(this, BR.name)
+            registry.notifyChange(this, BR.nameFleas)
             field = value
         }
 

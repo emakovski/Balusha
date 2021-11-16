@@ -1,5 +1,6 @@
 package com.egor.balusha.activities.fleasticks.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -8,15 +9,13 @@ import com.egor.balusha.R
 import com.egor.balusha.activities.fleasticks.model.FleasModel
 import com.egor.balusha.databinding.FleasItemBinding
 
-class FleasTicksInfoAdapter(var interactionListener: OnNoteInteractionListener) :
+class FleasTicksInfoAdapter(private var interactionListener: OnFleasInteractionListener) :
     RecyclerView.Adapter<FleasTicksInfoAdapter.FleasViewHolder>() {
 
-    var mModelList: List<FleasModel>? = null
-
-    private var mSelectedViewHolder: FleasViewHolder? = null
+    private var mModelList: List<FleasModel>? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FleasViewHolder {
-        var binding: FleasItemBinding = DataBindingUtil.inflate(
+        val binding: FleasItemBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
             R.layout.fleas_item, parent, false
         )
@@ -41,16 +40,16 @@ class FleasTicksInfoAdapter(var interactionListener: OnNoteInteractionListener) 
         return mModelList?.size ?: 0
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateDataSet(updatedList: List<FleasModel>?) {
         mModelList = updatedList
         notifyDataSetChanged()
     }
 
 
-    class FleasViewHolder(var binding: FleasItemBinding) : RecyclerView.ViewHolder(binding.root) {
-    }
+    class FleasViewHolder(var binding: FleasItemBinding) : RecyclerView.ViewHolder(binding.root)
 
-    interface OnNoteInteractionListener {
+    interface OnFleasInteractionListener {
         fun onItemClicked(fleasModel: FleasModel?)
         fun onDeleteClicked(fleasModel: FleasModel?)
     }

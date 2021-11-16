@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -63,7 +62,7 @@
                 android:autofillHints="testHint"
                 android:hint="@string/treatment_name_flea"
                 android:inputType="text"
-                android:text="@={fleas.name}"
+                android:text="@={fleas.nameFleas}"
                 android:textColor="@color/medium_green"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="@id/fleas_treat_mask_info"
@@ -89,7 +88,6 @@
                 android:hint="@string/date"
                 android:inputType="date"
                 android:maxLines="1"
-                android:text="@{fleas.setHumaDat}"
                 android:textColor="@color/medium_green"
                 android:textSize="20sp"
                 app:layout_constraintStart_toEndOf="@id/fleas_date_mask_info"

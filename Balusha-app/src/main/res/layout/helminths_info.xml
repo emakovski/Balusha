@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.egor.balusha.lib.DateHumanizer" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="helm"
+            type="com.egor.balusha.activities.helminths.model.HelminthsModel" />
+
+    </data>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background">
@@ -12,10 +25,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
+        android:text="@string/helminths"
         android:textColor="@color/orange"
         android:textSize="22sp"
-        android:textStyle="bold"
-        tools:text="Milbemax" />
+        android:textStyle="bold" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -30,6 +43,31 @@
             android:layout_marginBottom="5dp">
 
             <TextView
+                android:id="@+id/name_mask_helminths_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/treatment_name_mask"
+                android:textColor="@color/text_green"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/name_helminths_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:autofillHints="testHint"
+                android:hint="@string/treatment_name"
+                android:text="@={helm.nameHelm}"
+                android:inputType="text"
+                android:textColor="@color/medium_green"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/name_mask_helminths_info"
+                app:layout_constraintTop_toBottomOf="@id/name_mask_helminths_info" />
+
+            <TextView
                 android:id="@+id/date_mask_helminths_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -37,20 +75,23 @@
                 android:text="@string/date_mask"
                 android:textColor="@color/text_green"
                 android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="@id/name_helminths_info"
+                app:layout_constraintTop_toBottomOf="@id/name_helminths_info" />
 
-            <TextView
+            <EditText
                 android:id="@+id/date_in_helminths_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:focusable="false"
+                android:hint="@string/date"
+                android:text="@{helm.setHumaDatHelm}"
+                android:inputType="date"
+                android:maxLines="1"
                 android:textColor="@color/medium_green"
                 android:textSize="20sp"
                 app:layout_constraintStart_toEndOf="@id/date_mask_helminths_info"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="05.05.2020" />
+                app:layout_constraintTop_toBottomOf="@id/name_helminths_info" />
 
             <TextView
                 android:id="@+id/dose_mask_helminths_info"
@@ -63,17 +104,19 @@
                 app:layout_constraintStart_toStartOf="@id/date_mask_helminths_info"
                 app:layout_constraintTop_toBottomOf="@id/date_mask_helminths_info" />
 
-            <TextView
+            <EditText
                 android:id="@+id/dose_helminths_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:autofillHints="testHint"
+                android:hint="@string/dose"
+                android:text="@={helm.doseHelm}"
+                android:inputType="text"
                 android:textColor="@color/medium_green"
                 android:textSize="20sp"
                 app:layout_constraintStart_toEndOf="@id/dose_mask_helminths_info"
-                app:layout_constraintTop_toBottomOf="@id/date_in_helminths_info"
-                tools:text="10ml" />
+                app:layout_constraintTop_toBottomOf="@id/date_mask_helminths_info" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
@@ -85,12 +128,24 @@
         app:backgroundTint="@color/medium_green"
         app:fabAlignmentMode="end" />
 
+    <ImageButton
+        android:id="@+id/back_to_menu_helminths_info"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/ic_baseline_menu_open_24"
+        android:backgroundTint="@color/background"
+        android:contentDescription="@string/back_to_main" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_helminths_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/orange"
         android:contentDescription="@string/fab_pets_bio_add"
-        android:src="@drawable/ic_baseline_arrow_back_24"
+        android:src="@drawable/ic_baseline_done_24"
         app:layout_anchor="@id/bottom_app_bar" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
