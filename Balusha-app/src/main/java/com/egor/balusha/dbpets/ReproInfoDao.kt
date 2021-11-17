@@ -1,18 +1,26 @@
 package com.egor.balusha.dbpets
 
-import androidx.room.*
+import androidx.lifecycle.LiveData
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import com.egor.balusha.activities.reproduction.model.ReproductionModel
 
 @Dao
 interface ReproInfoDao {
     @Query("SELECT * FROM repro_info")
-    fun getAll(): List<ReproInfo>
+    fun getAll(): LiveData<List<ReproductionModel>>
 
-    @Delete
-    fun delete(reproInfo: ReproInfo)
+    @Query("SELECT * FROM repro_info WHERE Id=:reproId")
+    fun getReproModelForIdLive(reproId: Int): LiveData<ReproductionModel>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun add(entity: ReproInfo)
+    @Query("SELECT * FROM repro_info WHERE id=:reproId")
+    fun getReproForId(reproId: Int): ReproInfo?
 
-    @Update(onConflict = OnConflictStrategy.IGNORE)
-    fun update(reproInfo: ReproInfo)
+    @Query("DELETE FROM repro_info WHERE id=:reproId")
+    fun delete(reproId: Int)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun add(repro: ReproInfo): Long
 }

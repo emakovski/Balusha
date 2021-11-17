@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.egor.balusha.lib.DateHumanizer" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="repro"
+            type="com.egor.balusha.activities.reproduction.model.ReproductionModel" />
+
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="100dp"
@@ -39,6 +53,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
         tools:text="09.09.2019"
+        android:text="@{repro.setHumaDatBirthRepro}"
         android:textColor="@color/orange"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -51,6 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         tools:text="3"
+        android:text="@{repro.puppies}"
         android:textColor="@color/orange"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -58,10 +74,10 @@
         app:layout_constraintTop_toTopOf="@id/number_of_puppies_item_mask"/>
 
     <ImageButton
-        android:id="@+id/button_edit_repr_item"
+        android:id="@+id/button_delete_repr_item"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:background="@drawable/ic_baseline_edit_24"
+        android:background="@drawable/ic_baseline_delete"
         android:backgroundTint="@color/medium_green"
         android:layout_marginEnd="15dp"
         android:layout_marginTop="27dp"
@@ -70,3 +86,4 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

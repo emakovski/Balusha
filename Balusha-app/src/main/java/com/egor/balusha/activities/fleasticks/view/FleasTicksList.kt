@@ -3,10 +3,12 @@ package com.egor.balusha.activities.fleasticks.view
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.egor.balusha.R
 import com.egor.balusha.activities.fleasticks.adapter.FleasTicksInfoAdapter
 import com.egor.balusha.activities.fleasticks.model.FleasModel
 import com.egor.balusha.activities.fleasticks.repository.FleasRepository
@@ -18,6 +20,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+
+private const val RESULT_CODE_BUTTON_BACK = 3
 
 class FleasTicksList : AppCompatActivity(), FleasTicksInfoAdapter.OnFleasInteractionListener {
     private lateinit var binding: FleasAndTicksBinding
@@ -78,17 +82,27 @@ class FleasTicksList : AppCompatActivity(), FleasTicksInfoAdapter.OnFleasInterac
     }
 
     override fun onDeleteClicked(fleasModel: FleasModel?) {
-        CoroutineScope(Dispatchers.IO).launch {
-            val fleas = FleasRepository.getFleasForId(fleasModel!!.id!!.toInt())
-            FleasRepository.deleteFleas(fleasId = fleasModel.id!!.toInt())
+        AlertDialog.Builder(this)
+            .setTitle(getString(R.string.remove_item))
+            .setMessage(getString(R.string.warning))
+            .setPositiveButton("Apply"
+            ) { dialogInterface, i ->
+                CoroutineScope(Dispatchers.IO).launch {
+                    val fleas = FleasRepository.getFleasForId(fleasModel!!.id!!.toInt())
+                    FleasRepository.deleteFleas(fleasId = fleasModel.id!!.toInt())
 
-            withContext(Dispatchers.Main) {
-                Snackbar.make(binding.root, "Treatment Deleted", Snackbar.LENGTH_LONG)
-                    .setAction("Undo") {
-                        undoFleasDelete(fleas!!)
-                    }.show()
+                    withContext(Dispatchers.Main) {
+                        Snackbar.make(binding.root, "Treatment Deleted", Snackbar.LENGTH_LONG)
+                            .setAction("Undo") {
+                                undoFleasDelete(fleas!!)
+                            }.show()
+                    }
+                }
             }
-        }
+            .setNegativeButton("Cancel") { dialogInterface, i -> dialogInterface.cancel() }
+            .setCancelable(false)
+            .create()
+            .show()
     }
 
     private fun undoFleasDelete(fleas: FleasInfo) {
@@ -98,6 +112,7 @@ class FleasTicksList : AppCompatActivity(), FleasTicksInfoAdapter.OnFleasInterac
     }
 
     private fun backToPreviousActivity() {
+        setResult(RESULT_CODE_BUTTON_BACK, intent)
         finish()
     }
 }

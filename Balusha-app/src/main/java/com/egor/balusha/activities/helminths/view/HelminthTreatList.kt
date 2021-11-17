@@ -3,10 +3,12 @@ package com.egor.balusha.activities.helminths.view
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.egor.balusha.R
 import com.egor.balusha.activities.helminths.adapter.HelminthsTreatInfoAdapter
 import com.egor.balusha.activities.helminths.model.HelminthsModel
 import com.egor.balusha.activities.helminths.repository.HelminthsRepository
@@ -19,6 +21,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+private const val RESULT_CODE_BUTTON_BACK = 3
 
 class HelminthTreatList : AppCompatActivity(), HelminthsTreatInfoAdapter.OnHelmInteractionListener {
 
@@ -79,17 +82,27 @@ class HelminthTreatList : AppCompatActivity(), HelminthsTreatInfoAdapter.OnHelmI
     }
 
     override fun onDeleteClicked(helmModel: HelminthsModel?) {
-        CoroutineScope(Dispatchers.IO).launch {
-            val helm = HelminthsRepository.getHelmForId(helmModel!!.id!!.toInt())
-            HelminthsRepository.deleteHelm(helmId = helmModel.id!!.toInt())
+        AlertDialog.Builder(this)
+            .setTitle(getString(R.string.remove_item))
+            .setMessage(getString(R.string.warning))
+            .setPositiveButton("Apply"
+            ) { dialogInterface, i ->
+                CoroutineScope(Dispatchers.IO).launch {
+                    val helm = HelminthsRepository.getHelmForId(helmModel!!.id!!.toInt())
+                    HelminthsRepository.deleteHelm(helmId = helmModel.id!!.toInt())
 
-            withContext(Dispatchers.Main) {
-                Snackbar.make(binding.root, "Treatment Deleted", Snackbar.LENGTH_LONG)
-                    .setAction("Undo") {
-                        undoHelmDelete(helm!!)
-                    }.show()
+                    withContext(Dispatchers.Main) {
+                        Snackbar.make(binding.root, "Treatment Deleted", Snackbar.LENGTH_LONG)
+                            .setAction("Undo") {
+                                undoHelmDelete(helm!!)
+                            }.show()
+                    }
+                }
             }
-        }
+            .setNegativeButton("Cancel") { dialogInterface, i -> dialogInterface.cancel() }
+            .setCancelable(false)
+            .create()
+            .show()
     }
 
     private fun undoHelmDelete(helm: HelminthsInfo) {
@@ -99,6 +112,7 @@ class HelminthTreatList : AppCompatActivity(), HelminthsTreatInfoAdapter.OnHelmI
     }
 
     private fun backToPreviousActivity() {
+        setResult(RESULT_CODE_BUTTON_BACK, intent)
         finish()
     }
 

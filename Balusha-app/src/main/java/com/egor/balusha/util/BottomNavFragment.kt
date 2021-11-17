@@ -12,6 +12,7 @@ import com.egor.balusha.R
 import com.egor.balusha.activities.*
 import com.egor.balusha.activities.fleasticks.view.FleasTicksList
 import com.egor.balusha.activities.helminths.view.HelminthTreatList
+import com.egor.balusha.activities.reproduction.view.ReproductionList
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_bottom_menu.*
 

@@ -16,6 +16,8 @@ import com.egor.balusha.receiver.setFiled
 import kotlinx.coroutines.*
 import java.util.*
 
+private const val RESULT_CODE_BUTTON_BACK = 3
+
 class HelminthTreatInfo : AppCompatActivity() {
     private lateinit var binding: HelminthsInfoBinding
     lateinit var helmModel: HelminthsInfoViewModel
@@ -42,6 +44,9 @@ class HelminthTreatInfo : AppCompatActivity() {
     private fun initView() {
         binding.fabHelminthsInfo.setOnClickListener {
             validateAndSaveHelm()
+        }
+        binding.backToMenuHelminthsInfo.setOnClickListener {
+            backToPreviousActivity()
         }
 
         setupDialogListeners()
@@ -96,4 +101,8 @@ class HelminthTreatInfo : AppCompatActivity() {
         }
     }
 
+    private fun backToPreviousActivity() {
+        setResult(RESULT_CODE_BUTTON_BACK, intent)
+        finish()
+    }
 }

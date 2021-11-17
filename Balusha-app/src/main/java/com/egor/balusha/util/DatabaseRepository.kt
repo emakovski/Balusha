@@ -31,20 +31,4 @@ class DatabaseRepository(private val scope: CoroutineScope) {
 
     suspend fun getAllVaccineList() = withContext(scope.coroutineContext + Dispatchers.IO) { database.getVaccineInfoDao().getAll() }
 
-
-    suspend fun addRepro(info: ReproInfo) {
-        withContext(scope.coroutineContext + Dispatchers.IO) { database.getReproInfoDao().add(info) }
-    }
-
-    suspend fun updateReproInfo(info: ReproInfo) {
-        withContext(scope.coroutineContext + Dispatchers.IO) { database.getReproInfoDao().update(info) }
-    }
-
-    suspend fun deleteRepro(info: ReproInfo) {
-        withContext(scope.coroutineContext + Dispatchers.IO) { database.getReproInfoDao().delete(info) }
-    }
-
-    suspend fun getAllReproList() = withContext(scope.coroutineContext + Dispatchers.IO) { database.getReproInfoDao().getAll() }
-
-
 }

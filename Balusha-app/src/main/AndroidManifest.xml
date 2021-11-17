@@ -71,19 +71,11 @@
             android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
-            android:name=".activities.ReproductionList"
+            android:name=".activities.reproduction.view.ReproductionList"
             android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
-            android:name=".activities.ReproductionAdd"
-            android:screenOrientation="fullSensor"
-            android:theme="@style/Theme.Balusha" />
-        <activity
-            android:name=".activities.ReproductionEdit"
-            android:screenOrientation="fullSensor"
-            android:theme="@style/Theme.Balusha" />
-        <activity
-            android:name=".activities.ReproductionItem"
+            android:name=".activities.reproduction.view.ReproductionInfo"
             android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity

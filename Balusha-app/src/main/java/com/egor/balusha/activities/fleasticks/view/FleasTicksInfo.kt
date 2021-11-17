@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.notification_add.*
 import kotlinx.coroutines.*
 import java.util.*
 
+private const val RESULT_CODE_BUTTON_BACK = 3
 
 class FleasTicksInfo : AppCompatActivity() {
     private lateinit var binding: FleasInfoBinding
@@ -45,6 +46,9 @@ class FleasTicksInfo : AppCompatActivity() {
     private fun initView() {
         binding.fabFleasInfo.setOnClickListener {
             validateAndSaveFleas()
+        }
+        binding.backToMenuFleasInfo.setOnClickListener {
+            backToPreviousActivity()
         }
 
         setupDialogListeners()
@@ -97,5 +101,10 @@ class FleasTicksInfo : AppCompatActivity() {
             Toast.makeText(this@FleasTicksInfo, "Treatment Saved", Toast.LENGTH_SHORT).show()
             finish()
         }
+    }
+
+    private fun backToPreviousActivity() {
+        setResult(RESULT_CODE_BUTTON_BACK, intent)
+        finish()
     }
 }
