@@ -12,16 +12,16 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.children
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.egor.balusha.R
+import com.egor.balusha.activities.main.model.NotifModel
+import com.egor.balusha.activities.main.repository.NotifRepository
+import com.egor.balusha.activities.main.viewmodel.NewNotifViewModel
 import com.egor.balusha.databinding.NotificationAddBinding
 import com.egor.balusha.dbpets.NotifEntity
 import com.egor.balusha.receiver.DateTimeUtil
 import com.egor.balusha.receiver.setFiled
-import com.egor.balusha.activities.main.repository.NotifRepository
-import com.egor.balusha.activities.main.viewmodel.NewNotifViewModel
-import com.egor.balusha.activities.main.model.NotifModel
 import kotlinx.android.synthetic.main.notification_add.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -54,7 +54,7 @@ class NewNotifActivity : AppCompatActivity() {
     }
 
     private fun registerViewModel(notifId: Int) {
-        mViewModel = ViewModelProviders.of(this).get(NewNotifViewModel::class.java)
+        mViewModel = ViewModelProvider(this).get(NewNotifViewModel::class.java)
         mViewModel.setNotifId(notifId)
         mViewModel.notifModel.observe(this,
             Observer { binding.note = it ?: NotifModel() })

@@ -69,7 +69,7 @@ class HelminthTreatList : AppCompatActivity(), HelminthsTreatInfoAdapter.OnHelmI
     }
 
     private fun updateDataSet(updatedList: List<HelminthsModel>?) {
-        helmAdapter.updateDataSet(updatedList)
+        helmAdapter.updateDataSet(updatedList?.sortedBy { it.dateHelm })
         if (helmAdapter.itemCount==0){
             binding.emptyHelminthsList.visibility = View.VISIBLE
         } else{

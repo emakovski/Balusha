@@ -124,7 +124,7 @@
     <string name="no_notif_added">No notifications added</string>
     <string name="date_next">Date of next treatment:</string>
     <string name="balusha">Balusha</string>
-    <string name="validation_new_fleas">Treatment name shouldn\'t be empty</string>
+    <string name="validation_new_fleas">Treatment name and date shouldn\'t be empty</string>
     <string name="validation_new_repro">Date of birth and number of puppies shouldn\'t be empty</string>
 
     <string name="note_color_purple">purple</string>
@@ -137,7 +137,7 @@
     <string name="note_one_title">First Note</string>
     <string name="note_one_body">This is your first note details. Do long press on note for options</string>
     <string name="note_second_title">Second Color Note</string>
-    <string name="note_second_body">This is your second color note details with large body</string>
+    <string name="note_second_body">This is your second color note details with blue body</string>
     <string name="note_third_title">Third Color Note</string>
     <string name="note_third_body">This is your third reminder note details. You will get reminder about this note at %s</string>
 

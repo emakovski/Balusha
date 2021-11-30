@@ -39,21 +39,13 @@
             android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
-            android:name=".activities.VaccinationList"
+            android:name=".activities.vaccination.view.VaccinationList"
             android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Balusha" />
         <activity
-            android:name=".activities.VaccinationAdd"
+            android:name=".activities.vaccination.view.VaccinationInfo"
             android:screenOrientation="fullSensor"
-            android:theme="@style/Theme.Balusha" />
-        <activity
-            android:name=".activities.VaccinationEdit"
-            android:screenOrientation="fullSensor"
-            android:theme="@style/Theme.Balusha" />
-        <activity
-            android:name=".activities.VaccinationItem"
-            android:screenOrientation="fullSensor"
-            android:theme="@style/Theme.Balusha" />
+            android:theme="@style/Theme.Balusha"/>
         <activity
             android:name=".activities.helminths.view.HelminthTreatList"
             android:screenOrientation="fullSensor"

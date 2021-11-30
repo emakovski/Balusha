@@ -69,7 +69,7 @@ class FleasTicksList : AppCompatActivity(), FleasTicksInfoAdapter.OnFleasInterac
     }
 
     private fun updateDataSet(updatedList: List<FleasModel>?) {
-        fleasAdapter.updateDataSet(updatedList)
+        fleasAdapter.updateDataSet(updatedList?.sortedBy { it.dateFleas })
         if (fleasAdapter.itemCount==0){
             binding.emptyFleasList.visibility = View.VISIBLE
         } else{

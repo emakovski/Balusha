@@ -16,7 +16,6 @@ import com.egor.balusha.activities.main.adapter.NotifAdapter
 import com.egor.balusha.databinding.ActivityMainBinding
 import com.egor.balusha.dbpets.NotifEntity
 import com.egor.balusha.util.BottomNavFragment
-import com.egor.balusha.util.DatabaseRepository
 import com.egor.balusha.activities.main.repository.NotifRepository
 import com.egor.balusha.activities.main.model.NotifModel
 import com.google.android.material.snackbar.Snackbar
@@ -39,7 +38,6 @@ class MainActivity : AppCompatActivity(), NotifAdapter.OnNoteInteractionListener
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        DatabaseRepository.initDatabase(applicationContext)
 //       getSharedPreferences("FIRST_RUN_PREF", 0).edit().clear().apply()
         val isFirstRun = getSharedPreferences("FIRST_RUN_PREF", Context.MODE_PRIVATE).getBoolean(
             "isFirstRun",

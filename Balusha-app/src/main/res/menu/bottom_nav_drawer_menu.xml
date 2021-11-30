@@ -17,21 +17,6 @@
             android:id="@+id/menu_reproduction"
             android:title="@string/menuitem_repr" />
         <item
-            android:id="@+id/menu_diet"
-            android:title="@string/menuitem_diet" />
-        <item
-            android:id="@+id/menu_places"
-            android:title="@string/menuitem_places" />
-        <item
-            android:id="@+id/menu_moments"
-            android:title="@string/menuitem_moments" />
-        <item
-            android:id="@+id/menu_weather"
-            android:title="@string/menuitem_weather" />
-        <item
-            android:id="@+id/menu_navi"
-            android:title="@string/menuitem_navi" />
-        <item
             android:id="@+id/menu_settings"
             android:title="@string/menuitem_settings" />
     </group>

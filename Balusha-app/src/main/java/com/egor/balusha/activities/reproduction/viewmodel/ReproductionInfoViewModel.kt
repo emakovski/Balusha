@@ -13,7 +13,7 @@ class ReproductionInfoViewModel: ViewModel() {
     var reproModel: LiveData<ReproductionModel> =
         Transformations.switchMap(reproId) { input -> ReproductionRepository.getReproModelForIdLive(input) }
 
-    fun setHelmId(reproid: Int) {
+    fun setReproId(reproid: Int) {
         reproId.value = reproid
     }
 }

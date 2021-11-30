@@ -68,7 +68,7 @@ class ReproductionList : AppCompatActivity(), ReproInfoAdapter.OnReproInteractio
     }
 
     private fun updateDataSet(updatedList: List<ReproductionModel>?) {
-        reproAdapter.updateDataSet(updatedList)
+        reproAdapter.updateDataSet(updatedList?.sortedBy { it.dateBirthRepro })
         if (reproAdapter.itemCount==0){
             binding.emptyReproList.visibility = View.VISIBLE
         } else{

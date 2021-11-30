@@ -36,14 +36,14 @@ class ReproductionInfo : AppCompatActivity() {
 
     private fun initViewModel(reproId: Int) {
         reproModel = ViewModelProvider(this).get(ReproductionInfoViewModel::class.java)
-        reproModel.setHelmId(reproId)
+        reproModel.setReproId(reproId)
         reproModel.reproModel.observe(this,
             Observer { binding.repro = it ?: ReproductionModel() })
     }
 
     private fun initView() {
         binding.fabReprInfo.setOnClickListener {
-            validateAndSaveHelm()
+            validateAndSaveRepro()
         }
         binding.backToMenuReprInfo.setOnClickListener {
             backToPreviousActivity()
@@ -95,7 +95,7 @@ class ReproductionInfo : AppCompatActivity() {
 
     }
 
-    private fun validateAndSaveHelm() {
+    private fun validateAndSaveRepro() {
         if (binding.repro!!.dateBirthRepro==null || binding.repro!!.puppies.isBlank()) {
             Toast.makeText(this, R.string.validation_new_repro, Toast.LENGTH_SHORT)
                 .show()
