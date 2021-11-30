@@ -98,7 +98,7 @@ class FleasTicksInfo : AppCompatActivity() {
         FleasRepository.addFleas(info = fleas)
 
         withContext(Dispatchers.Main) {
-            Toast.makeText(this@FleasTicksInfo, "Treatment Saved", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@FleasTicksInfo, R.string.info_saved, Toast.LENGTH_SHORT).show()
             finish()
         }
     }

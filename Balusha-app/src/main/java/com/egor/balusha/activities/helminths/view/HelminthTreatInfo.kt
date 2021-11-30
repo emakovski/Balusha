@@ -96,7 +96,7 @@ class HelminthTreatInfo : AppCompatActivity() {
         HelminthsRepository.addHelm(info = helm)
 
         withContext(Dispatchers.Main) {
-            Toast.makeText(this@HelminthTreatInfo, "Treatment Saved", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@HelminthTreatInfo, R.string.info_saved, Toast.LENGTH_SHORT).show()
             finish()
         }
     }

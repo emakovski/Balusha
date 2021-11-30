@@ -2,7 +2,6 @@
     <string name="app_name">Balusha</string>
     <string name="breed_mask">Breed:</string>
     <string name="photo_of_dog">Photo of dog</string>
-    <string name="smpl_vrt_line">vertical line</string>
     <string name="fab_main">main fab</string>
     <string name="photo_of_owner">photo of owner</string>
     <string name="country_mask">Country:</string>
@@ -58,19 +57,15 @@
     <string name="hint_comment">some funny owner\'s comment</string>
     <string name="fab_pets_bio_add">fab in pets bio add</string>
     <string name="fab_pets_bio_edit">fab in pets bio edit</string>
+
     <string name="menuitem_my_pet">My pet</string>
     <string name="menuitem_vaccine">Vaccination</string>
     <string name="menuitem_helminths">Helminths treatment</string>
     <string name="menuitem_fleas">Fleas and ticks</string>
     <string name="menuitem_repr">Reproduction</string>
-    <string name="menuitem_diet">Dietary information</string>
-    <string name="menuitem_places">My places</string>
-    <string name="menuitem_moments">My moments</string>
-    <string name="menuitem_weather">Weather</string>
-    <string name="menuitem_navi">Walking route</string>
     <string name="menuitem_settings">Settings</string>
+
     <string name="no_photo">No photo</string>
-    <string name="another_dog">I have another dog</string>
     <string name="my_vaccinations">Vaccinations</string>
     <string name="helminths">Helminths treatment</string>
     <string name="new_vaccine">New vaccination</string>
@@ -122,7 +117,8 @@
     <string name="notification_day">Notification day</string>
     <string name="notification_light">Notification light</string>
     <string name="no_notif_added">No notifications added</string>
-    <string name="date_next">Date of next treatment:</string>
+    <string name="dark_mode">Dark mode</string>
+
     <string name="balusha">Balusha</string>
     <string name="validation_new_fleas">Treatment name and date shouldn\'t be empty</string>
     <string name="validation_new_repro">Date of birth and number of puppies shouldn\'t be empty</string>
@@ -147,6 +143,12 @@
     <string name="note_reminder_info">Reminder on %s</string>
     <string name="validation_new_note">Note Should Not Be Empty</string>
     <string name="note_start_typing">Start Typing</string>
+    <string name="info_saved">Information saved</string>
+    <string name="apply">Apply</string>
+    <string name="undo">Undo</string>
+    <string name="info_deleted">Information deleted</string>
+    <string name="cancel">Cancel</string>
+    <string name="share">Share Notification Via</string>
 
     <string name="nav1_clicked">Bottom Navigation Drawer menu item 1</string>
     <string name="nav2_clicked">Bottom Navigation Drawer menu item 2</string>

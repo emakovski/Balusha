@@ -115,7 +115,7 @@ class ReproductionInfo : AppCompatActivity() {
         ReproductionRepository.addRepro(info = repro)
 
         withContext(Dispatchers.Main) {
-            Toast.makeText(this@ReproductionInfo, "Reproduction information saved", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@ReproductionInfo, R.string.info_saved, Toast.LENGTH_SHORT).show()
             finish()
         }
     }

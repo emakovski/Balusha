@@ -29,6 +29,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.*
 
+private const val RESULT_CODE_BUTTON_BACK = 3
+
 class NewNotifActivity : AppCompatActivity() {
 
     lateinit var binding: NotificationAddBinding
@@ -63,6 +65,9 @@ class NewNotifActivity : AppCompatActivity() {
     private fun registerListeners() {
         fab_notif_add.setOnClickListener {
             validateAndSaveNotif()
+        }
+        binding.backToMenuNotifAdd.setOnClickListener {
+            backToPreviousActivity()
         }
 
         setupColorListeners()
@@ -114,7 +119,7 @@ class NewNotifActivity : AppCompatActivity() {
         val timePickerDialog = TimePickerDialog(
             this, { _, hourOfDay, minute ->
                 timeSelected(hourOfDay, minute)
-            }, 12, 0, false
+            }, 12, 0, Locale.getDefault() != Locale.US
         )
 
         timePickerDialog.show()
@@ -149,7 +154,7 @@ class NewNotifActivity : AppCompatActivity() {
             DateTimeUtil.setAlarmForReminder(pair.first.Reminder!!, notifId = notifId.toInt())
 
         withContext(Dispatchers.Main) {
-            Toast.makeText(this@NewNotifActivity, "Notification Saved", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@NewNotifActivity, R.string.info_saved, Toast.LENGTH_SHORT).show()
             finish()
         }
     }
@@ -163,5 +168,10 @@ class NewNotifActivity : AppCompatActivity() {
                 note.Body.substring(0, if (note.Body.length < 24) note.Body.length else 24)
         }
         return Pair(note, notifModel.isReminderDateValid)
+    }
+
+    private fun backToPreviousActivity() {
+        setResult(RESULT_CODE_BUTTON_BACK, intent)
+        finish()
     }
 }

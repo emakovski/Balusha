@@ -85,21 +85,21 @@ class HelminthTreatList : AppCompatActivity(), HelminthsTreatInfoAdapter.OnHelmI
         AlertDialog.Builder(this)
             .setTitle(getString(R.string.remove_item))
             .setMessage(getString(R.string.warning))
-            .setPositiveButton("Apply"
+            .setPositiveButton(getString(R.string.apply)
             ) { dialogInterface, i ->
                 CoroutineScope(Dispatchers.IO).launch {
                     val helm = HelminthsRepository.getHelmForId(helmModel!!.id!!.toInt())
                     HelminthsRepository.deleteHelm(helmId = helmModel.id!!.toInt())
 
                     withContext(Dispatchers.Main) {
-                        Snackbar.make(binding.root, "Treatment Deleted", Snackbar.LENGTH_LONG)
-                            .setAction("Undo") {
+                        Snackbar.make(binding.root, R.string.info_deleted, Snackbar.LENGTH_LONG)
+                            .setAction(getString(R.string.undo)) {
                                 undoHelmDelete(helm!!)
                             }.show()
                     }
                 }
             }
-            .setNegativeButton("Cancel") { dialogInterface, i -> dialogInterface.cancel() }
+            .setNegativeButton(getString(R.string.cancel)) { dialogInterface, i -> dialogInterface.cancel() }
             .setCancelable(false)
             .create()
             .show()

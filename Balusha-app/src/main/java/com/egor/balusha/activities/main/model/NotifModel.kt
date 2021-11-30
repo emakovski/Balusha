@@ -80,7 +80,7 @@ class NotifModel(
         get() = if (reminder != null) DateHumanizer.humanize(
             reminder,
             DateHumanizer.TYPE_DD_MMM_YYYY,
-            DateHumanizer.TYPE_TIME_HH_MM_A
+            DateHumanizer.TYPE_TIME_HH_MM
         ) else ""
 
     val displayColor

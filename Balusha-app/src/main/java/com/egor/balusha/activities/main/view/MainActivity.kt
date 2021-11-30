@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.bumptech.glide.Glide
+import com.egor.balusha.R
 import com.egor.balusha.activities.OwnerInfoAdd
 import com.egor.balusha.activities.main.viewmodel.MainActivityViewModel
 import com.egor.balusha.activities.main.adapter.NotifAdapter
@@ -138,7 +139,7 @@ class MainActivity : AppCompatActivity(), NotifAdapter.OnNoteInteractionListener
         val shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.type = "text/plain"
         shareIntent.putExtra(Intent.EXTRA_TEXT, notifModel?.title + "\n" + notifModel?.body)
-        startActivity(Intent.createChooser(shareIntent, "Share Notification Via"))
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.share)))
     }
 
     override fun onNotifDeleteClicked(notifModel: NotifModel?) {
@@ -147,8 +148,8 @@ class MainActivity : AppCompatActivity(), NotifAdapter.OnNoteInteractionListener
             NotifRepository.deleteNotif(notifId = notifModel.Id!!.toInt())
 
             withContext(Dispatchers.Main) {
-                Snackbar.make(binding.root, "Notification Deleted", Snackbar.LENGTH_LONG)
-                    .setAction("Undo") {
+                Snackbar.make(binding.root, R.string.info_deleted, Snackbar.LENGTH_LONG)
+                    .setAction(R.string.undo) {
                         undoNotifDelete(notif!!)
                     }.show()
             }

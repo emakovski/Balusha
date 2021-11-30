@@ -84,21 +84,21 @@ class ReproductionList : AppCompatActivity(), ReproInfoAdapter.OnReproInteractio
         AlertDialog.Builder(this)
             .setTitle(getString(R.string.remove_item))
             .setMessage(getString(R.string.warning))
-            .setPositiveButton("Apply"
+            .setPositiveButton(getString(R.string.apply)
             ) { dialogInterface, i ->
                 CoroutineScope(Dispatchers.IO).launch {
                     val repro = ReproductionRepository.getReproForId(reproModel!!.id!!.toInt())
                     ReproductionRepository.deleteRepro(reproId = reproModel.id!!.toInt())
 
                     withContext(Dispatchers.Main) {
-                        Snackbar.make(binding.root, "Reproduction information deleted", Snackbar.LENGTH_LONG)
-                            .setAction("Undo") {
+                        Snackbar.make(binding.root, R.string.info_deleted, Snackbar.LENGTH_LONG)
+                            .setAction(getString(R.string.undo)) {
                                 undoReproDelete(repro!!)
                             }.show()
                     }
                 }
                 }
-            .setNegativeButton("Cancel") { dialogInterface, i -> dialogInterface.cancel() }
+            .setNegativeButton(getString(R.string.cancel)) { dialogInterface, i -> dialogInterface.cancel() }
             .setCancelable(false)
             .create()
             .show()

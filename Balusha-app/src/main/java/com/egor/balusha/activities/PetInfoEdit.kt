@@ -15,6 +15,8 @@ import com.egor.balusha.R
 import com.egor.balusha.activities.main.view.MainActivity
 import com.egor.balusha.createPetsDirectory
 import com.egor.balusha.databinding.PetsBioEditBinding
+import com.egor.balusha.lib.DateHumanizer
+import com.egor.balusha.receiver.setFiled
 import com.egor.balusha.saveImage
 import java.io.File
 
@@ -89,21 +91,32 @@ class PetInfoEdit : AppCompatActivity() {
             startActivityForResult(intent, REQUEST_CODE_PET_PHOTO)
         }
         binding.dateOfBirthInBioEdit.setOnClickListener{
-            val day = cal.get(Calendar.DAY_OF_MONTH)
-            val month = cal.get(Calendar.MONTH)
-            val yearr = cal.get(Calendar.YEAR)
-            picker = DatePickerDialog(this,
-                { view, year, monthOfYear, dayOfMonth -> binding.dateOfBirthInBioEdit.setText(dayOfMonth.toString() + "." + (monthOfYear + 1) + "." + year) }, yearr, month, day)
-            picker!!.show()
+            val datePickerDialog = DatePickerDialog(
+                this, { _, year, month, dayOfMonth ->
+                    binding.dateOfBirthInBioEdit.setText(DateHumanizer.humanize(dateSelected(year, month, dayOfMonth)))
+                }
+                , cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH)
+            )
+            datePickerDialog.show()
         }
         binding.chippingDateInBioEdit.setOnClickListener{
-            val day = cal.get(Calendar.DAY_OF_MONTH)
-            val month = cal.get(Calendar.MONTH)
-            val yearr = cal.get(Calendar.YEAR)
-            picker = DatePickerDialog(this,
-                { view, year, monthOfYear, dayOfMonth -> binding.chippingDateInBioEdit.setText(dayOfMonth.toString() + "." + (monthOfYear + 1) + "." + year) }, yearr, month, day)
-            picker!!.show()
+            val datePickerDialog = DatePickerDialog(
+                this, { _, year, month, dayOfMonth ->
+                    binding.chippingDateInBioEdit.setText(DateHumanizer.humanize(dateSelected(year, month, dayOfMonth)))
+                }
+                , cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH)
+            )
+            datePickerDialog.show()
         }
+    }
+
+    private fun dateSelected(year: Int, month: Int, dayOfMonth: Int): Long {
+        val cal = Calendar.getInstance()
+            .setFiled(Calendar.YEAR, year)
+            .setFiled(Calendar.MONTH, month)
+            .setFiled(Calendar.DAY_OF_MONTH, dayOfMonth)
+
+        return cal.timeInMillis
     }
 
     private fun editPetInfoAndBackToPreviousActivity() {

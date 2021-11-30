@@ -190,6 +190,17 @@
             app:backgroundTint="@color/medium_green"
             app:fabAlignmentMode="end" />
 
+        <ImageButton
+            android:id="@+id/back_to_menu_notif_add"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/ic_baseline_menu_open_24"
+            android:backgroundTint="@color/background"
+            android:contentDescription="@string/back_to_main" />
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_notif_add"
             android:layout_width="wrap_content"

@@ -100,7 +100,7 @@ class VaccinationInfo : AppCompatActivity() {
         VaccinationRepository.addVac(info = vac)
 
         withContext(Dispatchers.Main) {
-            Toast.makeText(this@VaccinationInfo, "Vaccination information saved", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@VaccinationInfo, R.string.info_saved, Toast.LENGTH_SHORT).show()
             finish()
         }
     }
