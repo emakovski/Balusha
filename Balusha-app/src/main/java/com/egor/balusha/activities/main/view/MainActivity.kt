@@ -1,37 +1,32 @@
 package com.egor.balusha.activities.main.view
 
 import android.app.*
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.bumptech.glide.Glide
 import com.egor.balusha.R
 import com.egor.balusha.activities.OwnerInfoAdd
-import com.egor.balusha.activities.main.viewmodel.MainActivityViewModel
 import com.egor.balusha.activities.main.adapter.NotifAdapter
+import com.egor.balusha.activities.main.model.NotifModel
+import com.egor.balusha.activities.main.repository.NotifRepository
+import com.egor.balusha.activities.main.viewmodel.MainActivityViewModel
 import com.egor.balusha.databinding.ActivityMainBinding
 import com.egor.balusha.dbpets.NotifEntity
+import com.egor.balusha.util.BalushaApplication
 import com.egor.balusha.util.BottomNavFragment
-import com.egor.balusha.activities.main.repository.NotifRepository
-import com.egor.balusha.activities.main.model.NotifModel
+import com.egor.balusha.util.Prefs
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
 import java.util.*
 
-private const val PET_PHOTO = "pet_photo"
-private const val PET_NAME = "pet_name"
-private const val PET_BIRTH = "pet_birth"
-private const val PET_SEX = "pet_sex"
-private const val PET_BREED = "pet_breed"
-
 class MainActivity : AppCompatActivity(), NotifAdapter.OnNoteInteractionListener {
     lateinit var binding: ActivityMainBinding
+    private val prefs: Prefs = BalushaApplication.prefs!!
 
     lateinit var mAdapter: NotifAdapter
 
@@ -39,32 +34,26 @@ class MainActivity : AppCompatActivity(), NotifAdapter.OnNoteInteractionListener
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//       getSharedPreferences("FIRST_RUN_PREF", 0).edit().clear().apply()
-        val isFirstRun = getSharedPreferences("FIRST_RUN_PREF", Context.MODE_PRIVATE).getBoolean(
-            "isFirstRun",
-            true
-        )
-        if (isFirstRun) {
+        initView()
+        setClickListeners()
+        setupRecyclerView()
+        registerViewModel()
+    }
+
+    private fun initView(){
+        if (prefs.isFirstRun) {
+            prefs.isFirstRun = false
             //show sign up activity
             startActivity(Intent(this@MainActivity, OwnerInfoAdd::class.java))
         }
-        getSharedPreferences("FIRST_RUN_PREF", Context.MODE_PRIVATE).edit()
-            .putBoolean("isFirstRun", false).apply()
-        setSupportActionBar(bottom_app_bar)
-        setClickListeners()
-        val prefs: SharedPreferences = getSharedPreferences("pets_info", Context.MODE_PRIVATE)
-//        if (prefs.getString(PET_PHOTO,"").isEmpty()) binding.photoOfDog.setImageResource(
-//            R.drawable.no_photo
-//        )
-//        else
-        Glide.with(this).load(prefs.getString(PET_PHOTO, "no photo")).into(binding.photoOfDog)
-        binding.nameOfDog.text = prefs.getString(PET_NAME, "not found")
-        binding.birthOfDog.text = prefs.getString(PET_BIRTH, "not found")
-        binding.sexOfDog.text = prefs.getString(PET_SEX, "not found")
-        binding.breedOfDog.text = prefs.getString(PET_BREED, "not found")
 
-        setupRecyclerView()
-        registerViewModel()
+        if (prefs.petPhoto.isNullOrBlank()) {
+            binding.photoOfDog.setImageResource(R.drawable.no_photo)
+        } else Glide.with(applicationContext).load(prefs.petPhoto).into(binding.photoOfDog)
+        binding.nameOfDog.text = prefs.petName
+        binding.birthOfDog.text = prefs.petBirth
+        binding.sexOfDog.text = prefs.petSex
+        binding.breedOfDog.text = prefs.petBreed
     }
 
     private fun setClickListeners() {

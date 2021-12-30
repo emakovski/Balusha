@@ -17,7 +17,9 @@
         <entry key="Balusha-app/src/main/res/drawable/ic_repro.xml" value="0.2867579908675799" />
         <entry key="Balusha-app/src/main/res/drawable/ic_vaccine.xml" value="0.2867579908675799" />
         <entry key="Balusha-app/src/main/res/drawable/ic_worm.xml" value="0.29074074074074074" />
+        <entry key="Balusha-app/src/main/res/drawable/no_photo.xml" value="0.2867579908675799" />
         <entry key="Balusha-app/src/main/res/drawable/recycle_tile.xml" value="0.29074074074074074" />
+        <entry key="Balusha-app/src/main/res/drawable/recycle_tile_red.xml" value="0.2867579908675799" />
         <entry key="Balusha-app/src/main/res/drawable/tile.xml" value="0.2867579908675799" />
         <entry key="Balusha-app/src/main/res/layout-night/notification_add.xml" value="0.2763888888888889" />
         <entry key="Balusha-app/src/main/res/layout-night/notification_item.xml" value="0.2763888888888889" />

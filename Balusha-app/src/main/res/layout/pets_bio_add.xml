@@ -40,17 +40,20 @@
 
                 <EditText
                     android:id="@+id/name_of_dog_in_bio_add"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="bottom"
                     android:layout_marginStart="10dp"
+                    android:layout_marginEnd="15dp"
                     android:hint="@string/hint_name_dog"
                     android:inputType="textPersonName"
                     android:textColor="@color/text_light"
                     android:textSize="22sp"
                     android:textColorHint="@color/text_light"
                     app:layout_constraintBottom_toBottomOf="@id/photo_of_dog_in_bio_add"
-                    app:layout_constraintStart_toEndOf="@id/photo_of_dog_in_bio_add" />
+                    app:layout_constraintStart_toEndOf="@id/photo_of_dog_in_bio_add"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/photo_of_dog_in_bio_add"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,15 +1,13 @@
 package com.egor.balusha.activities
 
 import android.app.DatePickerDialog
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.graphics.Bitmap
-import java.util.Calendar
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.egor.balusha.R
 import com.egor.balusha.activities.main.view.MainActivity
@@ -18,66 +16,50 @@ import com.egor.balusha.databinding.PetsBioEditBinding
 import com.egor.balusha.lib.DateHumanizer
 import com.egor.balusha.receiver.setFiled
 import com.egor.balusha.saveImage
+import com.egor.balusha.util.BalushaApplication
+import com.egor.balusha.util.Prefs
 import java.io.File
+import java.util.*
 
 private const val REQUEST_CODE_PET_PHOTO = 1
-private const val RESULT_CODE_BUTTON_BACK = 3
-private const val PET_PHOTO = "pet_photo"
-private const val PET_NAME = "pet_name"
-private const val PET_BIRTH = "pet_birth"
-private const val PET_SEX = "pet_sex"
-private const val PET_BREED = "pet_breed"
-private const val PET_COLOR = "pet_color"
-private const val PET_TAG = "pet_tag"
-private const val PET_MARKS = "pet_marks"
-private const val PET_PEDIGREE = "pet_pedigree"
-private const val PET_CHIP_NUMB = "pet_chip_numb"
-private const val PET_CHIP_DATE = "pet_chip_date"
-private const val PET_CHIP_LOC = "pet_chip_loc"
-private const val PET_COMMENT = "pet_comment"
 
 class PetInfoEdit : AppCompatActivity() {
     private lateinit var binding: PetsBioEditBinding
-    private var photoWasLoaded: Boolean = false
+    private val prefs: Prefs = BalushaApplication.prefs!!
+
     private lateinit var pathToPicture: String
     private lateinit var petsPictureDirectory: File
     private val cal: Calendar = Calendar.getInstance()
-    private var picker: DatePickerDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = PetsBioEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val prefs: SharedPreferences = getSharedPreferences("pets_info", Context.MODE_PRIVATE)
-        val path = prefs.getString(PET_PHOTO, "no photo")
-        val file = File(path)
-        if (file.exists()) {
-            if (path == "") {
-                binding.photoOfDogInBioEdit.setImageResource(R.drawable.no_photo)
-            } else {
-                Glide.with(this).load(path).into(binding.photoOfDogInBioEdit)
-                photoWasLoaded = true
-                if (path != null) {
-                    pathToPicture = path
-                }
-            }
-        }
-        binding.nameOfDogInBioEdit.setText(prefs.getString(PET_NAME,"not found"))
-        binding.dateOfBirthInBioEdit.setText(prefs.getString(PET_BIRTH,"not found"))
-        binding.sexInBioEdit.setText(prefs.getString(PET_SEX,"not found"))
-        binding.breedOfDogInBioEdit.setText(prefs.getString(PET_BREED,"not found"))
-        binding.colorOfDogInBioEdit.setText(prefs.getString(PET_COLOR,"not found"))
-        binding.tagNumberInBioEdit.setText(prefs.getString(PET_TAG,"not found"))
-        binding.marksInBioEdit.setText(prefs.getString(PET_MARKS,"not found"))
-        binding.pedigreeNumberInBioEdit.setText(prefs.getString(PET_PEDIGREE,"not found"))
-        binding.chipNumberInBioEdit.setText(prefs.getString(PET_CHIP_NUMB,"not found"))
-        binding.chippingDateInBioEdit.setText(prefs.getString(PET_CHIP_DATE,"not found"))
-        binding.chipLocationInBioEdit.setText(prefs.getString(PET_CHIP_LOC,"not found"))
-        binding.commentInBioEdit.setText(prefs.getString(PET_COMMENT,"not found"))
+        initView()
         createDirectoryForPetsPicture()
         setListeners()
     }
 
+    private fun initView(){
+        with(binding) {
+            if (prefs.petPhoto.isNullOrBlank()) {
+                photoOfDogInBioEdit.setImageResource(R.drawable.no_photo)
+            } else Glide.with(applicationContext).load(prefs.petPhoto).into(photoOfDogInBioEdit)
+
+            nameOfDogInBioEdit.setText(prefs.petName)
+            dateOfBirthInBioEdit.setText(prefs.petBirth)
+            sexInBioEdit.setText(prefs.petSex)
+            breedOfDogInBioEdit.setText(prefs.petBreed)
+            colorOfDogInBioEdit.setText(prefs.petColor)
+            tagNumberInBioEdit.setText(prefs.petTag)
+            marksInBioEdit.setText(prefs.petMarks)
+            pedigreeNumberInBioEdit.setText(prefs.petPedigree)
+            chipNumberInBioEdit.setText(prefs.petChipNumb)
+            chippingDateInBioEdit.setText(prefs.petChipDate)
+            chipLocationInBioEdit.setText(prefs.petChipLoc)
+            commentInBioEdit.setText(prefs.petComment)
+        }
+    }
 
     private fun setListeners() {
         binding.backToMenuPetsBioEdit.setOnClickListener {
@@ -120,49 +102,58 @@ class PetInfoEdit : AppCompatActivity() {
     }
 
     private fun editPetInfoAndBackToPreviousActivity() {
-        if (!photoWasLoaded) {
-            pathToPicture = ""
-        }
-        val name = binding.nameOfDogInBioEdit.text.toString()
-        val dateOfBirth = binding.dateOfBirthInBioEdit.text.toString()
-        val sex = binding.sexInBioEdit.text.toString()
-        val breed = binding.breedOfDogInBioEdit.text.toString()
-        val color = binding.colorOfDogInBioEdit.text.toString()
-        val tagNumber = binding.tagNumberInBioEdit.text.toString()
-        val marks = binding.marksInBioEdit.text.toString()
-        val pedigreeNumber = binding.pedigreeNumberInBioEdit.text.toString()
-        val chipNumber = binding.chipNumberInBioEdit.text.toString()
-        val chipDate = binding.chippingDateInBioEdit.text.toString()
-        val chipLocation = binding.chipLocationInBioEdit.text.toString()
-        val ownersComment = binding.commentInBioEdit.text.toString()
-        if (name.isNotEmpty() && dateOfBirth.isNotEmpty() && sex.isNotEmpty() && breed.isNotEmpty() && color.isNotEmpty() && tagNumber.isNotEmpty() && marks.isNotEmpty() && pedigreeNumber.isNotEmpty() && chipNumber.isNotEmpty() && chipDate.isNotEmpty() && chipLocation.isNotEmpty() && ownersComment.isNotEmpty()) {
-            getSharedPreferences("pets_info", Context.MODE_PRIVATE)
-                .edit()
-                .apply {
-                    putString(PET_PHOTO, pathToPicture)
-                    putString(PET_NAME, name)
-                    putString(PET_BIRTH, dateOfBirth)
-                    putString(PET_SEX, sex)
-                    putString(PET_BREED, breed)
-                    putString(PET_COLOR, color)
-                    putString(PET_TAG, tagNumber)
-                    putString(PET_MARKS, marks)
-                    putString(PET_PEDIGREE, pedigreeNumber)
-                    putString(PET_CHIP_NUMB, chipNumber)
-                    putString(PET_CHIP_DATE, chipDate)
-                    putString(PET_CHIP_LOC, chipLocation)
-                    putString(PET_COMMENT, ownersComment)
-                }
-                .apply()
-            startActivity(Intent(this, PetBio::class.java))
-        } else {
-            Toast.makeText(this, "Fields can't be empty", Toast.LENGTH_SHORT).show()
-        }
-    }
+        with(binding) {
+            prefs.petPhoto = pathToPicture
 
-    private fun backToPreviousActivity() {
-        setResult(RESULT_CODE_BUTTON_BACK, intent)
-        finish()
+            if(nameOfDogInBioEdit.text.toString().isEmpty()){
+                nameOfDogInBioEdit.requestFocus()
+                nameOfDogInBioEdit.background = ContextCompat.getDrawable(applicationContext, R.drawable.recycle_tile_red)
+                Toast.makeText(applicationContext, R.string.fill_info_alert, Toast.LENGTH_SHORT).show()
+            } else {
+                prefs.petName = nameOfDogInBioEdit.text.toString()
+                nameOfDogInBioEdit.background.applyTheme(theme)
+            }
+
+            if (dateOfBirthInBioEdit.text.toString().isEmpty()){
+                dateOfBirthInBioEdit.requestFocus()
+                dateOfBirthInBioEdit.background = ContextCompat.getDrawable(applicationContext, R.drawable.recycle_tile_red)
+                Toast.makeText(applicationContext, R.string.fill_info_alert, Toast.LENGTH_SHORT).show()
+            } else {
+                prefs.petBirth = dateOfBirthInBioEdit.text.toString()
+                dateOfBirthInBioEdit.background = ContextCompat.getDrawable(applicationContext, R.drawable.recycle_tile)
+            }
+
+            if (sexInBioEdit.text.toString().isEmpty()){
+                sexInBioEdit.requestFocus()
+                sexInBioEdit.background = ContextCompat.getDrawable(applicationContext, R.drawable.recycle_tile_red)
+                Toast.makeText(applicationContext, R.string.fill_info_alert, Toast.LENGTH_SHORT).show()
+            } else {
+                prefs.petSex = sexInBioEdit.text.toString()
+                sexInBioEdit.background = ContextCompat.getDrawable(applicationContext, R.drawable.recycle_tile)
+            }
+
+            if (breedOfDogInBioEdit.text.toString().isEmpty()){
+                breedOfDogInBioEdit.requestFocus()
+                breedOfDogInBioEdit.background = ContextCompat.getDrawable(applicationContext, R.drawable.recycle_tile_red)
+                Toast.makeText(applicationContext, R.string.fill_info_alert, Toast.LENGTH_SHORT).show()
+            } else {
+                prefs.petBreed = breedOfDogInBioEdit.text.toString()
+                breedOfDogInBioEdit.background = ContextCompat.getDrawable(applicationContext, R.drawable.recycle_tile)
+            }
+
+            prefs.petColor = colorOfDogInBioEdit.text.toString()
+            prefs.petTag = tagNumberInBioEdit.text.toString()
+            prefs.petMarks = marksInBioEdit.text.toString()
+            prefs.petPedigree = pedigreeNumberInBioEdit.text.toString()
+            prefs.petChipNumb = chipNumberInBioEdit.text.toString()
+            prefs.petChipDate = chippingDateInBioEdit.text.toString()
+            prefs.petChipLoc = chipLocationInBioEdit.text.toString()
+            prefs.petComment = commentInBioEdit.text.toString()
+
+            if (!prefs.petName.isNullOrBlank()&&!prefs.petBirth.isNullOrBlank()&&!prefs.petSex.isNullOrBlank()&&!prefs.petBreed.isNullOrBlank()) {
+                startActivity(Intent(applicationContext, PetBio::class.java))
+            }
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -170,7 +161,6 @@ class PetInfoEdit : AppCompatActivity() {
         data?.extras?.get("data")?.run {
             pathToPicture =
                 saveImage(this as Bitmap, binding.photoOfDogInBioEdit, petsPictureDirectory)
-            photoWasLoaded = true
         }
     }
     private fun createDirectoryForPetsPicture() {

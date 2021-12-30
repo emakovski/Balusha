@@ -26,6 +26,8 @@
     <string name="hint_bldng">building</string>
     <string name="hint_phone">phone number</string>
     <string name="hint_email">email</string>
+    <string name="fill_name_alert">Please fill in your name and surname</string>
+    <string name="fill_info_alert">Please fill in required information</string>
     <string name="fab_owners_bio_add">fab in owners bio add</string>
     <string name="fab_owners_bio_edit">fab in owners bio edit</string>
     <string name="birth_mask">Date of birth:</string>

@@ -1,45 +1,35 @@
 package com.egor.balusha.activities
 
 import android.app.DatePickerDialog
-import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
-import java.util.Calendar
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import com.egor.balusha.R
 import com.egor.balusha.activities.main.view.MainActivity
 import com.egor.balusha.createPetsDirectory
 import com.egor.balusha.databinding.PetsBioAddBinding
 import com.egor.balusha.lib.DateHumanizer
 import com.egor.balusha.receiver.setFiled
 import com.egor.balusha.saveImage
+import com.egor.balusha.util.BalushaApplication
+import com.egor.balusha.util.Prefs
 import java.io.File
+import java.util.*
 
 private const val REQUEST_CODE_PET_PHOTO = 1
-private const val PET_PHOTO = "pet_photo"
-private const val PET_NAME = "pet_name"
-private const val PET_BIRTH = "pet_birth"
-private const val PET_SEX = "pet_sex"
-private const val PET_BREED = "pet_breed"
-private const val PET_COLOR = "pet_color"
-private const val PET_TAG = "pet_tag"
-private const val PET_MARKS = "pet_marks"
-private const val PET_PEDIGREE = "pet_pedigree"
-private const val PET_CHIP_NUMB = "pet_chip_numb"
-private const val PET_CHIP_DATE = "pet_chip_date"
-private const val PET_CHIP_LOC = "pet_chip_loc"
-private const val PET_COMMENT = "pet_comment"
 
 class PetInfoAdd : AppCompatActivity(){
     private lateinit var binding: PetsBioAddBinding
+    private val prefs: Prefs = BalushaApplication.prefs!!
+
     private var photoWasLoaded: Boolean = false
     private lateinit var petsPictureDirectory: File
     private lateinit var pathToPicture: String
     private val cal: Calendar = Calendar.getInstance()
-    private var picker: DatePickerDialog? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -87,43 +77,60 @@ class PetInfoAdd : AppCompatActivity(){
     }
 
     private fun addPetInfoAndGoToNextActivity() {
-        if (!photoWasLoaded) {
-            pathToPicture = ""
-        }
-        val name = binding.nameOfDogInBioAdd.text.toString()
-        val dateOfBirth = binding.dateOfBirthInBioAdd.text.toString()
-        val sex = binding.sexInBioAdd.text.toString()
-        val breed = binding.breedOfDogInBioAdd.text.toString()
-        val color = binding.colorOfDogInBioAdd.text.toString()
-        val tagNumber = binding.tagNumberInBioAdd.text.toString()
-        val marks = binding.marksInBioAdd.text.toString()
-        val pedigreeNumber = binding.pedigreeNumberInBioAdd.text.toString()
-        val chipNumber = binding.chipNumberInBioAdd.text.toString()
-        val chipDate = binding.chippingDateInBioAdd.text.toString()
-        val chipLocation = binding.chipLocationInBioAdd.text.toString()
-        val ownersComment = binding.commentInBioAdd.text.toString()
-        if (name.isNotEmpty() && dateOfBirth.isNotEmpty() && sex.isNotEmpty() && breed.isNotEmpty() && color.isNotEmpty() && tagNumber.isNotEmpty() && marks.isNotEmpty() && pedigreeNumber.isNotEmpty() && chipNumber.isNotEmpty() && chipDate.isNotEmpty() && chipLocation.isNotEmpty() && ownersComment.isNotEmpty()) {
-            getSharedPreferences("pets_info", Context.MODE_PRIVATE)
-                .edit()
-                .apply {
-                    putString(PET_PHOTO, pathToPicture)
-                    putString(PET_NAME, name)
-                    putString(PET_BIRTH, dateOfBirth)
-                    putString(PET_SEX, sex)
-                    putString(PET_BREED, breed)
-                    putString(PET_COLOR, color)
-                    putString(PET_TAG, tagNumber)
-                    putString(PET_MARKS, marks)
-                    putString(PET_PEDIGREE, pedigreeNumber)
-                    putString(PET_CHIP_NUMB, chipNumber)
-                    putString(PET_CHIP_DATE, chipDate)
-                    putString(PET_CHIP_LOC, chipLocation)
-                    putString(PET_COMMENT, ownersComment)
-                }
-                .apply()
-            startActivity(Intent(this, MainActivity::class.java))}
-        else {
-            Toast.makeText(this, "Fields can't be empty", Toast.LENGTH_SHORT).show()
+        with(binding) {
+            if (!photoWasLoaded) {
+                pathToPicture = ""
+            }
+            prefs.petPhoto = pathToPicture
+
+            if(nameOfDogInBioAdd.text.toString().isEmpty()){
+                nameOfDogInBioAdd.requestFocus()
+                nameOfDogInBioAdd.background = ContextCompat.getDrawable(applicationContext, R.drawable.recycle_tile_red)
+                Toast.makeText(applicationContext, R.string.fill_info_alert, Toast.LENGTH_SHORT).show()
+            } else {
+                prefs.petName = nameOfDogInBioAdd.text.toString()
+                nameOfDogInBioAdd.background.applyTheme(theme)
+            }
+
+            if (dateOfBirthInBioAdd.text.toString().isEmpty()){
+                dateOfBirthInBioAdd.requestFocus()
+                dateOfBirthInBioAdd.background = ContextCompat.getDrawable(applicationContext, R.drawable.recycle_tile_red)
+                Toast.makeText(applicationContext, R.string.fill_info_alert, Toast.LENGTH_SHORT).show()
+            } else {
+                prefs.petBirth = dateOfBirthInBioAdd.text.toString()
+                dateOfBirthInBioAdd.background = ContextCompat.getDrawable(applicationContext, R.drawable.recycle_tile)
+            }
+
+            if (sexInBioAdd.text.toString().isEmpty()){
+                sexInBioAdd.requestFocus()
+                sexInBioAdd.background = ContextCompat.getDrawable(applicationContext, R.drawable.recycle_tile_red)
+                Toast.makeText(applicationContext, R.string.fill_info_alert, Toast.LENGTH_SHORT).show()
+            } else {
+                prefs.petSex = sexInBioAdd.text.toString()
+                sexInBioAdd.background = ContextCompat.getDrawable(applicationContext, R.drawable.recycle_tile)
+            }
+
+            if (breedOfDogInBioAdd.text.toString().isEmpty()){
+                breedOfDogInBioAdd.requestFocus()
+                breedOfDogInBioAdd.background = ContextCompat.getDrawable(applicationContext, R.drawable.recycle_tile_red)
+                Toast.makeText(applicationContext, R.string.fill_info_alert, Toast.LENGTH_SHORT).show()
+            } else {
+                prefs.petBreed = breedOfDogInBioAdd.text.toString()
+                breedOfDogInBioAdd.background = ContextCompat.getDrawable(applicationContext, R.drawable.recycle_tile)
+            }
+
+            prefs.petColor = colorOfDogInBioAdd.text.toString()
+            prefs.petTag = tagNumberInBioAdd.text.toString()
+            prefs.petMarks = marksInBioAdd.text.toString()
+            prefs.petPedigree = pedigreeNumberInBioAdd.text.toString()
+            prefs.petChipNumb = chipNumberInBioAdd.text.toString()
+            prefs.petChipDate = chippingDateInBioAdd.text.toString()
+            prefs.petChipLoc = chipLocationInBioAdd.text.toString()
+            prefs.petComment = commentInBioAdd.text.toString()
+
+            if (!prefs.petName.isNullOrBlank()&&!prefs.petBirth.isNullOrBlank()&&!prefs.petSex.isNullOrBlank()&&!prefs.petBreed.isNullOrBlank()) {
+                startActivity(Intent(applicationContext, MainActivity::class.java))
+            }
         }
     }
 

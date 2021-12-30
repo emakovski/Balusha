@@ -27,6 +27,8 @@
     <string name="hint_bldng">корпус</string>
     <string name="hint_phone">номер телефона</string>
     <string name="hint_email">email</string>
+    <string name="fill_name_alert">Пожалуйста, укажите своё имя и фамилию</string>
+    <string name="fill_info_alert">Пожалуйста, укажите необходимую информацию</string>
     <string name="fab_owners_bio_add">fab in owners bio add</string>
     <string name="fab_owners_bio_edit">fab in owners bio edit</string>
     <string name="birth_mask">Дата рождения:</string>
