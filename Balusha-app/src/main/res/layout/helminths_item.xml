@@ -17,48 +17,67 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginBottom="5dp"
     android:background="@drawable/recycle_tile"
     android:id="@+id/helminths_item">
 
     <TextView
         android:id="@+id/date_of_treatment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="2"
+        app:layout_constraintHorizontal_weight="1"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        tools:text="09.05.2021"
+        android:layout_marginBottom="20dp"
         android:text="@{helm.setHumaDatHelm}"
-        android:textColor="@color/orange"
+        android:textColor="@color/text_green"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/treatment_used"
+        tools:text="09.05.2021"/>
 
     <TextView
         android:id="@+id/treatment_used"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintHorizontal_weight="1.5"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         tools:text="Milbemax"
         android:text="@{helm.nameHelm}"
-        android:textColor="@color/black"
+        android:textColor="@color/text_accent"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/date_of_treatment"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/button_delete_helminths_item"/>
 
     <ImageButton
         android:id="@+id/button_delete_helminths_item"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintVertical_weight="1"
         android:background="@drawable/ic_baseline_delete"
-        android:backgroundTint="@color/medium_green"
-        android:layout_marginEnd="15dp"
-        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/bottom_button"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/treatment_used"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

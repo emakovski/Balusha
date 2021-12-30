@@ -17,8 +17,8 @@
     <string name="fab_owners_bio">fab in owners bio</string>
     <string name="owners_name_mask">Your name:</string>
     <string name="owners_surname_mask">Your surname:</string>
-    <string name="hint_name">your name</string>
-    <string name="hint_surname">your surname</string>
+    <string name="hint_name">Your name</string>
+    <string name="hint_surname">Your surname</string>
     <string name="hint_country">country</string>
     <string name="hint_city">city</string>
     <string name="hint_street">street</string>
@@ -42,7 +42,7 @@
     <string name="btn_pets_bio_edit">button pets bio edit</string>
     <string name="fab_pets_bio">fab in pets bio</string>
     <string name="pets_name_mask">Name of dog:</string>
-    <string name="hint_name_dog">name of dog</string>
+    <string name="hint_name_dog">Name of dog</string>
     <string name="hint_birth">date of birth</string>
     <string name="hint_sex">sex</string>
     <string name="hint_breed">breed</string>
@@ -79,7 +79,7 @@
     <string name="batch_number">batch number</string>
     <string name="clinic_mask">Veterinary clinic:</string>
     <string name="clinic">veterinary clinic</string>
-    <string name="vaccine_name_mask">Vaccine name</string>
+    <string name="vaccine_name_mask">Vaccine name:</string>
     <string name="vaccine_name">vaccine name</string>
     <string name="no_vaccines_added">No vaccinations added</string>
     <string name="my_helminths">My helminths treatment</string>
@@ -142,7 +142,7 @@
     <string name="intent_extra_id">note_id</string>
     <string name="note_reminder_info">Reminder on %s</string>
     <string name="validation_new_note">Note Should Not Be Empty</string>
-    <string name="note_start_typing">Start Typing</string>
+    <string name="note_start_typing">Start typing</string>
     <string name="info_saved">Information saved</string>
     <string name="apply">Apply</string>
     <string name="undo">Undo</string>

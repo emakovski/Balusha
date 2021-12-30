@@ -12,21 +12,32 @@
         android:layout_marginBottom="57dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="5dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/medium_green"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/content">
 
             <ImageView
                 android:id="@+id/photo_of_owner_in_bio"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
                 android:background="@color/light_green"
                 android:contentDescription="@string/photo_of_owner"
                 android:scaleType="centerCrop"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
             <TextView
                 android:id="@+id/name_of_owner_in_bio"
@@ -34,11 +45,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:layout_marginStart="10dp"
-                android:layout_marginBottom="45dp"
-                android:textColor="@color/orange"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@id/photo_of_owner_in_bio"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/text_light"
+                android:textSize="22sp"
+                app:layout_constraintTop_toTopOf="@id/photo_of_owner_in_bio"
+                app:layout_constraintBottom_toTopOf="@id/surname_of_owner_in_bio"
                 app:layout_constraintStart_toEndOf="@id/photo_of_owner_in_bio"
                 tools:text="Alesya" />
 
@@ -48,195 +59,210 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="15dp"
-                android:textColor="@color/orange"
-                android:textSize="24sp"
-                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/text_light"
+                android:textSize="22sp"
+                app:layout_constraintTop_toBottomOf="@id/name_of_owner_in_bio"
                 app:layout_constraintBottom_toBottomOf="@id/photo_of_owner_in_bio"
                 app:layout_constraintStart_toEndOf="@id/photo_of_owner_in_bio"
                 tools:text="Makovskaya" />
 
-            <TextView
-                android:id="@+id/country_mask_owners_bio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/country_mask"
-                android:textColor="@color/text_green"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/photo_of_owner_in_bio"
-                app:layout_constraintTop_toBottomOf="@id/photo_of_owner_in_bio" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/country_in_bio"
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/medium_green"
-                android:textSize="20sp"
-                app:layout_constraintStart_toEndOf="@id/country_mask_owners_bio"
-                app:layout_constraintTop_toBottomOf="@id/photo_of_owner_in_bio"
-                tools:text="Belarus" />
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/header">
 
-            <TextView
-                android:id="@+id/city_mask_owners_bio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/city_mask"
-                android:textColor="@color/text_green"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/country_mask_owners_bio"
-                app:layout_constraintTop_toBottomOf="@id/country_mask_owners_bio" />
+                <TextView
+                    android:id="@+id/country_mask_owners_bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/country_mask"
+                    android:textColor="@color/text_green"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/city_in_bio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/medium_green"
-                android:textSize="20sp"
-                app:layout_constraintStart_toEndOf="@id/city_mask_owners_bio"
-                app:layout_constraintTop_toBottomOf="@id/country_mask_owners_bio"
-                tools:text="Minsk" />
+                <TextView
+                    android:id="@+id/country_in_bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/medium_green"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@id/country_mask_owners_bio"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Belarus" />
 
-            <TextView
-                android:id="@+id/street_mask_owners_bio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/street_mask"
-                android:textColor="@color/text_green"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/city_mask_owners_bio"
-                app:layout_constraintTop_toBottomOf="@id/city_mask_owners_bio" />
+                <TextView
+                    android:id="@+id/city_mask_owners_bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/city_mask"
+                    android:textColor="@color/text_green"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@id/country_mask_owners_bio"
+                    app:layout_constraintTop_toBottomOf="@id/country_mask_owners_bio" />
 
-            <TextView
-                android:id="@+id/street_in_bio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/medium_green"
-                android:textSize="20sp"
-                app:layout_constraintStart_toEndOf="@id/street_mask_owners_bio"
-                app:layout_constraintTop_toBottomOf="@id/city_mask_owners_bio"
-                tools:text="Brilevskaya" />
+                <TextView
+                    android:id="@+id/city_in_bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/medium_green"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@id/city_mask_owners_bio"
+                    app:layout_constraintTop_toBottomOf="@id/country_mask_owners_bio"
+                    tools:text="Minsk" />
 
-            <TextView
-                android:id="@+id/house_mask_owners_bio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/house_mask"
-                android:textColor="@color/text_green"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/street_mask_owners_bio"
-                app:layout_constraintTop_toBottomOf="@id/street_mask_owners_bio" />
+                <TextView
+                    android:id="@+id/street_mask_owners_bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/street_mask"
+                    android:textColor="@color/text_green"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@id/city_mask_owners_bio"
+                    app:layout_constraintTop_toBottomOf="@id/city_mask_owners_bio" />
 
-            <TextView
-                android:id="@+id/house_in_bio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/medium_green"
-                android:textSize="20sp"
-                app:layout_constraintStart_toEndOf="@id/house_mask_owners_bio"
-                app:layout_constraintTop_toBottomOf="@id/street_mask_owners_bio"
-                tools:text="31" />
+                <TextView
+                    android:id="@+id/street_in_bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/medium_green"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@id/street_mask_owners_bio"
+                    app:layout_constraintTop_toBottomOf="@id/city_mask_owners_bio"
+                    tools:text="Brilevskaya" />
 
-            <TextView
-                android:id="@+id/bldng_mask_owners_bio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/bldng_mask"
-                android:textColor="@color/text_green"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/house_mask_owners_bio"
-                app:layout_constraintTop_toBottomOf="@id/house_mask_owners_bio" />
+                <TextView
+                    android:id="@+id/house_mask_owners_bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/house_mask"
+                    android:textColor="@color/text_green"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@id/street_mask_owners_bio"
+                    app:layout_constraintTop_toBottomOf="@id/street_mask_owners_bio" />
 
-            <TextView
-                android:id="@+id/building_in_bio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/medium_green"
-                android:textSize="20sp"
-                app:layout_constraintStart_toEndOf="@id/bldng_mask_owners_bio"
-                app:layout_constraintTop_toBottomOf="@id/house_mask_owners_bio"
-                tools:text="-" />
+                <TextView
+                    android:id="@+id/house_in_bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/medium_green"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@id/house_mask_owners_bio"
+                    app:layout_constraintTop_toBottomOf="@id/street_mask_owners_bio"
+                    tools:text="31" />
 
-            <TextView
-                android:id="@+id/apt_mask_owners_bio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/apt_mask"
-                android:textColor="@color/text_green"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/bldng_mask_owners_bio"
-                app:layout_constraintTop_toBottomOf="@id/bldng_mask_owners_bio" />
+                <TextView
+                    android:id="@+id/bldng_mask_owners_bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/bldng_mask"
+                    android:textColor="@color/text_green"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@id/house_mask_owners_bio"
+                    app:layout_constraintTop_toBottomOf="@id/house_mask_owners_bio" />
 
-            <TextView
-                android:id="@+id/apt_in_bio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/medium_green"
-                android:textSize="20sp"
-                app:layout_constraintStart_toEndOf="@id/apt_mask_owners_bio"
-                app:layout_constraintTop_toBottomOf="@id/bldng_mask_owners_bio"
-                tools:text="98" />
+                <TextView
+                    android:id="@+id/building_in_bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/medium_green"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@id/bldng_mask_owners_bio"
+                    app:layout_constraintTop_toBottomOf="@id/house_mask_owners_bio"
+                    tools:text="-" />
 
-            <TextView
-                android:id="@+id/phone_mask_owners_bio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/phone_mask"
-                android:textColor="@color/text_green"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/apt_mask_owners_bio"
-                app:layout_constraintTop_toBottomOf="@id/apt_mask_owners_bio" />
+                <TextView
+                    android:id="@+id/apt_mask_owners_bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/apt_mask"
+                    android:textColor="@color/text_green"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@id/bldng_mask_owners_bio"
+                    app:layout_constraintTop_toBottomOf="@id/bldng_mask_owners_bio" />
 
-            <TextView
-                android:id="@+id/phone_number_in_bio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/medium_green"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/phone_mask_owners_bio"
-                app:layout_constraintTop_toBottomOf="@id/phone_mask_owners_bio"
-                tools:text="+375293937716" />
+                <TextView
+                    android:id="@+id/apt_in_bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/medium_green"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@id/apt_mask_owners_bio"
+                    app:layout_constraintTop_toBottomOf="@id/bldng_mask_owners_bio"
+                    tools:text="98" />
 
-            <TextView
-                android:id="@+id/email_mask_owners_bio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/email_mask"
-                android:textColor="@color/text_green"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/phone_number_in_bio"
-                app:layout_constraintTop_toBottomOf="@id/phone_number_in_bio" />
+                <TextView
+                    android:id="@+id/phone_mask_owners_bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/phone_mask"
+                    android:textColor="@color/text_green"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@id/apt_mask_owners_bio"
+                    app:layout_constraintTop_toBottomOf="@id/apt_mask_owners_bio" />
 
-            <TextView
-                android:id="@+id/email_in_bio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/medium_green"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/email_mask_owners_bio"
-                app:layout_constraintTop_toBottomOf="@id/email_mask_owners_bio"
-                tools:text="alesya.popok.41@gmail.com" />
+                <TextView
+                    android:id="@+id/phone_number_in_bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/medium_green"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@id/phone_mask_owners_bio"
+                    app:layout_constraintTop_toBottomOf="@id/phone_mask_owners_bio"
+                    tools:text="+375293937716" />
+
+                <TextView
+                    android:id="@+id/email_mask_owners_bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/email_mask"
+                    android:textColor="@color/text_green"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@id/phone_number_in_bio"
+                    app:layout_constraintTop_toBottomOf="@id/phone_number_in_bio" />
+
+                <TextView
+                    android:id="@+id/email_in_bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/medium_green"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@id/email_mask_owners_bio"
+                    app:layout_constraintTop_toBottomOf="@id/email_mask_owners_bio"
+                    tools:text="alesya.popok.41@gmail.com" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
@@ -256,7 +282,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginBottom="15dp"
         android:background="@drawable/ic_baseline_menu_open_24"
-        android:backgroundTint="@color/background"
+        android:backgroundTint="@color/bottom_button"
         android:contentDescription="@string/back_to_main" />
 
     <ImageButton
@@ -267,7 +293,7 @@
         android:layout_marginStart="75dp"
         android:layout_marginBottom="15dp"
         android:background="@drawable/ic_baseline_edit_24"
-        android:backgroundTint="@color/background"
+        android:backgroundTint="@color/bottom_button"
         android:contentDescription="@string/btn_owners_bio_edit" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

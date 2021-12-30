@@ -8,14 +8,14 @@
 
     <TextView
         android:id="@+id/title_in_settings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/medium_green"
+        android:padding="10dp"
+        android:gravity="center_vertical"
         android:text="@string/menuitem_settings"
-        android:textColor="@color/orange"
-        android:textSize="22sp"
-        android:textStyle="bold" />
+        android:textColor="@color/text_light"
+        android:textSize="22sp"/>
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/settings_mode"

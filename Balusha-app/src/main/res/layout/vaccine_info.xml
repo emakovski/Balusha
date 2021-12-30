@@ -21,14 +21,14 @@
 
     <TextView
         android:id="@+id/title_in_vaccine_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:background="@color/medium_green"
         android:text="@string/vaccine"
-        android:textColor="@color/orange"
-        android:textSize="22sp"
-        android:textStyle="bold" />
+        android:textColor="@color/text_light"
+        android:textSize="22sp" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -37,9 +37,10 @@
         android:layout_marginBottom="57dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
             android:layout_marginBottom="5dp">
 
             <TextView
@@ -55,15 +56,18 @@
 
             <EditText
                 android:id="@+id/name_vaccine_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/recycle_tile"
+                android:padding="5dp"
                 android:autofillHints="testHint"
                 android:hint="@string/vaccine_name"
                 android:text="@={vac.nameVac}"
                 android:inputType="text"
-                android:textColor="@color/medium_green"
+                android:textColor="@color/text_accent"
                 android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/name_mask_vaccine_info"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/name_mask_vaccine_info" />
 
             <TextView
@@ -74,23 +78,25 @@
                 android:text="@string/date_mask"
                 android:textColor="@color/text_green"
                 android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/name_vaccine_info"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/name_vaccine_info" />
 
             <EditText
                 android:id="@+id/date_in_vaccine_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/recycle_tile"
+                android:padding="5dp"
                 android:focusable="false"
                 android:hint="@string/date"
                 android:inputType="date"
                 android:maxLines="1"
                 android:text="@{vac.setHumaDatVac}"
-                android:textColor="@color/medium_green"
+                android:textColor="@color/text_accent"
                 android:textSize="20sp"
-                app:layout_constraintStart_toEndOf="@id/date_mask_in_vaccine_info"
-                app:layout_constraintTop_toBottomOf="@id/name_vaccine_info" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/date_mask_in_vaccine_info" />
 
 
             <TextView
@@ -101,14 +107,14 @@
                 android:text="@string/type_vaccine_mask"
                 android:textColor="@color/text_green"
                 android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/date_mask_in_vaccine_info"
-                app:layout_constraintTop_toBottomOf="@id/date_mask_in_vaccine_info" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/date_in_vaccine_info" />
 
             <RadioGroup
                 android:id="@+id/radiogroup_vaccine_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="@id/radiogroup_mask_vaccine_info"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/radiogroup_mask_vaccine_info">
 
                 <RadioButton
@@ -118,7 +124,7 @@
                     android:layout_marginTop="10dp"
                     android:checked="@{vac.typeVac.equals(@string/rabies)}"
                     android:text="@string/rabies"
-                    android:textColor="@color/text_green"
+                    android:textColor="@color/text_accent"
                     android:textSize="20sp" />
 
                 <RadioButton
@@ -128,7 +134,7 @@
                     android:layout_marginTop="10dp"
                     android:checked="@{vac.typeVac.equals(@string/dhppi)}"
                     android:text="@string/dhppi"
-                    android:textColor="@color/text_green"
+                    android:textColor="@color/text_accent"
                     android:textSize="20sp" />
             </RadioGroup>
 
@@ -140,22 +146,24 @@
                 android:text="@string/batch_number_mask"
                 android:textColor="@color/text_green"
                 android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/radiogroup_vaccine_info"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/radiogroup_vaccine_info" />
 
             <EditText
                 android:id="@+id/batch_vaccine_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/recycle_tile"
+                android:padding="5dp"
                 android:autofillHints="testHint"
                 android:hint="@string/batch_number"
                 android:inputType="text"
                 android:text="@={vac.batchVac}"
-                android:textColor="@color/medium_green"
+                android:textColor="@color/text_accent"
                 android:textSize="20sp"
-                app:layout_constraintStart_toEndOf="@id/batch_mask_vaccine_info"
-                app:layout_constraintTop_toBottomOf="@id/radiogroup_vaccine_info" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/batch_mask_vaccine_info" />
 
             <TextView
                 android:id="@+id/clinic_mask_vaccine_info"
@@ -165,20 +173,23 @@
                 android:text="@string/clinic_mask"
                 android:textColor="@color/text_green"
                 android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/batch_mask_vaccine_info"
-                app:layout_constraintTop_toBottomOf="@id/batch_mask_vaccine_info" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/batch_vaccine_info" />
 
             <EditText
                 android:id="@+id/clinic_vaccine_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/recycle_tile"
+                android:padding="5dp"
                 android:autofillHints="testHint"
                 android:hint="@string/clinic"
                 android:inputType="text"
                 android:text="@={vac.clinicVac}"
-                android:textColor="@color/medium_green"
+                android:textColor="@color/text_accent"
                 android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/clinic_mask_vaccine_info"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/clinic_mask_vaccine_info" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
@@ -199,7 +210,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginBottom="15dp"
         android:background="@drawable/ic_baseline_menu_open_24"
-        android:backgroundTint="@color/background"
+        android:backgroundTint="@color/bottom_button"
         android:contentDescription="@string/back_to_main" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

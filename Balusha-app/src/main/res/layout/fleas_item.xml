@@ -18,47 +18,66 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fleas_item"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/recycle_tile">
 
         <TextView
             android:id="@+id/date_of_fleas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintVertical_weight="1"
+            app:layout_constraintHorizontal_weight="1"
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
-            android:textColor="@color/orange"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/text_green"
             android:textSize="20sp"
             android:textStyle="bold"
             android:text="@{fleas.setHumaDat}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="09.05.2021" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/treatment_fleas_used"
+            tools:text="09 May 2021" />
 
         <TextView
             android:id="@+id/treatment_fleas_used"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintHorizontal_weight="1.5"
+            app:layout_constraintVertical_weight="1"
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:text="@{fleas.nameFleas}"
-            android:textColor="@color/black"
+            android:textColor="@color/text_accent"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/date_of_fleas"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/button_delete_fleas_item"
             tools:text="Bravecto" />
 
         <ImageButton
             android:id="@+id/button_delete_fleas_item"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="15dp"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintVertical_weight="1"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="10dp"
             android:background="@drawable/ic_baseline_delete"
-            android:backgroundTint="@color/medium_green"
+            android:backgroundTint="@color/bottom_button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/treatment_fleas_used"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

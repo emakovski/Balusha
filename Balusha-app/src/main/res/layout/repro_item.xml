@@ -17,72 +17,95 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginBottom="5dp"
     android:background="@drawable/recycle_tile"
     android:id="@+id/repro_item">
 
     <TextView
         android:id="@+id/date_of_birth_repr_item_mask"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_weight="1"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:text="@string/date_repr_birth"
-        android:textColor="@color/black"
+        android:textColor="@color/text_green"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/date_of_birth_repr_item"
+        app:layout_constraintBottom_toTopOf="@id/number_of_puppies_item_mask"/>
     <TextView
         android:id="@+id/number_of_puppies_item_mask"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_weight="2"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/number_of_puppies_mask"
-        android:textColor="@color/black"
+        android:textColor="@color/text_green"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/date_of_birth_repr_item_mask"/>
+        app:layout_constraintTop_toBottomOf="@id/date_of_birth_repr_item_mask"
+        app:layout_constraintEnd_toStartOf="@id/number_of_puppies_repr_item"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <TextView
         android:id="@+id/date_of_birth_repr_item"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
         tools:text="09.09.2019"
         android:text="@{repro.setHumaDatBirthRepro}"
-        android:textColor="@color/orange"
+        android:textColor="@color/text_accent"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/date_of_birth_repr_item_mask"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/number_of_puppies_repr_item"
+        app:layout_constraintEnd_toStartOf="@id/button_delete_repr_item"/>
 
     <TextView
         android:id="@+id/number_of_puppies_repr_item"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="20dp"
         tools:text="3"
         android:text="@{repro.puppies}"
-        android:textColor="@color/orange"
+        android:textColor="@color/text_accent"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/number_of_puppies_item_mask"
-        app:layout_constraintTop_toTopOf="@id/number_of_puppies_item_mask"/>
+        app:layout_constraintTop_toBottomOf="@id/date_of_birth_repr_item"
+        app:layout_constraintEnd_toStartOf="@id/button_delete_repr_item"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <ImageButton
         android:id="@+id/button_delete_repr_item"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        app:layout_constraintHorizontal_weight="1"
         android:background="@drawable/ic_baseline_delete"
-        android:backgroundTint="@color/medium_green"
-        android:layout_marginEnd="15dp"
-        android:layout_marginTop="27dp"
+        android:backgroundTint="@color/bottom_button"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/date_of_birth_repr_item"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

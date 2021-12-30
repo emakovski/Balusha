@@ -64,7 +64,6 @@ class OwnerInfoAdd : AppCompatActivity(){
         textPhoneNumber = findViewById(R.id.phone_number_in_bio_add)
         textEmail = findViewById(R.id.email_in_bio_add)
         fab = findViewById(R.id.fab_in_owners_bio_add)
-        noOwnersPhoto = findViewById(R.id.no_photo_owner_add)
         createDirectoryForOwnerPicture()
         setListeners()
     }

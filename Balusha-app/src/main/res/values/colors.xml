@@ -8,12 +8,21 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+<!--    common views-->
     <color name="background">#FFFBE6</color>
     <color name="light_green">#B9E4C9</color>
-    <color name="text_green">#356859</color>
     <color name="medium_green">#37966F</color>
-    <color name="orange">#FD5523</color>
 
+<!--    elements-->
+    <color name="orange">#FD5523</color>
+    <color name="bottom_button">#B9E4C9</color>
+
+<!--    text-->
+    <color name="text_light">#B9E4C9</color>
+    <color name="text_accent">#FF9132</color>
+    <color name="text_green">#356859</color>
+
+<!--    notes colors-->
     <color name="note_purple_200">#CE93D8</color>
     <color name="note_blue_200">#90CAF9</color>
     <color name="note_teal_200">#80CBC4</color>
@@ -24,5 +33,13 @@
 
     <color name="note_valid_color">#388E3C</color>
     <color name="note_invalid_color">#D32F2F</color>
+
+    <color name="note_purple_night">#FF00BA</color>
+    <color name="note_blue_night">#0059FF</color>
+    <color name="note_teal_night">#00FFD4</color>
+    <color name="note_gray_night">#AFAFAF</color>
+    <color name="note_green_night">#00C006</color>
+    <color name="note_red_night">#D32F2F</color>
+    <color name="note_orange_night">#FF8000</color>
 
 </resources>

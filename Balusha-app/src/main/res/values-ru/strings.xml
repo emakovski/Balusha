@@ -18,8 +18,8 @@
     <string name="fab_owners_bio">fab in owners bio</string>
     <string name="owners_name_mask">Имя:</string>
     <string name="owners_surname_mask">Фамилия:</string>
-    <string name="hint_name">имя</string>
-    <string name="hint_surname">фамилия</string>
+    <string name="hint_name">Имя</string>
+    <string name="hint_surname">Фамилия</string>
     <string name="hint_country">страна</string>
     <string name="hint_city">город</string>
     <string name="hint_street">улица</string>
@@ -43,7 +43,7 @@
     <string name="btn_pets_bio_edit">button pets bio edit</string>
     <string name="fab_pets_bio">fab in pets bio</string>
     <string name="pets_name_mask">Кличка собаки:</string>
-    <string name="hint_name_dog">кличка собаки</string>
+    <string name="hint_name_dog">Кличка собаки</string>
     <string name="hint_birth">дата рождения</string>
     <string name="hint_sex">пол</string>
     <string name="hint_breed">порода</string>
@@ -80,7 +80,7 @@
     <string name="batch_number">номер серии</string>
     <string name="clinic_mask">Ветеринарная клиника:</string>
     <string name="clinic">ветеринарная клиника</string>
-    <string name="vaccine_name_mask">Название вакцины</string>
+    <string name="vaccine_name_mask">Название вакцины:</string>
     <string name="vaccine_name">название вакцины</string>
     <string name="no_vaccines_added">Нет сведений о вакцинации</string>
     <string name="my_helminths">Дегельминтизация</string>

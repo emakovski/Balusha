@@ -136,7 +136,6 @@ class PetInfoAdd : AppCompatActivity(){
                 petsPictureDirectory
             )
             photoWasLoaded = true
-            binding.noPhotoPetsAdd.visibility = View.INVISIBLE
         }
     }
 

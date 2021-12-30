@@ -12,35 +12,58 @@
         android:layout_marginBottom="57dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="5dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/photo_of_dog_in_bio"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="@color/light_green"
-                android:contentDescription="@string/photo_of_dog"
-                android:scaleType="centerCrop"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/name_of_dog_in_bio"
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/header"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="15dp"
-                android:textColor="@color/orange"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@id/photo_of_dog_in_bio"
-                app:layout_constraintStart_toEndOf="@id/photo_of_dog_in_bio"
-                tools:text="Balushik" />
+                android:background="@color/medium_green"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/content">
+
+                <ImageView
+                    android:id="@+id/photo_of_dog_in_bio"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@color/light_green"
+                    android:contentDescription="@string/photo_of_dog"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <TextView
+                    android:id="@+id/name_of_dog_in_bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/text_light"
+                    android:textSize="22sp"
+
+                    app:layout_constraintBottom_toBottomOf="@id/photo_of_dog_in_bio"
+                    app:layout_constraintStart_toEndOf="@id/photo_of_dog_in_bio"
+                    tools:text="Balushik" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header">
 
             <TextView
                 android:id="@+id/date_mask_of_birth_in_bio"
@@ -50,8 +73,8 @@
                 android:text="@string/birth_mask"
                 android:textColor="@color/text_green"
                 android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/photo_of_dog_in_bio"
-                app:layout_constraintTop_toBottomOf="@id/photo_of_dog_in_bio" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/date_of_birth_in_bio"
@@ -62,7 +85,7 @@
                 android:textColor="@color/medium_green"
                 android:textSize="20sp"
                 app:layout_constraintStart_toEndOf="@id/date_mask_of_birth_in_bio"
-                app:layout_constraintTop_toBottomOf="@id/photo_of_dog_in_bio"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="08.05.2018" />
 
             <TextView
@@ -293,6 +316,7 @@
                 app:layout_constraintTop_toBottomOf="@id/comment_mask_in_bio"
                 tools:text="Some funny owner's comment" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.bottomappbar.BottomAppBar
@@ -311,7 +335,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginBottom="15dp"
         android:background="@drawable/ic_baseline_person_24"
-        android:backgroundTint="@color/background"
+        android:backgroundTint="@color/bottom_button"
         android:contentDescription="@string/btn_owners_bio" />
 
     <ImageButton
@@ -322,7 +346,7 @@
         android:layout_marginStart="75dp"
         android:layout_marginBottom="15dp"
         android:background="@drawable/ic_baseline_edit_24"
-        android:backgroundTint="@color/background"
+        android:backgroundTint="@color/bottom_button"
         android:contentDescription="@string/btn_pets_bio_edit" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

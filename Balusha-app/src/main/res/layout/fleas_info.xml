@@ -21,14 +21,14 @@
 
     <TextView
         android:id="@+id/title_in_fleas_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:padding="10dp"
+        android:gravity="center_vertical"
         android:text="@string/menuitem_fleas"
-        android:textColor="@color/orange"
+        android:textColor="@color/text_light"
         android:textSize="22sp"
-        android:textStyle="bold" />
+        android:background="@color/medium_green"/>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
         android:layout_marginTop="50dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="15dp"
             android:layout_marginBottom="5dp">
@@ -56,17 +56,21 @@
 
             <EditText
                 android:id="@+id/name_fleas_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
                 android:autofillHints="testHint"
                 android:hint="@string/treatment_name_flea"
                 android:inputType="text"
+                android:padding="5dp"
                 android:text="@={fleas.nameFleas}"
-                android:textColor="@color/medium_green"
+                android:textColor="@color/text_accent"
                 android:textSize="20sp"
+                android:background="@drawable/recycle_tile"
                 app:layout_constraintStart_toStartOf="@id/fleas_treat_mask_info"
-                app:layout_constraintTop_toBottomOf="@id/fleas_treat_mask_info" />
+                app:layout_constraintTop_toBottomOf="@id/fleas_treat_mask_info"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
             <TextView
                 android:id="@+id/fleas_date_mask_info"
@@ -81,18 +85,22 @@
 
             <EditText
                 android:id="@+id/date_in_fleas_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
                 android:focusable="false"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
                 android:hint="@string/date"
                 android:inputType="date"
                 android:maxLines="1"
+                android:padding="5dp"
                 android:text="@{fleas.setHumaDat}"
-                android:textColor="@color/medium_green"
+                android:textColor="@color/text_accent"
                 android:textSize="20sp"
-                app:layout_constraintStart_toEndOf="@id/fleas_date_mask_info"
-                app:layout_constraintTop_toBottomOf="@id/name_fleas_info" />
+                android:background="@drawable/recycle_tile"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fleas_date_mask_info"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
@@ -113,7 +121,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginBottom="15dp"
         android:background="@drawable/ic_baseline_menu_open_24"
-        android:backgroundTint="@color/background"
+        android:backgroundTint="@color/bottom_button"
         android:contentDescription="@string/back_to_main" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

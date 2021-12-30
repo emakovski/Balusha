@@ -136,7 +136,6 @@ class OwnerInfoEdit : AppCompatActivity() {
         data?.extras?.get("data")?.run {
             pathToPicture = saveImage(this as Bitmap, binding.photoOfOwnerInBioEdit, ownerPictureDirectory)
             photoWasLoaded = true
-            binding.noPhotoOwnerEdit.visibility = View.INVISIBLE
         }
     }
 
