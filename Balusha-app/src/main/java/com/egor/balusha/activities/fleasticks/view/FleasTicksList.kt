@@ -13,6 +13,7 @@ import com.egor.balusha.activities.fleasticks.adapter.FleasTicksInfoAdapter
 import com.egor.balusha.activities.fleasticks.model.FleasModel
 import com.egor.balusha.activities.fleasticks.repository.FleasRepository
 import com.egor.balusha.activities.fleasticks.viewmodel.FleasTicksListViewModel
+import com.egor.balusha.activities.main.view.MainActivity
 import com.egor.balusha.databinding.FleasAndTicksBinding
 import com.egor.balusha.dbpets.FleasInfo
 import com.google.android.material.snackbar.Snackbar
@@ -21,7 +22,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-private const val RESULT_CODE_BUTTON_BACK = 3
 
 class FleasTicksList : AppCompatActivity(), FleasTicksInfoAdapter.OnFleasInteractionListener {
     private lateinit var binding: FleasAndTicksBinding
@@ -40,8 +40,8 @@ class FleasTicksList : AppCompatActivity(), FleasTicksInfoAdapter.OnFleasInterac
         binding.fabFleas.setOnClickListener {
             openFleasCreationActivity()
         }
-        binding.backToMenuFleas.setOnClickListener {
-            backToPreviousActivity()
+        binding.buttonBack.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 
@@ -109,10 +109,5 @@ class FleasTicksList : AppCompatActivity(), FleasTicksInfoAdapter.OnFleasInterac
         CoroutineScope(Dispatchers.IO).launch {
             FleasRepository.addFleas(fleas)
         }
-    }
-
-    private fun backToPreviousActivity() {
-        setResult(RESULT_CODE_BUTTON_BACK, intent)
-        finish()
     }
 }

@@ -1,6 +1,7 @@
 package com.egor.balusha.activities.helminths.view
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -10,13 +11,13 @@ import com.egor.balusha.R
 import com.egor.balusha.activities.helminths.model.HelminthsModel
 import com.egor.balusha.activities.helminths.repository.HelminthsRepository
 import com.egor.balusha.activities.helminths.viewmodel.HelminthsInfoViewModel
+import com.egor.balusha.activities.main.view.MainActivity
 import com.egor.balusha.databinding.HelminthsInfoBinding
 import com.egor.balusha.dbpets.HelminthsInfo
 import com.egor.balusha.receiver.setFiled
 import kotlinx.coroutines.*
 import java.util.*
 
-private const val RESULT_CODE_BUTTON_BACK = 3
 
 class HelminthTreatInfo : AppCompatActivity() {
     private lateinit var binding: HelminthsInfoBinding
@@ -45,8 +46,8 @@ class HelminthTreatInfo : AppCompatActivity() {
         binding.fabHelminthsInfo.setOnClickListener {
             validateAndSaveHelm()
         }
-        binding.backToMenuHelminthsInfo.setOnClickListener {
-            backToPreviousActivity()
+        binding.buttonBack.setOnClickListener {
+            startActivity(Intent(this, HelminthTreatList::class.java))
         }
 
         setupDialogListeners()
@@ -99,10 +100,5 @@ class HelminthTreatInfo : AppCompatActivity() {
             Toast.makeText(this@HelminthTreatInfo, R.string.info_saved, Toast.LENGTH_SHORT).show()
             finish()
         }
-    }
-
-    private fun backToPreviousActivity() {
-        setResult(RESULT_CODE_BUTTON_BACK, intent)
-        finish()
     }
 }

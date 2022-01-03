@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.egor.balusha.R
+import com.egor.balusha.activities.main.view.MainActivity
 import com.egor.balusha.activities.vaccination.adapter.VaccineInfoAdapter
 import com.egor.balusha.activities.vaccination.model.VaccinationModel
 import com.egor.balusha.activities.vaccination.repository.VaccinationRepository
@@ -20,9 +21,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-
-private const val RESULT_CODE_BUTTON_BACK = 3
-
 
 class VaccinationList : AppCompatActivity(), VaccineInfoAdapter.OnVacInteractionListener {
     private lateinit var binding: VaccinationsBinding
@@ -40,8 +38,8 @@ class VaccinationList : AppCompatActivity(), VaccineInfoAdapter.OnVacInteraction
         binding.fabVaccination.setOnClickListener {
             openVacCreationActivity()
         }
-        binding.backToMenuVaccinations.setOnClickListener {
-            backToPreviousActivity()
+        binding.buttonBack.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 
@@ -110,10 +108,5 @@ class VaccinationList : AppCompatActivity(), VaccineInfoAdapter.OnVacInteraction
         CoroutineScope(Dispatchers.IO).launch {
             VaccinationRepository.addVac(vac)
         }
-    }
-
-    private fun backToPreviousActivity() {
-        setResult(RESULT_CODE_BUTTON_BACK, intent)
-        finish()
     }
 }

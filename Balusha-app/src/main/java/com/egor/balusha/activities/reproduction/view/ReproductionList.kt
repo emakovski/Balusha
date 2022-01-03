@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.egor.balusha.R
+import com.egor.balusha.activities.main.view.MainActivity
 import com.egor.balusha.activities.reproduction.adapter.ReproInfoAdapter
 import com.egor.balusha.activities.reproduction.model.ReproductionModel
 import com.egor.balusha.activities.reproduction.repository.ReproductionRepository
@@ -20,8 +21,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-
-private const val RESULT_CODE_BUTTON_BACK = 3
 
 class ReproductionList : AppCompatActivity(), ReproInfoAdapter.OnReproInteractionListener {
     private lateinit var binding: ReproductionBinding
@@ -39,8 +38,8 @@ class ReproductionList : AppCompatActivity(), ReproInfoAdapter.OnReproInteractio
         binding.fabRepro.setOnClickListener {
             openReproCreationActivity()
         }
-        binding.backToMenuRepro.setOnClickListener {
-            backToPreviousActivity()
+        binding.buttonBack.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 
@@ -109,10 +108,5 @@ class ReproductionList : AppCompatActivity(), ReproInfoAdapter.OnReproInteractio
         CoroutineScope(Dispatchers.IO).launch {
             ReproductionRepository.addRepro(repro)
         }
-    }
-
-    private fun backToPreviousActivity() {
-        setResult(RESULT_CODE_BUTTON_BACK, intent)
-        finish()
     }
 }

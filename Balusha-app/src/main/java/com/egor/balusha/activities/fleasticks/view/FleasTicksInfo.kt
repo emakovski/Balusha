@@ -1,6 +1,7 @@
 package com.egor.balusha.activities.fleasticks.view
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,7 @@ import com.egor.balusha.R
 import com.egor.balusha.activities.fleasticks.model.FleasModel
 import com.egor.balusha.activities.fleasticks.repository.FleasRepository
 import com.egor.balusha.activities.fleasticks.viewmodel.FleasTicksInfoViewModel
+import com.egor.balusha.activities.main.view.MainActivity
 import com.egor.balusha.databinding.FleasInfoBinding
 import com.egor.balusha.dbpets.FleasInfo
 import com.egor.balusha.receiver.setFiled
@@ -17,7 +19,6 @@ import kotlinx.android.synthetic.main.notification_add.*
 import kotlinx.coroutines.*
 import java.util.*
 
-private const val RESULT_CODE_BUTTON_BACK = 3
 
 class FleasTicksInfo : AppCompatActivity() {
     private lateinit var binding: FleasInfoBinding
@@ -47,8 +48,8 @@ class FleasTicksInfo : AppCompatActivity() {
         binding.fabFleasInfo.setOnClickListener {
             validateAndSaveFleas()
         }
-        binding.backToMenuFleasInfo.setOnClickListener {
-            backToPreviousActivity()
+        binding.buttonBack.setOnClickListener {
+            startActivity(Intent(this, FleasTicksList::class.java))
         }
 
         setupDialogListeners()
@@ -101,10 +102,5 @@ class FleasTicksInfo : AppCompatActivity() {
             Toast.makeText(this@FleasTicksInfo, R.string.info_saved, Toast.LENGTH_SHORT).show()
             finish()
         }
-    }
-
-    private fun backToPreviousActivity() {
-        setResult(RESULT_CODE_BUTTON_BACK, intent)
-        finish()
     }
 }

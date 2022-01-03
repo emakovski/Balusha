@@ -13,6 +13,7 @@ import com.egor.balusha.activities.helminths.adapter.HelminthsTreatInfoAdapter
 import com.egor.balusha.activities.helminths.model.HelminthsModel
 import com.egor.balusha.activities.helminths.repository.HelminthsRepository
 import com.egor.balusha.activities.helminths.viewmodel.HelminthsListViewModel
+import com.egor.balusha.activities.main.view.MainActivity
 import com.egor.balusha.databinding.HelminthsBinding
 import com.egor.balusha.dbpets.HelminthsInfo
 import com.google.android.material.snackbar.Snackbar
@@ -21,7 +22,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-private const val RESULT_CODE_BUTTON_BACK = 3
 
 class HelminthTreatList : AppCompatActivity(), HelminthsTreatInfoAdapter.OnHelmInteractionListener {
 
@@ -40,8 +40,8 @@ class HelminthTreatList : AppCompatActivity(), HelminthsTreatInfoAdapter.OnHelmI
         binding.fabHelminths.setOnClickListener {
             openHelmCreationActivity()
         }
-        binding.backToMenuHelminths.setOnClickListener {
-            backToPreviousActivity()
+        binding.buttonBack.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 
@@ -110,10 +110,4 @@ class HelminthTreatList : AppCompatActivity(), HelminthsTreatInfoAdapter.OnHelmI
             HelminthsRepository.addHelm(helm)
         }
     }
-
-    private fun backToPreviousActivity() {
-        setResult(RESULT_CODE_BUTTON_BACK, intent)
-        finish()
-    }
-
 }

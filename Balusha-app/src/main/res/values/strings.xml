@@ -120,6 +120,9 @@
     <string name="notification_light">Notification light</string>
     <string name="no_notif_added">No notifications added</string>
     <string name="dark_mode">Dark mode</string>
+    <string name="choose_source">Please, choose the image source</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
 
     <string name="balusha">Balusha</string>
     <string name="validation_new_fleas">Treatment name and date shouldn\'t be empty</string>
@@ -151,9 +154,5 @@
     <string name="info_deleted">Information deleted</string>
     <string name="cancel">Cancel</string>
     <string name="share">Share Notification Via</string>
-
-    <string name="nav1_clicked">Bottom Navigation Drawer menu item 1</string>
-    <string name="nav2_clicked">Bottom Navigation Drawer menu item 2</string>
-    <string name="nav3_clicked">Bottom Navigation Drawer menu item 3</string>
 
 </resources>

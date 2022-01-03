@@ -29,7 +29,6 @@ abstract class DatabasePetsInfo : RoomDatabase() {
                     DatabasePetsInfo::class.java,
                     "database")
                     .allowMainThreadQueries()
-                    .fallbackToDestructiveMigration()
                     .build()
             }
             return INSTANCE as DatabasePetsInfo

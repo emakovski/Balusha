@@ -275,26 +275,14 @@
         app:fabAlignmentMode="end" />
 
     <ImageButton
-        android:id="@+id/button_back_to_menu_owners_bio"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:id="@+id/button_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_gravity="bottom"
         android:layout_marginStart="15dp"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/ic_baseline_menu_open_24"
-        android:backgroundTint="@color/bottom_button"
-        android:contentDescription="@string/back_to_main" />
-
-    <ImageButton
-        android:id="@+id/button_owners_bio_edit"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_gravity="bottom"
-        android:layout_marginStart="75dp"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/ic_baseline_edit_24"
-        android:backgroundTint="@color/bottom_button"
-        android:contentDescription="@string/btn_owners_bio_edit" />
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/ic_baseline_arrow_back_24"
+        android:backgroundTint="@color/bottom_button" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_in_owners_bio"
@@ -302,6 +290,6 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/orange"
         android:contentDescription="@string/fab_owners_bio"
-        android:src="@drawable/ic_baseline_arrow_back_24"
+        android:src="@drawable/ic_baseline_edit_24"
         app:layout_anchor="@id/bottom_app_bar" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

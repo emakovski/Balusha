@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.egor.balusha.R
+import com.egor.balusha.activities.main.view.MainActivity
 import com.egor.balusha.databinding.PetsBioBinding
 import com.egor.balusha.util.BalushaApplication
 import com.egor.balusha.util.Prefs
@@ -45,17 +46,14 @@ class PetBio : AppCompatActivity() {
     }
 
     private fun setListener() {
-        binding.fabInBio.setOnClickListener {
-            backToPreviousActivity()
+        binding.buttonBack.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
-        binding.buttonPetsBioOwnerInfo.setOnClickListener {
+        binding.buttonOwnerInfo.setOnClickListener {
             startActivity(Intent(this, OwnerBio::class.java))
         }
-        binding.buttonPetsBioEdit.setOnClickListener {
+        binding.fabInBio.setOnClickListener {
             startActivity(Intent(this, PetInfoEdit::class.java))
         }
-    }
-    private fun backToPreviousActivity() {
-        finish()
     }
 }

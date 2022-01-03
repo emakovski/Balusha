@@ -45,17 +45,11 @@ class OwnerBio : AppCompatActivity(){
     }
 
     private fun setListener() {
+        binding.buttonBack.setOnClickListener {
+            startActivity(Intent(this, PetBio::class.java))
+        }
         binding.fabInOwnersBio.setOnClickListener {
-            backToPreviousActivity()
-        }
-        binding.buttonBackToMenuOwnersBio.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-        }
-        binding.buttonOwnersBioEdit.setOnClickListener {
             startActivity(Intent(this, OwnerInfoEdit::class.java))
         }
-    }
-    private fun backToPreviousActivity() {
-        finish()
     }
 }

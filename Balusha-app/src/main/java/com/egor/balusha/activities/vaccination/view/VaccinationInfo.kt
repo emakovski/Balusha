@@ -1,6 +1,7 @@
 package com.egor.balusha.activities.vaccination.view
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.RadioButton
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.egor.balusha.R
+import com.egor.balusha.activities.main.view.MainActivity
 import com.egor.balusha.activities.vaccination.model.VaccinationModel
 import com.egor.balusha.activities.vaccination.repository.VaccinationRepository
 import com.egor.balusha.activities.vaccination.viewmodel.VaccinationInfoViewModel
@@ -17,8 +19,6 @@ import com.egor.balusha.dbpets.VaccineInfo
 import com.egor.balusha.receiver.setFiled
 import kotlinx.coroutines.*
 import java.util.*
-
-private const val RESULT_CODE_BUTTON_BACK = 3
 
 class VaccinationInfo : AppCompatActivity() {
     private lateinit var binding: VaccineInfoBinding
@@ -47,8 +47,8 @@ class VaccinationInfo : AppCompatActivity() {
         binding.fabVaccineEdit.setOnClickListener {
             validateAndSaveVac()
         }
-        binding.backToMenuVaccineInfo.setOnClickListener {
-            backToPreviousActivity()
+        binding.buttonBack.setOnClickListener {
+            startActivity(Intent(this, VaccinationList::class.java))
         }
         binding.radiogroupVaccineInfo.setOnCheckedChangeListener { _, checkedId ->
             findViewById<RadioButton>(checkedId)?.apply {
@@ -103,10 +103,5 @@ class VaccinationInfo : AppCompatActivity() {
             Toast.makeText(this@VaccinationInfo, R.string.info_saved, Toast.LENGTH_SHORT).show()
             finish()
         }
-    }
-
-    private fun backToPreviousActivity() {
-        setResult(RESULT_CODE_BUTTON_BACK, intent)
-        finish()
     }
 }

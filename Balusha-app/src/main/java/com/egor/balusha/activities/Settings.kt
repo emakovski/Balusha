@@ -1,13 +1,13 @@
 package com.egor.balusha.activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import com.egor.balusha.activities.main.view.MainActivity
 import com.egor.balusha.databinding.SettingsBinding
 import com.egor.balusha.util.BalushaApplication
 import com.egor.balusha.util.Prefs
-
-private const val RESULT_CODE_BUTTON_BACK = 3
 
 class Settings: AppCompatActivity() {
     private lateinit var binding: SettingsBinding
@@ -32,12 +32,7 @@ class Settings: AppCompatActivity() {
         }
 
         binding.fabSettings.setOnClickListener {
-            backToPreviousActivity()
+            startActivity(Intent(this, MainActivity::class.java))
         }
-    }
-
-    private fun backToPreviousActivity() {
-        setResult(RESULT_CODE_BUTTON_BACK, intent)
-        finish()
     }
 }

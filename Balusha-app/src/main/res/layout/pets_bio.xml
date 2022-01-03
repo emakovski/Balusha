@@ -328,26 +328,24 @@
         app:fabAlignmentMode="end" />
 
     <ImageButton
-        android:id="@+id/button_pets_bio_owner_info"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:id="@+id/button_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_gravity="bottom"
         android:layout_marginStart="15dp"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/ic_baseline_person_24"
-        android:backgroundTint="@color/bottom_button"
-        android:contentDescription="@string/btn_owners_bio" />
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/ic_baseline_arrow_back_24"
+        android:backgroundTint="@color/bottom_button"/>
 
     <ImageButton
-        android:id="@+id/button_pets_bio_edit"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:id="@+id/button_owner_info"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_gravity="bottom"
         android:layout_marginStart="75dp"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/ic_baseline_edit_24"
-        android:backgroundTint="@color/bottom_button"
-        android:contentDescription="@string/btn_pets_bio_edit" />
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/ic_baseline_person_24"
+        android:backgroundTint="@color/bottom_button" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_in_bio"
@@ -355,6 +353,6 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/orange"
         android:contentDescription="@string/fab_pets_bio"
-        android:src="@drawable/ic_baseline_arrow_back_24"
+        android:src="@drawable/ic_baseline_edit_24"
         app:layout_anchor="@id/bottom_app_bar" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

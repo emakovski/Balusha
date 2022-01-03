@@ -42,7 +42,7 @@
         <entry key="Balusha-app/src/main/res/layout/owners_bio.xml" value="0.2763888888888889" />
         <entry key="Balusha-app/src/main/res/layout/owners_bio_add.xml" value="0.2763888888888889" />
         <entry key="Balusha-app/src/main/res/layout/owners_bio_edit.xml" value="0.2726027397260274" />
-        <entry key="Balusha-app/src/main/res/layout/pets_bio.xml" value="0.26296296296296295" />
+        <entry key="Balusha-app/src/main/res/layout/pets_bio.xml" value="0.24444444444444444" />
         <entry key="Balusha-app/src/main/res/layout/pets_bio_add.xml" value="0.26296296296296295" />
         <entry key="Balusha-app/src/main/res/layout/pets_bio_edit.xml" value="0.26296296296296295" />
         <entry key="Balusha-app/src/main/res/layout/repro_add.xml" value="0.2675925925925926" />
@@ -61,7 +61,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="15" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="15" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

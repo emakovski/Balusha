@@ -1,12 +1,14 @@
 package com.egor.balusha.activities.reproduction.view
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.egor.balusha.R
+import com.egor.balusha.activities.main.view.MainActivity
 import com.egor.balusha.activities.reproduction.model.ReproductionModel
 import com.egor.balusha.activities.reproduction.repository.ReproductionRepository
 import com.egor.balusha.activities.reproduction.viewmodel.ReproductionInfoViewModel
@@ -16,7 +18,6 @@ import com.egor.balusha.receiver.setFiled
 import kotlinx.coroutines.*
 import java.util.*
 
-private const val RESULT_CODE_BUTTON_BACK = 3
 
 class ReproductionInfo : AppCompatActivity() {
     private lateinit var binding: ReproInfoBinding
@@ -45,8 +46,8 @@ class ReproductionInfo : AppCompatActivity() {
         binding.fabReprInfo.setOnClickListener {
             validateAndSaveRepro()
         }
-        binding.backToMenuReprInfo.setOnClickListener {
-            backToPreviousActivity()
+        binding.buttonBack.setOnClickListener {
+            startActivity(Intent(this, ReproductionList::class.java))
         }
 
         setupDialogListeners()
@@ -118,10 +119,5 @@ class ReproductionInfo : AppCompatActivity() {
             Toast.makeText(this@ReproductionInfo, R.string.info_saved, Toast.LENGTH_SHORT).show()
             finish()
         }
-    }
-
-    private fun backToPreviousActivity() {
-        setResult(RESULT_CODE_BUTTON_BACK, intent)
-        finish()
     }
 }

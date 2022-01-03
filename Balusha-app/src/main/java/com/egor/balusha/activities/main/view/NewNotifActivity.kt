@@ -2,6 +2,7 @@ package com.egor.balusha.activities.main.view
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.transition.Slide
 import android.view.Gravity
@@ -28,8 +29,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.*
-
-private const val RESULT_CODE_BUTTON_BACK = 3
 
 class NewNotifActivity : AppCompatActivity() {
 
@@ -66,8 +65,8 @@ class NewNotifActivity : AppCompatActivity() {
         fab_notif_add.setOnClickListener {
             validateAndSaveNotif()
         }
-        binding.backToMenuNotifAdd.setOnClickListener {
-            backToPreviousActivity()
+        binding.buttonBack.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
 
         setupColorListeners()
@@ -168,10 +167,5 @@ class NewNotifActivity : AppCompatActivity() {
                 note.Body.substring(0, if (note.Body.length < 24) note.Body.length else 24)
         }
         return Pair(note, notifModel.isReminderDateValid)
-    }
-
-    private fun backToPreviousActivity() {
-        setResult(RESULT_CODE_BUTTON_BACK, intent)
-        finish()
     }
 }

@@ -121,6 +121,9 @@
     <string name="notification_light">Цвет уведомления</string>
     <string name="no_notif_added">Здесь пока нет заметок</string>
     <string name="dark_mode">Тёмная тема</string>
+    <string name="choose_source">Пожалуйста, выберите источник изображения</string>
+    <string name="gallery">Галлерея</string>
+    <string name="camera">Камера</string>
 
     <string name="balusha">Balusha</string>
     <string name="validation_new_fleas">Название препарата и дата не могут быть пустыми</string>
@@ -152,9 +155,5 @@
     <string name="info_deleted">Информация удалена</string>
     <string name="cancel">Отмена</string>
     <string name="share">Поделиться с помощью:</string>
-
-    <string name="nav1_clicked">Bottom Navigation Drawer menu item 1</string>
-    <string name="nav2_clicked">Bottom Navigation Drawer menu item 2</string>
-    <string name="nav3_clicked">Bottom Navigation Drawer menu item 3</string>
 
 </resources>
