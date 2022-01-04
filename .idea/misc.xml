@@ -15,6 +15,7 @@
         <entry key="Balusha-app/src/main/res/drawable/ic_baseline_watch_later_24.xml" value="0.2867579908675799" />
         <entry key="Balusha-app/src/main/res/drawable/ic_flea.xml" value="0.29074074074074074" />
         <entry key="Balusha-app/src/main/res/drawable/ic_repro.xml" value="0.2867579908675799" />
+        <entry key="Balusha-app/src/main/res/drawable/ic_untitled_2_2.xml" value="0.2867579908675799" />
         <entry key="Balusha-app/src/main/res/drawable/ic_vaccine.xml" value="0.2867579908675799" />
         <entry key="Balusha-app/src/main/res/drawable/ic_worm.xml" value="0.29074074074074074" />
         <entry key="Balusha-app/src/main/res/drawable/no_photo.xml" value="0.2867579908675799" />
@@ -24,7 +25,7 @@
         <entry key="Balusha-app/src/main/res/layout-night/notification_add.xml" value="0.2763888888888889" />
         <entry key="Balusha-app/src/main/res/layout-night/notification_item.xml" value="0.2763888888888889" />
         <entry key="Balusha-app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="Balusha-app/src/main/res/layout/activity_splash_screen.xml" value="0.5" />
+        <entry key="Balusha-app/src/main/res/layout/activity_splash_screen.xml" value="0.2726027397260274" />
         <entry key="Balusha-app/src/main/res/layout/fleas_add.xml" value="0.2675925925925926" />
         <entry key="Balusha-app/src/main/res/layout/fleas_and_ticks.xml" value="0.2763888888888889" />
         <entry key="Balusha-app/src/main/res/layout/fleas_edit.xml" value="0.2675925925925926" />
@@ -61,7 +62,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="15" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="15" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

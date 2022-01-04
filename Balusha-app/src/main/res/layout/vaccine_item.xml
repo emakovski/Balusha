@@ -15,68 +15,71 @@
 
     </data>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="5dp"
-    android:layout_marginEnd="5dp"
-    android:layout_marginBottom="5dp"
-    android:background="@drawable/recycle_tile"
-    android:id="@+id/vaccine_item">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp">
 
-    <TextView
-        android:id="@+id/date_of_vaccine"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintVertical_weight="2"
-        app:layout_constraintHorizontal_weight="1"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:textColor="@color/text_green"
-        tools:text="09.05.2021"
-        android:text="@{vac.setHumaDatVac}"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/vaccine_used"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/vaccine_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/medium_green">
 
-    <TextView
-        android:id="@+id/vaccine_used"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintHorizontal_weight="1.5"
-        app:layout_constraintVertical_weight="1"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        tools:text="Nobivac Rabies"
-        android:text="@{vac.nameVac}"
-        android:textColor="@color/text_accent"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/date_of_vaccine"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/button_delete_vaccine_item"/>
+            <TextView
+                android:id="@+id/date_of_vaccine"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="@{vac.setHumaDatVac}"
+                android:textColor="@color/text_light"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/vaccine_used"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_weight="2"
+                tools:text="09.05.2021" />
 
-    <ImageButton
-        android:id="@+id/button_delete_vaccine_item"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintVertical_weight="1"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginStart="10dp"
-        android:background="@drawable/ic_baseline_delete"
-        android:backgroundTint="@color/bottom_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/vaccine_used"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/vaccine_used"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="@{vac.nameVac}"
+                android:textColor="@color/text_green"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/button_delete_vaccine_item"
+                app:layout_constraintHorizontal_weight="1.5"
+                app:layout_constraintStart_toEndOf="@id/date_of_vaccine"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_weight="1"
+                tools:text="Nobivac Rabies" />
+
+            <ImageButton
+                android:id="@+id/button_delete_vaccine_item"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/ic_baseline_delete"
+                android:backgroundTint="@color/bottom_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@id/vaccine_used"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_weight="1" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

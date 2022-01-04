@@ -2,6 +2,7 @@ package com.egor.balusha.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.egor.balusha.R
@@ -42,6 +43,9 @@ class PetBio : AppCompatActivity() {
             chippingDateInBio.text = prefs.petChipDate
             chipLocationInBio.text = prefs.petChipLoc
             commentInBio.text = prefs.petComment
+            if (prefs.petMarks.isNullOrBlank()){
+                marksInBio.visibility = View.GONE
+            }
         }
     }
 

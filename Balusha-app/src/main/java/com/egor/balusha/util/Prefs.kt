@@ -38,9 +38,9 @@ class Prefs (context: Context)
 
     private val preferences: SharedPreferences = context.getSharedPreferences(GLOBAL_PREFERENCES, Context.MODE_PRIVATE)
 
-    var nightTheme: String?
-        get() = preferences.getString(NIGHT_THEME, "")
-        set(value) = preferences.edit().putString(NIGHT_THEME, value).apply()
+    var nightTheme: Boolean
+        get() = preferences.getBoolean(NIGHT_THEME, false)
+        set(value) = preferences.edit().putBoolean(NIGHT_THEME, value).apply()
 
     var isFirstRun: Boolean
         get() = preferences.getBoolean(FIRST_RUN, true)

@@ -3,13 +3,13 @@
     <color name="purple_200">#18D5FF</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_200">#18D5FF</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#0B0B0B</color>
     <color name="white">#FFFFFFFF</color>
 
     <!--    common views-->
-    <color name="background">#080808</color>
+    <color name="background">#111111</color>
     <color name="light_green">#A8E8FF</color>
     <color name="medium_green">#000000</color>
 
@@ -20,15 +20,15 @@
     <!--    text-->
     <color name="text_light">#AFAFAF</color>
     <color name="text_accent">#60E2FF</color>
-    <color name="text_green">#FF03DAC5</color>
+    <color name="text_green">#C6D9D9</color>
 
     <!--    notes colors-->
-    <color name="note_purple_200">#FF00BA</color>
-    <color name="note_blue_200">#0059FF</color>
-    <color name="note_teal_200">#00FFD4</color>
-    <color name="note_gray_200">#AFAFAF</color>
-    <color name="note_green_200">#00C006</color>
-    <color name="note_red_200">#D32F2F</color>
-    <color name="note_orange_200">#FF8000</color>
+<!--    <color name="note_purple_200">#FF00BA</color>-->
+<!--    <color name="note_blue_200">#0059FF</color>-->
+<!--    <color name="note_teal_200">#00FFD4</color>-->
+<!--    <color name="note_gray_200">#AFAFAF</color>-->
+<!--    <color name="note_green_200">#00C006</color>-->
+<!--    <color name="note_red_200">#D32F2F</color>-->
+<!--    <color name="note_orange_200">#FF8000</color>-->
 
 </resources>

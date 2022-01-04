@@ -2,6 +2,7 @@ package com.egor.balusha.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.egor.balusha.R
@@ -41,6 +42,12 @@ class OwnerBio : AppCompatActivity(){
             aptInBio.text = prefs.ownerApartment
             phoneNumberInBio.text = prefs.ownerPhone
             emailInBio.text = prefs.ownerEmail
+            if (prefs.ownerPhone.isNullOrBlank()){
+                phoneNumberInBio.visibility = View.GONE
+            }
+            if (prefs.ownerEmail.isNullOrBlank()){
+                emailInBio.visibility = View.GONE
+            }
         }
     }
 

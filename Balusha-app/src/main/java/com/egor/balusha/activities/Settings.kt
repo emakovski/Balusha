@@ -18,15 +18,15 @@ class Settings: AppCompatActivity() {
         binding = SettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (prefs.nightTheme == "yes"){binding.settingsMode.isChecked = true}
+        if (prefs.nightTheme){binding.settingsMode.isChecked = true}
 
         binding.settingsMode.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                prefs.nightTheme = "yes"
+                prefs.nightTheme = true
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                prefs.nightTheme = "no"
+                prefs.nightTheme = false
             }
 
         }

@@ -58,16 +58,14 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:padding="5dp"
-                    android:background="@drawable/tile"
-                    android:backgroundTint="@{note.displayColor}"
-                    android:backgroundTintMode="multiply"
+                    android:background="@{note.displayColor}"
                     android:gravity="start|top"
                     android:hint="@string/note_start_typing"
                     android:inputType="textMultiLine|textCapSentences"
                     android:scrollbars="vertical"
                     android:text="@={note.body}"
                     android:textSize="20sp"
-                    android:textColor="@color/text_green" />
+                    android:textColor="@color/medium_green" />
 
             </ScrollView>
 

@@ -15,14 +15,16 @@
 
     </data>
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fleas_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/recycle_tile">
+        android:background="@color/medium_green">
 
         <TextView
             android:id="@+id/date_of_fleas"
@@ -33,7 +35,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:textColor="@color/text_green"
+            android:textColor="@color/text_light"
             android:textSize="20sp"
             android:textStyle="bold"
             android:text="@{fleas.setHumaDat}"
@@ -53,7 +55,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:text="@{fleas.nameFleas}"
-            android:textColor="@color/text_accent"
+            android:textColor="@color/text_green"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/date_of_fleas"
@@ -81,4 +83,5 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

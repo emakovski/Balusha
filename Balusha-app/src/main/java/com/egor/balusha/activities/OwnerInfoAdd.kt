@@ -60,7 +60,7 @@ class OwnerInfoAdd : AppCompatActivity(){
                         chooseImageGallery()
                     }
                 }
-                .setCancelable(false)
+                .setCancelable(true)
                 .create()
                 .show()
         }

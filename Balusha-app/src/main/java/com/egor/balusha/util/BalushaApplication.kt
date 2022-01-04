@@ -19,7 +19,7 @@ class BalushaApplication : Application() {
         super.onCreate()
         INSTANCE = this
         prefs = Prefs(applicationContext)
-        if (prefs?.nightTheme == "yes"){
+        if (prefs!!.nightTheme){
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)

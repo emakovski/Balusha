@@ -66,7 +66,7 @@ class PetInfoAdd : AppCompatActivity(){
                         chooseImageGallery()
                     }
                 }
-                .setCancelable(false)
+                .setCancelable(true)
                 .create()
                 .show()
         }
